@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+aside {
+  overflow-y: scroll;
+  height: 585px;
+  padding-left: 5px;
+}
+
+::-webkit-scrollbar{
+  width: 20px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: black;
+}

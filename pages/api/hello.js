@@ -5,7 +5,9 @@ export default function handler(req, res) {
   
     name: 'John Doe', 
     $: 999, 
+    $1: 999, 
     named$: 'nine hundred', 
+    names$: 'nine hundred', 
   
   });
 }
