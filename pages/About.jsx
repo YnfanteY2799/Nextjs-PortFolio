@@ -1,3 +1,4 @@
+import { AppBar, AsidedLeftMenu } from "../components/NavigationComponents.jsx";
 
 
 
@@ -7,6 +8,10 @@ export default function About(){
 
 
 
-    return <>AAAA</>;
+    return( 
+    <>
+    <AppBar/>
+    </>
+    );
 
 }

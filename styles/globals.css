@@ -28,3 +28,9 @@ aside {
 ::-webkit-scrollbar-track{
   background-color: black;
 }
+
+.dropDownLogo {
+  left: 10px;
+  padding-left: 6px;
+  width: 1.5rem;
+}

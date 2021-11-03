@@ -1,11 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
+
+let getIcon = n => `/${n.toLowerCase()}.svg`;
 
 function DropDownOpts({opts = []}){
-    return opts.map(({name, route, icon},i) => 
+    return opts.map(({name, route},i) => 
         <Link key={i} href={route}>
             <a className="navbar-item">
                 {name}
-                <span className="icon"><i className={icon}/></span>
+                <span className="dropDownLogo">
+                    <Image className="dropDownLogo" src={getIcon( name.split(" ")[0] )} width="30" height="30" alt={name}/>    
+                </span>
             </a>
         </Link>
     );
@@ -32,14 +37,13 @@ function AppBar(){
     let _basicLeftOptions = [
         {name:"About", route:"/About"},
         {name:"Contact", route:"/Contact"},
-        // {name:"Projects > ", route:"/Projects"},    
     ];
 
     let _dropdownOptions = [
-        {name:"Java Projects", route:"/Contact", icon:"fab fa-java" },
-        {name:"Node Projects", route:"/Contact", icon:"fab fa-node-js" },
-        {name:"Deno Projects", route:"/Contact", icon:"fab fa-js-square" },
-        {name:"Rust Projects", route:"/Contact", icon:"" },
+        {name:"Java Projects", route:"/Contact" },
+        {name:"Node Projects", route:"/Contact"},
+        {name:"Deno Projects", route:"/Contact"},
+        {name:"Rust Projects", route:"/Contact"},
     ];
 
     return <> 
@@ -63,7 +67,7 @@ function AppBar(){
 
                     <NavbarOptions opts={_basicLeftOptions}/>
 
-                    {/*  */}
+                    {/* DropDown */}
                     <div className="navbar-item has-dropdown is-hoverable is-active">
                         <Link href="/Projects">
                             <a className="navbar-link"> Projects </a>
