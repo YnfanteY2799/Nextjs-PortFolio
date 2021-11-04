@@ -35,6 +35,14 @@ aside {
   padding-top: 7px;
 }
 
-.card_container{
+.card_container {
   padding-top: 20px;
+}
+
+.isHoverable :hover {
+  transform: scale(1.1);
+}
+
+.isHoverable div :hover {
+  transform: none;
 }

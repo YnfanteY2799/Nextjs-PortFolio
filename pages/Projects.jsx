@@ -1,43 +1,59 @@
-import { AppBar , AsidedLeftMenu } from "../components/NavigationComponents";
+import { AppBar } from "../components/NavigationComponents";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
-
 
 function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
     let subDivided = [];
     let RenderingCards = ( {  dataToRender } ) => {
-        return dataToRender.map((x,i) => (
+        return dataToRender.map(({projectName, secondImg, projectDescription},i) => {            
+            return(
             <div className="column" key={i}>
-                <div className="card">
-                <div className="card-image">
-                    <figure className="image is-4by3">
-                    {/* <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"> */}
-                    </figure>
-                </div>
-                <div className="card-content">
-                    <div className="media">
-                    <div className="media-left">
-                        <figure className="image is-48x48">
-                        {/* <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"> */}
-                        </figure>
-                    </div>
-                    <div className="media-content">
-                        <p className="title is-4">John Smith</p>
-                        <p className="subtitle is-6">@johnsmith</p>
-                    </div>
-                    </div>
+                <div className="isHoverable">
+                    <div className="card">
+                        
+                        <div className="card-image">
+                            <figure className="image is-4by4">
+                                <Image src="/github.svg" height="30" width="30" alt="Github"/>
+                            </figure>
+                        </div>
+                        
+                        <div className="card-content">
+                            <div className="media">
+                            <div className="media-left">
+                                <figure className="image is-48x48">
+                                <Image src={secondImg === undefined ? '/js.svg' : secondImg} height="30" width="30" alt={projectName}/>
+                                </figure>
+                            </div>
+                                <div className="media-content">
+                                    <p className="title is-4">{projectName}</p>
+                                </div>
+                            </div>
 
-                    <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <br/>
-                    <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <div className="content">
+                                <p>
+                                    {projectDescription}
+                                </p>
+                                <p></p>
+                                <hr/>
+                                <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+
+                        <footer className="card-footer">
+                            <Link href="#">
+                                <a className="card-footer-item"> Details </a>
+                            </Link>
+                            <div className="card-footer-item"/>
+                            <Link href="#">
+                                <a className="card-footer-item"> Source </a>
+                            </Link>
+                        </footer>
+
                     </div>
-                </div>
                 </div>
             </div>
-        ));
+        )});
     };
 
     for(let i = 0; i < data.length; i++){
@@ -72,7 +88,6 @@ function Body({projects = []}){
 
 export default function Projects(){
 
-
     // Statefull-variables
     const [ _dinamProjects, _setDynamProjects ]  = useState([]);
 
@@ -84,20 +99,23 @@ export default function Projects(){
         {division: "Rust Projects ", subAddOnIcon:"/rust.svg" ,subTitle:"", projects:[1,2,3]},
     ];
 
+    // Functions
+    async function getInitialData(){
+        // const response = await fetch('https://api.github.com/users/YnfanteY2799/repos');
+        const response = await fetch('api/sampleDataCaller');
+        response = await response.json();
+        _setDynamProjects(response);
+    }
 
     // UseEffect -> Caller
-    useEffect(() => async () => {
-        const response = await fetch('https://api.github.com/users/YnfanteY2799/repos');
-        response = await response.json()
-        console.log(response)
-        _setDynamProjects([1])
-
-    }, [_dinamProjects]);
+    useEffect(() => getInitialData(),[]);
 
     return( 
         <div>
             <AppBar />
+            
             <Body projects={_dinamProjects.length > 1 ? _dinamProjects : _projects}/>
+
         </div>   
     );
 

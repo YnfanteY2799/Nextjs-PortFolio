@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import Head from "next/head";
-
+import 'bulma/css/bulma.css';
 
 export default function MyApp({Component, pageProps}){
 
