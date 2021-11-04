@@ -30,7 +30,11 @@ aside {
 }
 
 .dropDownLogo {
-  left: 10px;
-  padding-left: 6px;
+  padding-left: 8px;
   width: 1.5rem;
+  padding-top: 7px;
+}
+
+.card_container{
+  padding-top: 20px;
 }

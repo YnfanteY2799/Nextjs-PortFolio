@@ -7,6 +7,7 @@ export default function Home() {
       <AppBar />
       <AsidedLeftMenu />
         <div className="container">
+          
           <div className="columns">
             <div className="column">
               First column
@@ -21,6 +22,22 @@ export default function Home() {
               Fourth column
             </div>
           </div>
+
+          <div className="columns">
+            <div className="column">
+              First column
+            </div>
+            <div className="column">
+              Second column
+            </div>
+            <div className="column">
+              Third column
+            </div>
+            <div className="column">
+              Fourth column
+            </div>
+          </div>
+          
         </div>
     </div>
   )

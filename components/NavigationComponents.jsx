@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 let getIcon = n => `/${n.toLowerCase()}.svg`;
 
 function DropDownOpts({opts = []}){
+   
     return opts.map(({name, route},i) => 
         <Link key={i} href={route}>
             <a className="navbar-item">
@@ -17,9 +19,10 @@ function DropDownOpts({opts = []}){
 }
 
 function NavbarOptions({ opts = [] }){
-    return opts.map(({name, route}, i ) =>
+
+    return opts.map(({ name, route }, i ) =>
         <Link href={route} key={i}>
-            <a className="navbar-item">{`${name}`}</a>
+            <a className='navbar-item'>{`${name}`}</a>
         </Link>
     );
 }
@@ -34,8 +37,12 @@ function GoBack(){
 
 function AppBar(){
 
+    // Hookified - Variables
+    const [ mobileDropdownActive, setMobileDropdownActive ] = useState(false);
+
+
     let _basicLeftOptions = [
-        {name:"About", route:"/About"},
+        {name:"About", route:"/About" },
         {name:"Contact", route:"/Contact"},
     ];
 
@@ -56,19 +63,19 @@ function AppBar(){
                 </Link>
                 
                 {/* Hamburguer */}
-                <div className="navbar-burger" data-target="navbar">
+                <div className={`navbar-burger ${mobileDropdownActive && 'is-active'}`} data-target="navbar" onClick={() => setMobileDropdownActive(!mobileDropdownActive)} >
                     <span/> <span/> <span/>
                 </div>
             </div>
     
-            <div id="navbar" className="navbar-menu">
+            <div id="navbar" className={`navbar-menu ${mobileDropdownActive && 'is-active'}`}>
                 {/* Navbar Start */}
                 <div className="navbar-start">
 
                     <NavbarOptions opts={_basicLeftOptions}/>
 
                     {/* DropDown */}
-                    <div className="navbar-item has-dropdown is-hoverable is-active">
+                    <div className="navbar-item has-dropdown is-hoverable">
                         <Link href="/Projects">
                             <a className="navbar-link"> Projects </a>
                         </Link>
