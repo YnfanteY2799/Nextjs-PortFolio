@@ -1,10 +1,13 @@
 import { AppBar } from "../components/NavigationComponents";
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
+    
     let subDivided = [];
+
     let RenderingCards = ( {  dataToRender } ) => {
         return dataToRender.map(({projectName, secondImg, projectDescription},i) => {            
             return(
@@ -20,11 +23,11 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
                         
                         <div className="card-content">
                             <div className="media">
-                            <div className="media-left">
-                                <figure className="image is-48x48">
-                                <Image src={secondImg === undefined ? '/js.svg' : secondImg} height="30" width="30" alt={projectName}/>
-                                </figure>
-                            </div>
+                                <div className="media-left">
+                                    <figure className="image is-48x48">
+                                    <Image src={secondImg === undefined ? '/js.svg' : secondImg} height="30" width="30" alt={projectName}/>
+                                    </figure>
+                                </div>
                                 <div className="media-content">
                                     <p className="title is-4">{projectName}</p>
                                 </div>
@@ -77,6 +80,7 @@ function Body({projects = []}){
         <p className="title is-1 is-spaced">
             {division}
             <Image src={subAddOnIcon} height="30" width="30" alt={subTitle}/>
+            <a name={`${division.split(" ")[0].toLowerCase()}`}></a>
         </p>
         <p className="subtitle is-3">{subTitle}</p>
         <hr/>
@@ -111,12 +115,17 @@ export default function Projects(){
     useEffect(() => getInitialData(),[]);
 
     return( 
+        <>
+            <Head>
+                <title> NobuCoder | Projects </title>
+            </Head>
         <div>
             <AppBar />
             
             <Body projects={_dinamProjects.length > 1 ? _dinamProjects : _projects}/>
 
         </div>   
+        </>
     );
 
 }

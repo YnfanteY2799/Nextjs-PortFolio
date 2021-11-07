@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from 'next/router';
 
 let getIcon = n => `/${n.toLowerCase()}.svg`;
 
@@ -19,10 +20,10 @@ function DropDownOpts({opts = []}){
 }
 
 function NavbarOptions({ opts = [] }){
-
+    const rou = useRouter();
     return opts.map(({ name, route }, i ) =>
         <Link href={route} key={i}>
-            <a className='navbar-item'>{`${name}`}</a>
+            <a className={`navbar-item ${route === rou.pathname ? "is-active" : ""}`}>{`${name}`}</a>
         </Link>
     );
 }
@@ -39,18 +40,20 @@ function AppBar(){
 
     // Hookified - Variables
     const [ mobileDropdownActive, setMobileDropdownActive ] = useState(false);
-
+    
+    // Router Next Hook
+    const rout = useRouter();
 
     let _basicLeftOptions = [
-        {name:"About", route:"/About" },
-        {name:"Contact", route:"/Contact"},
+        {name:"About", route:"/About", active:true },
+        {name:"Contact", route:"/Contact", active:false },
     ];
 
     let _dropdownOptions = [
-        {name:"Java Projects", route:"/Contact" },
-        {name:"Node Projects", route:"/Contact"},
-        {name:"Deno Projects", route:"/Contact"},
-        {name:"Rust Projects", route:"/Contact"},
+        {name:"Java Projects", route:"/Projects#java" },
+        {name:"Node Projects", route:"/Projects#nodejs"},
+        {name:"Deno Projects", route:"/Projects#denojs"},
+        {name:"Rust Projects", route:"/Projects#rust"},
     ];
 
     return <> 
@@ -59,7 +62,7 @@ function AppBar(){
             <div className="navbar-brand">
                 {/* Brand */}
                 <Link href="/">
-                    <a className="navbar-item"> Home </a>
+                    <a className={`navbar-item ${rout.pathname === "/" ?  "is-active" : ""}`}> Home </a>
                 </Link>
                 
                 {/* Hamburguer */}
@@ -77,7 +80,7 @@ function AppBar(){
                     {/* DropDown */}
                     <div className="navbar-item has-dropdown is-hoverable">
                         <Link href="/Projects">
-                            <a className="navbar-link"> Projects </a>
+                            <a className={`navbar-link ${rout.pathname === "/Projects" ? "is-active" : ''}`}> Projects </a>
                         </Link>
 
                         <div className="navbar-dropdown is-boxed">
@@ -94,7 +97,7 @@ function AppBar(){
                         <div className="field is-grouped">
                             <p className="control">
                                 <Link href="/Details">                    
-                                    <a className="button is-white">
+                                    <a className={`button ${rout.pathname === "/Details" ? 'is-success' : "is-white"}`}>
                                         <span className="icon"><i className="far fa-user"/></span>
                                         <span> Click Me for Details </span>
                                     </a>

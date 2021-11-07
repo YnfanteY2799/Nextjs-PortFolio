@@ -1,28 +1,32 @@
 import 'bulma/css/bulma.min.css';
+import Head from 'next/dist/shared/lib/head';
 import { AppBar, AsidedLeftMenu } from "../components/NavigationComponents.jsx";
 
 export default function Home() {
   return (
+    <>
+      <Head>
+        <title> NobuCoder | Home </title>
+      </Head>
     <div>
       <AppBar />
-      <AsidedLeftMenu />
-        <div className="container">
-          
-          <div className="columns">
-            <div className="column">
-              First column
-            </div>
-            <div className="column">
-              Second column
-            </div>
-            <div className="column">
-              Third column
-            </div>
-            <div className="column">
-              Fourth column
-            </div>
-          </div>          
+      <div>
+        
+      <section className="hero">
+        <div className="hero-body">
+          <p className="title">
+            Hero title
+          </p>
+          <p className="subtitle">
+            Hero subtitle
+          </p>
         </div>
+      </section>
+
+        
+        
+      </div>         
     </div>
+    </>
   )
 }
