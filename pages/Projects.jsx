@@ -9,15 +9,18 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
     let subDivided = [];
 
     let RenderingCards = ( {  dataToRender } ) => {
-        return dataToRender.map(({projectName, secondImg, projectDescription},i) => {            
+        return dataToRender.map(({projectName, mainImg ,secondImg, projectDescription, source},i) => {            
             return(
             <div className="column" key={i}>
                 <div className="isHoverable">
                     <div className="card">
                         
-                        <div className="card-image">
-                            <figure className="image is-4by4">
-                                <Image src="/github.svg" height="30" width="30" alt="Github"/>
+                        <div className="card-image is-rounded">
+                            <figure className="image is-4by4 ">
+                                
+                                <Image src={`${"/loading.gif"}`} height="255" width="400" alt="Github" layout="responsive"/>
+
+                                {/* <Image src="/loading.gif" height="255" width="400" alt="Github" /> */}
                             </figure>
                         </div>
                         
@@ -39,16 +42,19 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
                                 </p>
                                 <p></p>
                                 <hr/>
-                                <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                                <p>
+                                    Last Commit at : 
+                                    <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                                </p>
                             </div>
                         </div>
 
                         <footer className="card-footer">
-                            <Link href="#">
+                            <Link href={"#"}>
                                 <a className="card-footer-item"> Details </a>
                             </Link>
                             <div className="card-footer-item"/>
-                            <Link href="#">
+                            <Link href={`${source}`}>
                                 <a className="card-footer-item"> Source </a>
                             </Link>
                         </footer>
@@ -74,13 +80,17 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
 }
 
 function Body({projects = []}){
-    return projects.map(({division, subAddOnIcon, subTitle, projects},index) => {
+    return projects.map((x,index) => {
+
+        // console.log(x)
+
+        let {divisionName, subAddOnIcon, subTitle, projects} = x;
       return( 
       <div className="container card_container" key={index}>
         <p className="title is-1 is-spaced">
-            {division}
-            <Image src={subAddOnIcon} height="30" width="30" alt={subTitle}/>
-            <a name={`${division.split(" ")[0].toLowerCase()}`}></a>
+            {divisionName}
+            <Image src={subAddOnIcon} height="40" width="38" alt={subTitle}/>
+            <a name={`${(divisionName??'').split(" ")[0].toLowerCase()}`}></a>
         </p>
         <p className="subtitle is-3">{subTitle}</p>
         <hr/>
@@ -106,9 +116,32 @@ export default function Projects(){
     // Functions
     async function getInitialData(){
         // const response = await fetch('https://api.github.com/users/YnfanteY2799/repos');
-        const response = await fetch('api/sampleDataCaller');
-        response = await response.json();
-        _setDynamProjects(response);
+        // const response = await fetch('api/sampleDataCaller');
+        // response = await response.json();
+
+        // let responses = await (await fetch("https://api.github.com/users/YnfanteY2799/repos")).json();
+        // responses.map(({name, description, updated_at, language, git_url}) => {
+            
+        //     // console.log('Getting : ')
+        //     // console.log()
+        //     // console.log(name)
+        //     // console.log(description)
+        //     // console.log(updated_at)
+        //     // console.log(language)
+        //     // console.log(git_url.replace("git://","https://"))
+        // });
+
+        // // console.log(responses)
+
+        let portiflyConfig = await fetch("https://raw.githubusercontent.com/YnfanteY2799/YnfanteY2799/main/Portifly.json");
+        portiflyConfig = JSON.parse(await portiflyConfig.text());
+        
+        console.log(portiflyConfig)
+
+
+        _setDynamProjects([...portiflyConfig.details]);
+      
+
     }
 
     // UseEffect -> Caller
@@ -122,7 +155,7 @@ export default function Projects(){
         <div>
             <AppBar />
             
-            <Body projects={_dinamProjects.length > 1 ? _dinamProjects : _projects}/>
+            <Body projects={_dinamProjects.length > 0 ? _dinamProjects : _projects}/>
 
         </div>   
         </>

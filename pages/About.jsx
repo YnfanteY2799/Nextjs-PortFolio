@@ -1,5 +1,5 @@
-import { AppBar, AsidedLeftMenu } from "../components/NavigationComponents.jsx";
-
+import Head from "next/head";
+import { AppBar } from "../components/NavigationComponents.jsx";
 
 
 export default function About(){
@@ -10,7 +10,10 @@ export default function About(){
 
     return( 
     <>
-    <AppBar/>
+        <Head>
+            <title> NobuCoder | About </title>
+        </Head>
+        <AppBar/>
     </>
     );
 

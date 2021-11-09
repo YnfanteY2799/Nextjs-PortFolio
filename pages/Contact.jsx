@@ -1,4 +1,5 @@
-import { AppBar , AsidedLeftMenu } from "../components/NavigationComponents";
+import Head from 'next/head';
+import { AppBar } from "../components/NavigationComponents";
 
 
 export default function Contact(){
@@ -7,6 +8,10 @@ export default function Contact(){
 
     return(
     <>
+        <Head>
+            <title> NobuCoder | Contact </title>
+        </Head>
+
         <AppBar/>
     </>
     );

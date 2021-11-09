@@ -1,6 +1,6 @@
 module.exports = {
-  images:{
-    domains: [ 'bulma.io' ],
+  images: {
+    domains: ['pexels.com', 'images.pexels.com'],
   },
   reactStrictMode: true,
 }

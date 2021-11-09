@@ -42,10 +42,16 @@ aside {
   padding-top: 20px;
 }
 
+.isHoverable {
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 12px;
+}
+
 .isHoverable :hover {
   transform: scale(1.1);
 }
 
-.isHoverable div :hover {
+.isHoverable div :hover{
   transform: none;
 }
