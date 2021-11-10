@@ -55,3 +55,29 @@ aside {
 .isHoverable div :hover{
   transform: none;
 }
+
+/* Play-Ground Css <----- GRID ------ > Init */
+.item1 { grid-area: editor; }
+.item2 { grid-area: main; }
+.item3 { grid-area: right; }
+.item4 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'editor main'
+  'editor main'
+  'editor main';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+/* Play-Ground Css <----- GRID ------ > End */
