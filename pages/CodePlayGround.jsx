@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { codeDefaultNhen } from "../public/static/codeDefaults.js";
 import Head from "next/head";
 import Editor from "@monaco-editor/react";
-import dynamic from 'next/dynamic'
 
 
 import { AppBar } from "../components/NavigationComponents.jsx";

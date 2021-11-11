@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from 'next/router';
 
@@ -20,6 +21,7 @@ function DropDownOpts({opts = []}){
 }
 
 function NavbarOptions({ opts = [] }){
+    opts = opts.filter(({showable}) => showable === true);
     const rou = useRouter();
     return opts.map(({ name, route }, i ) =>
         <Link href={route} key={i}>
@@ -28,13 +30,43 @@ function NavbarOptions({ opts = [] }){
     );
 }
 
-function GoBack(){
-    return <div>
-        <Link href="/">
-            <a>{' <<<<< Back '}</a>
-        </Link>
-    </div>;
+function Carousel({options = [1,2,3]}){
+    let [ actSlide, setActSlide ] = useState(options[0]);
+    let moveFoward = () => setActSlide(actSlide >= options.length ? actSlide - (options.length - 1) : actSlide + 1 );
+    let moveBackwards = () => setActSlide(actSlide === 0 ? (options.length - 1) : actSlide - 1 );
+    return <> 
+        {options.map(x =>
+            <div className={`${actSlide === x ? 'active' : 'hidden'}_carousel fade`} key={x}>
+                <Image src={`/temp/${x}.jpg`} alt={`${x}`} width="1280" height="620"/>
+            </div>
+        )}
+        <a className="next" onClick={moveFoward}>{'>'}</a>
+        <a className="prev" onClick={moveBackwards}>{'<'}</a>
+    </>
 }
+
+function HeroCarousel({options = [1,2,3]}){
+    let [ actSlide, setActSlide ] = useState(options[0]);
+    let moveFoward = () => setActSlide(actSlide >= options.length ? actSlide - (options.length - 1) : actSlide + 1 );
+    let moveBackwards = () => setActSlide(actSlide === 0 ? (options.length - 1) : actSlide - 1 );
+    return <> 
+        {options.map(x =>
+            <div className={`${actSlide === x ? 'active' : 'hidden'}_carousel fade`} key={x}>
+                <div className="hero-body">
+                    <p className="title">
+                        {`Primary ${x}`}
+                    </p>
+                    <p className="subtitle">
+                        Primary subtitle
+                    </p>
+                </div>            
+            </div>
+        )}
+        <a className="next" onClick={moveFoward}>{'>'}</a>
+        <a className="prev" onClick={moveBackwards}>{'<'}</a>
+    </>
+}
+
 
 function AppBar(){
 
@@ -45,8 +77,11 @@ function AppBar(){
     const rout = useRouter();
 
     let _basicLeftOptions = [
-        {name:"About", route:"/About", active:true },
-        {name:"Contact", route:"/Contact", active:false },
+        {name:"Home", route:"/Home", showable: false },
+        {name:"Projects", route:"/Projects", showable: false },
+        {name:"About", route:"/About", showable: true },
+        {name:"Contact", route:"/Contact", showable: true },
+        {name:"Blog", route:"/Blog", showable: true },
     ];
 
     let _dropdownOptions = [
@@ -57,12 +92,17 @@ function AppBar(){
     ];
 
     return <> 
+        <Head>
+            <title>NobuCoder | {_basicLeftOptions.filter(({route}) => rout.pathname === route)[0].name } </title>
+        </Head>
         <nav className="navbar is-black">
                 
             <div className="navbar-brand">
                 {/* Brand */}
-                <Link href="/">
-                    <a className={`navbar-item ${rout.pathname === "/" ?  "is-active" : ""}`}> Home </a>
+                <Link href="/Home">
+                    <a className={`navbar-item ${rout.pathname === "/Home" ?  "is-active" : ""}`}> 
+                        Nobu_Coder!
+                    </a>
                 </Link>
                 
                 {/* Hamburguer */}
@@ -113,6 +153,24 @@ function AppBar(){
   </>;
 }
 
+function Hero({color = "primary", title = "Set Title" , description = "set Description", size}){
+
+    return <> 
+        <section className={`hero is-${color} is-small`}>
+            <div className="hero-body">
+                <p className="title">
+                    {title}
+                </p>
+                <p className="subtitle">
+                    {description}
+                </p>
+            </div>
+        </section>
+    </>
+
+}
+
+
 function AsidedLeftMenu(){
   return( 
     <aside className="bd-docs-nav " style={{float:'left'}}>
@@ -124,4 +182,4 @@ function AsidedLeftMenu(){
 
 
 
-export { GoBack, AppBar, AsidedLeftMenu,  };
+export { AppBar, AsidedLeftMenu, Hero, Carousel, HeroCarousel };

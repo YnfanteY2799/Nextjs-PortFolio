@@ -80,11 +80,7 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
 }
 
 function Body({projects = []}){
-    return projects.map((x,index) => {
-
-        // console.log(x)
-
-        let {divisionName, subAddOnIcon, subTitle, projects} = x;
+    return projects.map(({divisionName, subAddOnIcon, subTitle, projects},index) => {
       return( 
       <div className="container card_container" key={index}>
         <p className="title is-1 is-spaced">
@@ -134,14 +130,10 @@ export default function Projects(){
         // // console.log(responses)
 
         let portiflyConfig = await fetch("https://raw.githubusercontent.com/YnfanteY2799/YnfanteY2799/main/Portifly.json");
-        portiflyConfig = JSON.parse(await portiflyConfig.text());
+        portiflyConfig = JSON.parse(await portiflyConfig.text()).details;
         
-        console.log(portiflyConfig)
 
-
-        _setDynamProjects([...portiflyConfig.details]);
-      
-
+        _setDynamProjects([...portiflyConfig]);
     }
 
     // UseEffect -> Caller
@@ -149,14 +141,9 @@ export default function Projects(){
 
     return( 
         <>
-            <Head>
-                <title> NobuCoder | Projects </title>
-            </Head>
-        <div>
-            <AppBar />
-            
+        <AppBar />
+        <div>    
             <Body projects={_dinamProjects.length > 0 ? _dinamProjects : _projects}/>
-
         </div>   
         </>
     );
