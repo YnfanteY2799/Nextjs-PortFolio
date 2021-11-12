@@ -132,3 +132,21 @@ aside {
   from {opacity: 0} 
   to {opacity: 1}
 }
+
+.paddedSearchBar {
+  padding-top: 10px;
+  padding-bottom: 13px;
+  display: none;
+}
+
+.paddedSearchBar {
+  padding-top: 10px;
+  padding-bottom: 13px;
+  display: none;
+}
+
+.show { display: block;}
+
+.paddedHideButton{
+  padding-left: 10px;
+}

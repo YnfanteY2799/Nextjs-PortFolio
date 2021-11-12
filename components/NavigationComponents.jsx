@@ -30,7 +30,7 @@ function NavbarOptions({ opts = [] }){
     );
 }
 
-function Carousel({options = [1,2,3]}){
+function Carousel({options = [0,1,2]}){
     let [ actSlide, setActSlide ] = useState(options[0]);
     let moveFoward = () => setActSlide(actSlide >= options.length ? actSlide - (options.length - 1) : actSlide + 1 );
     let moveBackwards = () => setActSlide(actSlide === 0 ? (options.length - 1) : actSlide - 1 );
@@ -46,9 +46,14 @@ function Carousel({options = [1,2,3]}){
 }
 
 function HeroCarousel({options = [1,2,3]}){
-    let [ actSlide, setActSlide ] = useState(options[0]);
+    let [ actSlide, setActSlide ] = useState(1);
     let moveFoward = () => setActSlide(actSlide >= options.length ? actSlide - (options.length - 1) : actSlide + 1 );
-    let moveBackwards = () => setActSlide(actSlide === 0 ? (options.length - 1) : actSlide - 1 );
+    let moveBackwards = () =>  setActSlide(actSlide === 0 ? actSlide + 1 : actSlide - 1 );
+        
+    console.log(actSlide,actSlide === 0)
+    console.log( options[actSlide], `el largo es : ${options.length} y ` )
+    
+    
     return <> 
         {options.map(x =>
             <div className={`${actSlide === x ? 'active' : 'hidden'}_carousel fade`} key={x}>
@@ -67,7 +72,6 @@ function HeroCarousel({options = [1,2,3]}){
     </>
 }
 
-
 function AppBar(){
 
     // Hookified - Variables
@@ -79,6 +83,7 @@ function AppBar(){
     let _basicLeftOptions = [
         {name:"Home", route:"/Home", showable: false },
         {name:"Projects", route:"/Projects", showable: false },
+        {name:"Details", route:"/Details", showable: false },
         {name:"About", route:"/About", showable: true },
         {name:"Contact", route:"/Contact", showable: true },
         {name:"Blog", route:"/Blog", showable: true },
@@ -163,10 +168,16 @@ function Hero({color = "primary", title = "Set Title" , description = "set Descr
                 </p>
                 <p className="subtitle">
                     {description}
+
+                    {/* <button></button> */}
                 </p>
             </div>
         </section>
     </>
+
+// https://bulma.io/documentation/layout/hero/
+// https://bulma.io/documentation/components/card/
+// https://bulma.io/documentation/form/general/
 
 }
 
