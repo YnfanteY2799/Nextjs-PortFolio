@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 let getIcon = n => `/${n.toLowerCase()}.svg`;
 
-function DropDownOpts({opts = []}){
+function DropDownOpts({ opts = [] }){
    
     return opts.map(({name, route},i) => 
         <Link key={i} href={route}>
@@ -23,11 +23,18 @@ function DropDownOpts({opts = []}){
 function NavbarOptions({ opts = [] }){
     opts = opts.filter(({showable}) => showable === true);
     const rou = useRouter();
-    return opts.map(({ name, route }, i ) =>
-        <Link href={route} key={i}>
-            <a className={`navbar-item ${route === rou.pathname ? "is-active" : ""}`}>{`${name}`}</a>
+    return opts.map(({ name, route }, i ) => {
+      return  <Link href={route} key={i}>
+            <a className={`navbar-item ${
+                route === (rou.pathname.split('/').length >= 3 ? '/'+rou.pathname.split('/')[1] : rou.pathname) 
+                ? "is-active" : "" }`}>{`${name}`}</a>
         </Link>
+    }
     );
+}
+
+function evalRoute( str ){
+    return str.split("/")[1] === 'Blogs' ? '/Blog' : str;
 }
 
 function Carousel({options = [0,1,2]}){
@@ -98,7 +105,7 @@ function AppBar(){
 
     return <> 
         <Head>
-            <title>NobuCoder | {_basicLeftOptions.filter(({route}) => rout.pathname === route)[0].name } </title>
+            <title>NobuCoder | {_basicLeftOptions.filter(({route}) => evalRoute( rout.pathname ) === route)[0].name} </title>
         </Head>
         <nav className="navbar is-black">
                 
@@ -114,6 +121,7 @@ function AppBar(){
                 <div className={`navbar-burger ${mobileDropdownActive && 'is-active'}`} data-target="navbar" onClick={() => setMobileDropdownActive(!mobileDropdownActive)} >
                     <span/> <span/> <span/>
                 </div>
+
             </div>
     
             <div id="navbar" className={`navbar-menu ${mobileDropdownActive && 'is-active'}`}>
