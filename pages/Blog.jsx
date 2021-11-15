@@ -72,7 +72,7 @@ function Body({content = [1,2,3,4,5,6,]}){
     return ret;
 }
 
-function Cards({ quant = [1,2,3,4]}){
+function Cards({ quant = [] }){
     return quant.map((x,i) => 
             <div className="column" key={i}>
             <div className="card" >
@@ -114,7 +114,6 @@ function Cards({ quant = [1,2,3,4]}){
         </div>
     );
 }
-
 
 export default function Blog(){
 

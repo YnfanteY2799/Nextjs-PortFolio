@@ -9,7 +9,7 @@ export default function NewBlog(){
     return (
     <>
         <AppBar/>
-        <div>
+        <div className="container">
 
 
 

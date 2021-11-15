@@ -7,12 +7,12 @@ export default function Contact(){
 
 
     return(
-    <>
-        <Head>
-            <title> NobuCoder | Contact </title>
-        </Head>
+        <>
+            <AppBar/>
+            <div className="container">
 
-        <AppBar/>
-    </>
+
+            </div>
+        </>
     );
 }

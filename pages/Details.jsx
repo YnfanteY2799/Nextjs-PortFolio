@@ -7,13 +7,12 @@ export default function Details(){
 
     return( 
         <>
-            <Head>
-                <title> NobuCoder | Details </title>
-            </Head>
             <AppBar/>
+            <div className=" container ">
 
-        
 
+
+            </div>
         </>
     );
 
