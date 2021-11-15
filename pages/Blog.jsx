@@ -1,5 +1,6 @@
 import { AppBar, Hero, HeroCarousel } from "../components/NavigationComponents.jsx";
-import { Card } from "../components/TestingComponents.jsx";
+import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 function SearchBar(props){
@@ -52,17 +53,77 @@ function SearchBar(props){
 
 }
 
+function Body({content = [1,2,3,4,5,6,]}){
+
+    let ret = [], divider = 4;
+
+    for(let i = 0; i < content.length; i++){
+        if(i % divider === 0 ){
+            let subContent = content.slice(i, i + divider );
+            ret.push(
+                <div className ="columns" key={i}>
+                    <Cards quant={subContent}/>
+                </div>
+            );
+        }
+    }
+
+
+    return ret;
+}
+
+function Cards({ quant = [1,2,3,4]}){
+    return quant.map((x,i) => 
+            <div className="column" key={i}>
+            <div className="card" >
+                <div className="card-image">
+                    <figure className="image is-4by4 ">
+                        <Image src={`${"/loading.gif"}`} height="255" width="400" alt="Github" layout="responsive"/>
+                    </figure>
+                </div>
+                            
+                <div className="card-content">
+                    <div className="media">
+                        <div className="media-left">
+                            <figure className="image is-48x48">
+                                <Image src={'/js.svg'} height="30" width="30" alt={"projectName"}/>
+                            </figure>
+                        </div>
+                        <div className="media-content">
+                            <Link href="/blog/BlogEntry">
+                                <a className="title is-4">{"projectName"}</a>
+                            </Link>
+                         </div>
+                    </div>
+
+                        <div className="content">
+                            <p>{"projectDescription"}</p>
+                            <p></p>
+                            <hr/>
+                            <p>
+                                Last Commit at : 
+                                <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </p>
+                        </div>
+                    </div>
+
+                    <footer className="card-footer">
+                        <div className="card-footer-item"/>
+                    </footer>
+            </div>
+        </div>
+    );
+}
 
 
 export default function Blog(){
 
     // Constvalues 
-    const ms = 10000;
     const filteringOptions = ["Tags", "Language", "Topic"];
     const description = "Posting here what i usually think is usefull.";
 
     // statefull_variables
-    let [ regs, setRegs ] = useState(10);
+    let [ regs, setRegs ] = useState([{one:1},{one:2},{one:3}]);
     let [ search, setSearch ] = useState("");
     let [ filteringValue, setFilteringValue ] = useState( filteringOptions[0] );
     let [ searchBarIsOpen, setSearchBarIsOpen ] = useState( true );
@@ -81,7 +142,8 @@ export default function Blog(){
         console.log("Loading Effect");
     },[]);
 
-    return( <>
+    return( 
+    <>
         <AppBar/>
         <div>
             
@@ -94,10 +156,12 @@ export default function Blog(){
             show={searchBarIsOpen} handleVisib={() => setSearchBarIsOpen(!searchBarIsOpen)}
             />
             
-            <div>
-
+            <div className = "container card_container">
+                <Body />
+                {/* <ContentRedering cont={regs}/> */}
             </div>
 
         </div>
-    </> );
+    </> 
+    );
 }
