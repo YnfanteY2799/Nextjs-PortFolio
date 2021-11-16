@@ -34,7 +34,15 @@ function NavbarOptions({ opts = [] }){
 }
 
 function evalRoute( str ){
-    return str.split("/")[1] === 'Blogs' ? '/Blog' : str;
+
+    if(str.split("/")[1] === 'Blogs'){
+        return '/Blog';
+    }else if(str.includes('CodePlayGround')){
+        return '/Projects'
+    }else {
+        return str;
+    }
+    
 }
 
 function Carousel({options = [0,1,2]}){
@@ -81,12 +89,7 @@ function HeroCarousel({options = [1,2,3]}){
 
 function AppBar(){
 
-    // Hookified - Variables
-    const [ mobileDropdownActive, setMobileDropdownActive ] = useState(false);
-    
-    // Router Next Hook
-    const rout = useRouter();
-
+    // Constants
     let _basicLeftOptions = [
         {name:"Home", route:"/Home", showable: false },
         {name:"Projects", route:"/Projects", showable: false },
@@ -102,6 +105,13 @@ function AppBar(){
         {name:"Deno Projects", route:"/Projects#denojs"},
         {name:"Rust Projects", route:"/Projects#rust"},
     ];
+
+    // Hookified - Variables
+    const [ mobileDropdownActive, setMobileDropdownActive ] = useState(false);
+    
+    // Router Next Hook
+    const rout = useRouter();
+
 
     return <> 
         <Head>

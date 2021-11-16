@@ -7,7 +7,7 @@ module.exports = {
 
     return [
       {source:"/PlayMe", destination: "/CodePlayGround", permanent:true },
-      {source:"/pppppp", destination: "/CodePlayGround", permanent:true },
+      {source:"/ppp", destination: "/CodePlayGround", permanent:true },
       {source:"/", destination: "/Home", permanent:true },
 
 

@@ -90,7 +90,7 @@ function Cards({ quant = [] }){
                             </figure>
                         </div>
                         <div className="media-content">
-                            <Link href="/blog/BlogEntry">
+                            <Link href="/Blogs/NewBlog">
                                 <a className="title is-4">{"projectName"}</a>
                             </Link>
                          </div>

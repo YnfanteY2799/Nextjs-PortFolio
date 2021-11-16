@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { codeDefaultNhen } from "../public/static/codeDefaults.js";
 import Head from "next/head";
-import Editor from "@monaco-editor/react";
 import { AppBar } from "../components/NavigationComponents.jsx";
+import Editor from "@monaco-editor/react";
 
 import { useState, useRef } from "react";
 
@@ -20,7 +20,9 @@ export default function CodePlayGround({baseCode = "Nhen"}){
 
     // Statefull Variables
     const monacoRef = useRef();
-    const [ codeValue, setCodeValue ] = useState(defineDefaultValue(baseCode));
+    const [ codeValue, setCodeValue ] = useState("");
+    let data = ''
+
 
     // functions
     function handleEditorMount(value) {
@@ -32,18 +34,15 @@ export default function CodePlayGround({baseCode = "Nhen"}){
     }
 
 
+
     return( 
         <>
-            <Head>
-                <title> NobuCoder | Projects </title>
-            </Head>
-            <AppBar/>
+          <AppBar/>
             <div className="columns">
                 <div className="column">
-                        <Editor height={"87vh"}
-                        defaultLanguage="javascript" 
-                        defaultValue={defineDefaultValue(baseCode)}
-                        theme="vs-dark"
+                        <Editor height={"500px"} width={"700px"}
+                        defaultLanguage="javascript"
+                        theme="vs-dark" onChange={e => setCodeValue(e)}
                         onMount={handleEditorMount}
                         />
                 </div>
@@ -63,7 +62,7 @@ export default function CodePlayGround({baseCode = "Nhen"}){
                     </head>
                     <body>
                         <script>
-                        ${codeValue}
+                    
                         </script>
                         <div id="#root">This is a paragraph.</div>
                     
