@@ -4,8 +4,65 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from 'next/router';
 
+// Functions 
 let getIcon = n => `/${n.toLowerCase()}.svg`;
 
+function evalRoute( str ){
+
+    if(str.split("/")[1] === 'Blogs'){
+        return '/Blog';
+    }else if(str.includes('CodePlayGround')){
+        return '/Projects'
+    }else {
+        return str;
+    }
+    
+}
+
+function setSize(size){
+    switch(size){
+        case 'sm':
+            return 'is-small';
+        case 'sb':
+            return 'is-large';
+        case 'ism':
+            return 'is-medium';
+        case 'sh':
+            return 'is-halfheight';
+    }
+}
+
+function setColor(val){
+    switch(val){
+        case 'sl':
+            return 'is-success is-light';
+        case 's':
+            return 'is-success';
+        case 'i':
+            return 'is-info';
+        case 'il':
+            return 'is-info is-light';
+        case 'l':
+            return 'is-link';
+        case 'll':
+            return 'is-link is-light';
+        case 'p':
+            return 'is-primary';
+        case 'pl':
+            return 'is-primary is-light';
+        case 'w':
+                return 'is-warning';
+        case 'wl':
+            return 'is-warning is-light';
+        case 'd':
+            return 'is-danger';
+        case 'dl':
+            return 'is-danger is-light';
+    }
+}
+
+
+// Components
 function DropDownOpts({ opts = [] }){
    
     return opts.map(({name, route},i) => 
@@ -31,18 +88,6 @@ function NavbarOptions({ opts = [] }){
         </Link>
     }
     );
-}
-
-function evalRoute( str ){
-
-    if(str.split("/")[1] === 'Blogs'){
-        return '/Blog';
-    }else if(str.includes('CodePlayGround')){
-        return '/Projects'
-    }else {
-        return str;
-    }
-    
 }
 
 function Carousel({options = [0,1,2]}){
@@ -176,20 +221,21 @@ function AppBar(){
   </>;
 }
 
-function Hero({color = "primary", title = "Set Title" , description = "set Description", size}){
+function Hero({ color = "primary", title = "Set Title" , description = "set Description", size = "sm", foot }){
 
     return <> 
-        <section className={`hero is-${color} is-small`}>
+        <section className={`hero is-${color} ${setSize(size)}`}>
             <div className="hero-body">
-                <p className="title">
-                    {title}
-                </p>
-                <p className="subtitle">
-                    {description}
-
-                    {/* <button></button> */}
-                </p>
+                <div>
+                    <p className="title">
+                        {title}
+                    </p>
+                    <p className="subtitle">
+                        {description}
+                    </p>
+                </div>
             </div>
+            {foot !== undefined ? foot : null}
         </section>
     </>
 
@@ -198,7 +244,6 @@ function Hero({color = "primary", title = "Set Title" , description = "set Descr
 // https://bulma.io/documentation/form/general/
 
 }
-
 
 function AsidedLeftMenu(){
   return( 
@@ -209,6 +254,28 @@ function AsidedLeftMenu(){
   );
 }
 
+function Notification({color = "sl" , message = "Notification", duration = 5000}){
 
+    const [open, setOpen] = useState(true);
 
-export { AppBar, AsidedLeftMenu, Hero, Carousel, HeroCarousel };
+    return( 
+        <div className={`notif ${open ? '' : 'closed'}`}>
+            <div className={`notification ${setColor(color)} is-rounded`}>
+                <button className="delete" onClick={() => setOpen(!open)}/>
+                {message}
+            </div>
+        </div>
+  );
+
+}
+
+export { 
+    AppBar, 
+    AsidedLeftMenu, 
+    Hero, 
+    Carousel, 
+    HeroCarousel,
+    setColor,
+    Notification,
+    
+};

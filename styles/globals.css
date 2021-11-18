@@ -6,7 +6,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   background-color: #F8F8F8;
-
 }
 
 a {
@@ -149,4 +148,24 @@ aside {
 
 .paddedHideButton{
   padding-left: 10px;
+}
+
+.is-heroed-tab{
+  padding-top: 50px;
+  padding-bottom: 85px;
+}
+
+.is-heroed-tab textarea{
+  resize: none;
+}
+
+.notif {
+  position: fixed;
+  bottom: 55px;
+  right: 25px;
+  display: block;
+}
+
+.closed {
+  display: none;
 }
