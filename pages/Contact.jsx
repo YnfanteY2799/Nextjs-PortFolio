@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AppBar, Hero } from "../components/NavigationComponents.jsx";
+import { AppBar, Hero, Notification } from "../components/NavigationComponents.jsx";
 import { senValidate } from "../Hooks/reusableFunctions.js";
 
 // In Component Functional-Components
@@ -73,7 +73,6 @@ export default function Contact(){
     // Functions
     async function sendData(){
         
-        callNoti(true);
         if(isValid && message.length > 1){
             await senValidate( {email:email, mes:message}, '' );
         }else {
@@ -127,6 +126,7 @@ export default function Contact(){
                         </div>
 
                     </div>
+                    <Notification/>
 
                     {/* <Notification show={notification} setShow={() => setNotification(!notification)}/> */}
 

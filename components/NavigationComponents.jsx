@@ -3,6 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from 'next/router';
+import ReactDOM from 'react-dom';
 
 // Functions 
 let getIcon = n => `/${n.toLowerCase()}.svg`;
@@ -257,16 +258,17 @@ function AsidedLeftMenu(){
 function Notification({color = "sl" , message = "Notification", duration = 5000}){
 
     const [open, setOpen] = useState(true);
+        
 
-    return( 
-        <div className={`notif ${open ? '' : 'closed'}`}>
+        // ReactDOM.render(
+        // );
+
+        return <div className={`notif ${open ? '' : 'closed'}`}>
             <div className={`notification ${setColor(color)} is-rounded`}>
                 <button className="delete" onClick={() => setOpen(!open)}/>
                 {message}
             </div>
-        </div>
-  );
-
+        </div>//, document.getElementById('__next')
 }
 
 export { 
@@ -277,5 +279,5 @@ export {
     HeroCarousel,
     setColor,
     Notification,
-    
+
 };
