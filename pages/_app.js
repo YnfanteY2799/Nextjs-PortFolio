@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 import Head from "next/head";
 import 'bulma/css/bulma.css';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function MyApp({Component, pageProps}){
 

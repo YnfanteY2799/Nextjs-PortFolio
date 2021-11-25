@@ -1,33 +1,35 @@
 import { useState } from "react";
-import { AppBar, Hero, Notification } from "../components/NavigationComponents.jsx";
+import { AppBar, Hero } from "../components/NavigationComponents.jsx";
 import { senValidate } from "../Hooks/reusableFunctions.js";
+import { ToastContainer, toast } from "react-toastify"; 
+import Image from "next/image";
+
+// Constants
+const title = "Did you liked one of my projects ?";
+const description = "Would you like us to meet up and chat ?";
+const options = [
+    {name:"Email-Me", moji:"far fa-envelope", Component: <EmailSavingComponent/> },
+    {name:"Contact-Me (Social Networks)", moji:"fab fa-telegram-plane", Component: <SocialContacts/> }
+
+];
 
 // In Component Functional-Components
-function HeroFooter({ }){
-
-
+function HeroFooter({options = [] , activetab = 0, tabSetter }){
     return( 
     <> 
         <div className="hero-foot">
             <nav className="tabs is-boxed is-fullwidth">
                 <div className="container">
                     <ul>
-                        <li className="is-active">
+                        {options.map(({name, moji},i) => 
+                        <li className={activetab === i ? "is-active" : ""} key={i} onClick={() => tabSetter(i)}>
                             <a>
                                 <span className="icon is-small">
-                                    <i className="far fa-envelope" aria-hidden="true"/>
+                                    <i className={moji} aria-hidden="true"/>
                                 </span>
-                                <span>Email-Me</span>
+                                <span>{name}</span>
                             </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span className="icon is-small">
-                                    <i className="fab fa-telegram-plane" aria-hidden="true"/>
-                                </span>
-                                <span>Contact-Me (Social Networks)</span>
-                            </a>
-                        </li>
+                        </li>)}
                     </ul>
                 </div>
             </nav>
@@ -47,90 +49,130 @@ function IsOk({valid = false}){
 
 }
 
+// Optioned Components 
+function EmailSavingComponent(){
 
-function callNoti(e){
+    // In-Form State
+    const [ email, setEmail ] = useState("");
+    const [ message, setMessage ] = useState("");
+    const [ isValid, setIsValid ] = useState(false);
+    
+        // Functions
+    async function sendData(){ 
+        if(isValid && message.length > 1){
+            toast.promise(senValidate( {email:email, mes:message}, '' ), {
+                pending: 'Saving your mail!',
+                success: `Email Saved, i'll contanct you as soon as possible!`,
+                error: 'Something went wrong with mail handling API'
+            });
+        } else {
+            toast.warning('Please tell me who are you and why should we talk!');
+        }
+    }
 
+
+    return (
+        <div className="columns">
+                    
+            <div className="column is-6">
+                <label className="label">E-mail</label>
+                <div className="field has-addons">
+                    <p className="control is-expanded has-icons-left has-icons-right">
+                    
+                        <input className={`input is-rounded ${isValid && 'is-success'}`} type="text" 
+                        placeholder="Put Your Email Here Please ..."  value={email} 
+                        onChange={({target:{value}}) =>{ setIsValid(validateEmail(value)); setEmail(value); }}/>
+                        
+                        <span className="icon is-left"> <i className="fas fa-envelope"/> </span>
+                        <span className="icon is-right"> <IsOk valid={isValid}/> </span>                        
+                    
+                    </p>
+                    <p className="control">
+                        <a className="button is-info" onClick={sendData}> Submit </a>
+                    </p>
+                </div>
+            </div>
+        
+            <div className="column">
+
+                <div className="field is-horizontal">
+                    <div className="field-label">
+                        <label className="label">Message</label>
+                    </div>
+
+                    <div className="field-body">
+                        <div className="field">
+                            <div className="control">
+                                <textarea className="textarea is-rounded" value={message} 
+                                onChange={({target:{value}}) => setMessage(value)}
+                                placeholder="Write here what you want me to know before we meet"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <ToastContainer
+                theme="dark"     
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
+        </div>
+    );
 }
+
+function SocialContacts(){
+
+
+    return (
+
+        <div className="box">
+            
+            <Image src={"/codewars.svg"} width="400" height="100" alt="codewars-props"/>
+
+        
+        </div>
+    );
+}
+
 
 // In Component Functions
 function validateEmail(value){
     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
 }
 
-// Component
+// Base - Component
 export default function Contact(){
     
-    // Constants
-    const title = "Did you liked one of my projects ?";
-    const description = "Would you like us to meet up and chat ?";
-
-    // Forms
-    const [ email, setEmail ] = useState("");
-    const [ message, setMessage ] = useState("");
-    const [ notification, setNotification ] = useState(true);
-    const [ isValid, setIsValid ] = useState(false);
-
-    // Functions
-    async function sendData(){
-        
-        if(isValid && message.length > 1){
-            await senValidate( {email:email, mes:message}, '' );
-        }else {
-            setNotification({name:true});
-            console.log(notification)
-        }
-    }
+    // Upper-State
+    const [ activeOption, setActiveOption ] = useState(0);
 
     return(
         <>
             <AppBar/>
-            <Hero color="black" title={title} description={description} size="sh" foot={<HeroFooter />}/>
+
+            <Hero color="black" title={title} 
+            description={description} size="sh" 
+            foot={
+                <HeroFooter activetab={activeOption} tabSetter={setActiveOption} options={options} />
+            }
+            />
+
             <div className="container is-heroed-tab">
-                <div className="columns">
-                    
-                    <div className="column is-6">
-                        <label className="label">E-mail</label>
-                        <div className="field has-addons">
-                            <p className="control is-expanded has-icons-left has-icons-right">
-                            
-                                <input className={`input is-rounded ${isValid && 'is-success'}`} type="text" 
-                                placeholder="Put Your Email Here Please ..."  value={email} 
-                                onChange={({target:{value}}) =>{ setIsValid(validateEmail(value)); setEmail(value); }}/>
-                                
-                                <span className="icon is-left"> <i className="fas fa-envelope"/> </span>
-                                <span className="icon is-right"> <IsOk valid={isValid}/> </span>                        
-                            
-                            </p>
-                            <p className="control">
-                                <a className="button is-info" onClick={sendData}> Submit </a>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div className="column">
-
-                        <div className="field is-horizontal">
-                            <div className="field-label">
-                                <label className="label">Message</label>
-                            </div>
-
-                            <div className="field-body">
-                                <div className="field">
-                                    <div className="control">
-                                        <textarea className="textarea is-rounded" value={message} 
-                                        onChange={({target:{value}}) => setMessage(value)}
-                                        placeholder="Write here what you want me to know before we meet"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <Notification/>
-
-                    {/* <Notification show={notification} setShow={() => setNotification(!notification)}/> */}
-
+                {options.map(({Component},i) => 
+                <div key={i} style={{display: activeOption === i ? "block" : "none"}}>
+                    {Component}
                 </div>
+                )}
             </div>
         </>
     );

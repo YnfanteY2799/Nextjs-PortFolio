@@ -146,7 +146,7 @@ export default function Blog(){
         <AppBar/>
         <div>
             
-            <Hero color="dark" title="| Blog " description={description} size="m" 
+            <Hero color="black" title="| Blog " description={description} size="m" 
             hasButton={true} button={''} btnState={searchBarIsOpen} />
             
             <SearchBar inputValue={search} filteringOptions={filteringOptions} filteringValue={filteringValue}

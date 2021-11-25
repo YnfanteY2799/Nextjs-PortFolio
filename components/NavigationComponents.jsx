@@ -62,7 +62,6 @@ function setColor(val){
     }
 }
 
-
 // Components
 function DropDownOpts({ opts = [] }){
    
@@ -255,20 +254,15 @@ function AsidedLeftMenu(){
   );
 }
 
-function Notification({color = "sl" , message = "Notification", duration = 5000}){
-
-    const [open, setOpen] = useState(true);
-        
-
-        // ReactDOM.render(
-        // );
-
-        return <div className={`notif ${open ? '' : 'closed'}`}>
+function Notification({color = "sl" , message = "Notification", status = true, setStatus }){        
+    return( 
+        <div className={`notif ${status ? '' : 'closed'}`}>
             <div className={`notification ${setColor(color)} is-rounded`}>
-                <button className="delete" onClick={() => setOpen(!open)}/>
+                <button className="delete" onClick={setStatus}/>
                 {message}
             </div>
-        </div>//, document.getElementById('__next')
+        </div>
+    );
 }
 
 export { 
