@@ -72,8 +72,7 @@ function EmailSavingComponent(){
 
 
     return (
-        <div className="columns">
-                    
+        <div className="columns">    
             <div className="column is-6">
                 <label className="label">E-mail</label>
                 <div className="field has-addons">
