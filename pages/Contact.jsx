@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy } from "react";
 import { AppBar, Hero } from "../components/NavigationComponents.jsx";
 import { senValidate } from "../Hooks/reusableFunctions.js";
 import { ToastContainer, toast } from "react-toastify"; 
@@ -80,7 +80,7 @@ function EmailSavingComponent(){
                     
                         <input className={`input is-rounded ${isValid && 'is-success'}`} type="text" 
                         placeholder="Put Your Email Here Please ..."  value={email} 
-                        onChange={({target:{value}}) =>{ setIsValid(validateEmail(value)); setEmail(value); }}/>
+                        onChange={({target:{value}}) => { setIsValid( validateEmail(value) ); setEmail(value); }}/>
                         
                         <span className="icon is-left"> <i className="fas fa-envelope"/> </span>
                         <span className="icon is-right"> <IsOk valid={isValid}/> </span>                        
@@ -130,7 +130,6 @@ function EmailSavingComponent(){
 }
 
 function SocialContacts(){
-
 
     return (
 

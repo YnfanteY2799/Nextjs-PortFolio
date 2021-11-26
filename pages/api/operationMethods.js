@@ -1,46 +1,46 @@
 import Nodemailer from "nodemailer";
 
+const { 
+    
+    MAIL_USER,
+    MAIL_PASS,
+    HOST,
+    PROXY,
+    PORT,
+
+} = process.env;
+
 export default function handler(req, res) {
     
-    const { pid } = req.query;
-    
-    const { 
-        MAIL_USER, 
-        MAIL_PASS,
-        HOST,
-        PROXY,
-        PORT,
-    } = process.env;
-
-    let ttst = {
-        from:MAIL_USER, 
-        to:pid, 
-        subject:'testing from my pfolio with nodejs', 
-        text:'This is a text'
-    };
+    const { mail } = req.query;
 
     Nodemailer.createTransport({
 
-        // Proxy config-
-        host:HOST,
-        port:PORT,
-        secure:true,
-        proxy:PROXY,
+        // Proxy config
+        // host: HOST,
+        host: 'smtp.gmail.com',
+        
+        // port: PORT,
+        port: 465,
+        secure: true,
+        proxy: PROXY,
 
         // Mail Config
-        service:'gmail', 
-        auth:{ user:MAIL_USER, pass:MAIL_PASS }, 
+        auth:{ user:MAIL_USER, pass:MAIL_PASS },
 
-    }).sendMail(ttst, (err, inf) => {
-        if(!err){
-            console.log('mail sent : ' + inf.response);
-        }else {
-            console.log('error on mail send');
-            console.log(err);
+    })
+    .sendMail({
+        from: MAIL_USER, 
+        to: mail, 
+        subject: 'testing from my pfolio with nodejs', 
+        text: 'This is a text',
+    }, (error, info) => {
+        if(!error) { 
+            console.log(`Mail sent to : ${info.response}`); 
+        } else { 
+            console.log('error on mail send', error); 
         }
     });
 
-
-
-    res.end(`Post: ${pid}`)
+    res.end(`Posted email is : ${mail}`);
 }
