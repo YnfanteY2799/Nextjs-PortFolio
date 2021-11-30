@@ -254,16 +254,22 @@ function AsidedLeftMenu(){
   );
 }
 
-function Notification({color = "sl" , message = "Notification", status = true, setStatus }){        
-    return( 
-        <div className={`notif ${status ? '' : 'closed'}`}>
-            <div className={`notification ${setColor(color)} is-rounded`}>
-                <button className="delete" onClick={setStatus}/>
-                {message}
+function Modal({ is_active }){
+
+
+
+    return ( 
+        <div className={`modal ${is_active ? 'is-active':''}`}>
+            <div className="modal-background"></div>
+            <div className="modal-content">
+                <input className="text"/>
             </div>
+            <button className="modal-close is-large" aria-label="close"></button>
         </div>
     );
+
 }
+
 
 export { 
     AppBar, 
@@ -272,6 +278,6 @@ export {
     Carousel, 
     HeroCarousel,
     setColor,
-    Notification,
+    Modal,
 
 };

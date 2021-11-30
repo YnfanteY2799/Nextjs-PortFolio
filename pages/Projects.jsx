@@ -4,12 +4,26 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+// In_Component_Functions
+function formatDates(arg = '2021-10-29T20:42:56Z'){
+    if(arg === "N/A"){
+        return "There's not a single commit";
+    }else{
+        arg = (arg??'');
+        arg = arg.split("-");
+        arg = ` ${arg[2]?.split("T")[0]}/${arg[1]}/${arg[0]}`
+
+        return arg;
+    }
+}
+
+// Components
 function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
     
     let subDivided = [];
 
     let RenderingCards = ( {  dataToRender } ) => {
-        return dataToRender.map(({projectName, mainImg ,secondImg, projectDescription, source},i) => {            
+        return dataToRender.map(({projectName, mainImg ,secondImg, projectDescription, source, last_commit},i) => {            
             return(
             <div className="column" key={i}>
                 <div className="isHoverable">
@@ -32,7 +46,9 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
                                     </figure>
                                 </div>
                                 <div className="media-content">
-                                    <p className="title is-4">{projectName}</p>
+                                    <Link href={`${source}`}>
+                                        <a className="title is-4">{projectName}</a>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -43,14 +59,14 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
                                 <p></p>
                                 <hr/>
                                 <p>
-                                    Last Commit at : 
-                                    <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                                    Last Commit at :
+                                    <time dateTime="2016-1-1">{formatDates(last_commit)}</time>
                                 </p>
                             </div>
                         </div>
 
                         <footer className="card-footer">
-                            <Link href={"#"}>
+                            <Link href={`${source}/commits`}>
                                 <a className="card-footer-item"> Details </a>
                             </Link>
                             <div className="card-footer-item"/>
@@ -111,29 +127,7 @@ export default function Projects(){
 
     // Functions
     async function getInitialData(){
-        // const response = await fetch('https://api.github.com/users/YnfanteY2799/repos');
-        // const response = await fetch('api/sampleDataCaller');
-        // response = await response.json();
-
-        // let responses = await (await fetch("https://api.github.com/users/YnfanteY2799/repos")).json();
-        // responses.map(({name, description, updated_at, language, git_url}) => {
-            
-        //     // console.log('Getting : ')
-        //     // console.log()
-        //     // console.log(name)
-        //     // console.log(description)
-        //     // console.log(updated_at)
-        //     // console.log(language)
-        //     // console.log(git_url.replace("git://","https://"))
-        // });
-
-        // // console.log(responses)
-
-        let portiflyConfig = await fetch("https://raw.githubusercontent.com/YnfanteY2799/YnfanteY2799/main/Portifly.json");
-        portiflyConfig = JSON.parse(await portiflyConfig.text()).details;
-        
-
-        _setDynamProjects([...portiflyConfig]);
+        _setDynamProjects([...await ( await fetch('/api/projectsAPI')).json()]);
     }
 
     // UseEffect -> Caller
@@ -144,6 +138,11 @@ export default function Projects(){
         <AppBar />
         <div>    
             <Body projects={_dinamProjects.length > 0 ? _dinamProjects : _projects}/>
+            
+            
+
+
+
         </div>   
         </>
     );

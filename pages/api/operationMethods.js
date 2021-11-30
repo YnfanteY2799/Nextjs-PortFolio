@@ -11,6 +11,7 @@ const {
 export default function handler(req, res) {
     
    let { mail, message } = req.query;
+   
    try{
     
     Nodemailer.createTransport({
