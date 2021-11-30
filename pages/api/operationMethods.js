@@ -4,43 +4,50 @@ const {
     
     MAIL_USER,
     MAIL_PASS,
-    HOST,
-    PROXY,
-    PORT,
+    OWNER_MAIL,
 
 } = process.env;
 
 export default function handler(req, res) {
     
-    const { mail } = req.query;
-
+   let { mail, message } = req.query;
+   try{
+    
     Nodemailer.createTransport({
-
-        // Proxy config
-        // host: HOST,
-        host: 'smtp.gmail.com',
-        
-        // port: PORT,
-        port: 465,
-        secure: true,
-        proxy: PROXY,
-
-        // Mail Config
-        auth:{ user:MAIL_USER, pass:MAIL_PASS },
-
+   
+           // Proxy config
+           service:'gmail',      
+   
+           // port: PORT,
+           port: 465,
+           secure: true,
+   
+           // Mail Config
+           auth:{ user:MAIL_USER, pass:MAIL_PASS },
+   
     })
     .sendMail({
-        from: MAIL_USER, 
-        to: mail, 
-        subject: 'testing from my pfolio with nodejs', 
-        text: 'This is a text',
-    }, (error, info) => {
-        if(!error) { 
-            console.log(`Mail sent to : ${info.response}`); 
-        } else { 
-            console.log('error on mail send', error); 
-        }
+           from: MAIL_USER, 
+           to: OWNER_MAIL,
+           subject: 'Aptempt to contact', 
+           text: 
+           `${mail}, is looking foward to meet with you, this is their message:\n${message}`,
+       }, (error, info) => {
+           if(!error) { 
+               console.log(`Mail sent to : ${info.response}`); 
+           } else { 
+               console.log('error on mail send', error); 
+           }
     });
 
-    res.end(`Posted email is : ${mail}`);
+    res.status(200);
+
+    }catch(e){
+        res.status(404);
+    }
+
 }
+
+
+// If API Gives Error Invalid login: 535-5.7.8 Username and Password not accepted.
+//  Allow less secure apps sign in on your mail account

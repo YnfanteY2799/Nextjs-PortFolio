@@ -1,6 +1,6 @@
 import { useState, lazy } from "react";
 import { AppBar, Hero } from "../components/NavigationComponents.jsx";
-import { senValidate } from "../Hooks/reusableFunctions.js";
+import { senMail } from "../Hooks/reusableFunctions.js";
 import { ToastContainer, toast } from "react-toastify"; 
 import Image from "next/image";
 
@@ -10,7 +10,6 @@ const description = "Would you like us to meet up and chat ?";
 const options = [
     {name:"Email-Me", moji:"far fa-envelope", Component: <EmailSavingComponent/> },
     {name:"Contact-Me (Social Networks)", moji:"fab fa-telegram-plane", Component: <SocialContacts/> }
-
 ];
 
 // In Component Functional-Components
@@ -49,6 +48,10 @@ function IsOk({valid = false}){
 
 }
 
+async function sendMail({mail, me}){
+    return ( await ( await fetch(`api/operationMethods?mail=${mail}&&message=${me}`) ).json());
+}
+
 // Optioned Components 
 function EmailSavingComponent(){
 
@@ -60,7 +63,8 @@ function EmailSavingComponent(){
         // Functions
     async function sendData(){ 
         if(isValid && message.length > 1){
-            toast.promise(senValidate( {email:email, mes:message}, '' ), {
+            toast.promise(
+                sendMail({mail: email, me: message}), {
                 pending: 'Saving your mail!',
                 success: `Email Saved, i'll contanct you as soon as possible!`,
                 error: 'Something went wrong with mail handling API'
@@ -103,7 +107,7 @@ function EmailSavingComponent(){
                         <div className="field">
                             <div className="control">
                                 <textarea className="textarea is-rounded" value={message} 
-                                onChange={({target:{value}}) => setMessage(value)}
+                                onChange={({target:{value}, key}) =>{console.log(`the key is : ${key} ${'the value is : '}` + value) ;setMessage(value)}}
                                 placeholder="Write here what you want me to know before we meet"/>
                             </div>
                         </div>

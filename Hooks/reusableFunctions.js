@@ -2,6 +2,9 @@
 
 export async function senValidate(object, url, headers){
 
+    console.log(object)
+
+
     let sendObj = { 
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
@@ -22,8 +25,43 @@ export async function senValidate(object, url, headers){
 }
 
 
-export function getNotification(message = 'this is supposed to be a Notif/Toast', color = 'w', duration = 5000){
+// Node- Methods {Abstract from front-end}
+// export async function sendMail({mail, messag}){
+
+//     try{
+
+//         Nodemailer.createTransport({
+    
+//             // Proxy config
+//             service:'gmail',      
+    
+//             // port: PORT,
+//             port: 465,
+//             secure: true,
+    
+//             // Mail Config
+//             auth:{ user:MAIL_USER, pass:MAIL_PASS },
+    
+//         })
+//         .sendMail({
+//             from: MAIL_USER, 
+//             to: OWNER_MAIL, 
+//             subject: 'Aptempt to contact', 
+//             text: 
+//             `${mail}, is looking foward to meet with you, this is their message:  
+//             ${messag}
+//             `,
+//         }, (error, info) => {
+//             if(!error) { 
+//                 console.log(`Mail sent to : ${info.response}`); 
+//             } else { 
+//                 console.log('error on mail send', error); 
+//             }
+//         });
+
+//     } catch(e){
+//         throw new Error(`Error while trying to send email', more detailed error : \n ${e}`);
+//     }
 
 
-
-}
+// }
