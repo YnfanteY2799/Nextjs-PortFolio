@@ -3,21 +3,16 @@ import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from 'next/router';
-import ReactDOM from 'react-dom';
 
 // Functions 
 let getIcon = n => `/${n.toLowerCase()}.svg`;
 
 function evalRoute( str ){
-
     if(str.split("/")[1] === 'Blogs'){
         return '/Blog';
-    }else if(str.includes('CodePlayGround')){
-        return '/Projects'
-    }else {
+    } else {
         return str;
     }
-    
 }
 
 function setSize(size){
@@ -136,12 +131,16 @@ function AppBar(){
 
     // Constants
     let _basicLeftOptions = [
+        // UnUsed
         {name:"Home", route:"/Home", showable: false },
-        {name:"Projects", route:"/Projects", showable: false },
         {name:"Details", route:"/Details", showable: false },
+        {name:"PlayGround", route:"/CodePlayGround", showable: false },
+
+
         {name:"About", route:"/About", showable: true },
         {name:"Contact", route:"/Contact", showable: true },
         {name:"Blog", route:"/Blog", showable: true },
+        {name:"Projects", route:"/Projects", showable: true },
     ];
 
     let _dropdownOptions = [
@@ -186,7 +185,7 @@ function AppBar(){
                     <NavbarOptions opts={_basicLeftOptions}/>
 
                     {/* DropDown */}
-                    <div className="navbar-item has-dropdown is-hoverable">
+                    {/* <div className="navbar-item has-dropdown is-hoverable">
                         <Link href="/Projects">
                             <a className={`navbar-link ${rout.pathname === "/Projects" ? "is-active" : ''}`}> Projects </a>
                         </Link>
@@ -194,7 +193,7 @@ function AppBar(){
                         <div className="navbar-dropdown is-boxed">
                             <DropDownOpts opts={_dropdownOptions}/>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
         

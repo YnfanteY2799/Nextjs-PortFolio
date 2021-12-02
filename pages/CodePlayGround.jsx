@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
 import { codeDefaultNhen } from "../public/static/codeDefaults.js";
-import Head from "next/head";
 import { AppBar } from "../components/NavigationComponents.jsx";
 import Editor from "@monaco-editor/react";
 
@@ -42,7 +40,7 @@ export default function CodePlayGround({baseCode = "Nhen"}){
                 <div className="column">
                         <Editor height={"500px"} width={"700px"}
                         defaultLanguage="javascript"
-                        theme="vs-dark" onChange={e => setCodeValue(e)}
+                        theme="vs-dark" //onChange={e => setCodeValue(e)}
                         onMount={handleEditorMount}
                         />
                 </div>

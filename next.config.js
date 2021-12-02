@@ -9,6 +9,7 @@ module.exports = {
       {source:"/PlayMe", destination: "/CodePlayGround", permanent:true },
       {source:"/ppp", destination: "/CodePlayGround", permanent:true },
       {source:"/", destination: "/Home", permanent:true },
+      {source:"/Blogs", destination: "/Blog", permanent:true },
 
 
     ]
