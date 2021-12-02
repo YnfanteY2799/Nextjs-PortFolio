@@ -3,6 +3,7 @@ import { AppBar } from "../components/NavigationComponents.jsx";
 import Editor from "@monaco-editor/react";
 
 import { useState, useRef } from "react";
+import { useRouter } from "next/router";
 
 function defineDefaultValue(str){
     switch(str){
@@ -18,9 +19,11 @@ export default function CodePlayGround({baseCode = "Nhen"}){
 
     // Statefull Variables
     const monacoRef = useRef();
+    const routing = useRouter();
     const [ codeValue, setCodeValue ] = useState("");
-    let data = ''
 
+    
+    console.log(routing.query)
 
     // functions
     function handleEditorMount(value) {

@@ -68,14 +68,14 @@ function Body({content = [1,2,3,4,5,6,]}){
         }
     }
 
-
     return ret;
 }
 
 function Cards({ quant = [] }){
     return quant.map((x,i) => 
             <div className="column" key={i}>
-            <div className="card" >
+            <div className="card is-rounded">
+                
                 <div className="card-image">
                     <figure className="image is-4by4 ">
                         <Image src={`${"/loading.gif"}`} height="255" width="400" alt="Github" layout="responsive"/>
@@ -83,6 +83,7 @@ function Cards({ quant = [] }){
                 </div>
                             
                 <div className="card-content">
+                    
                     <div className="media">
                         <div className="media-left">
                             <figure className="image is-48x48">
@@ -90,13 +91,13 @@ function Cards({ quant = [] }){
                             </figure>
                         </div>
                         <div className="media-content">
-                            <Link href="/Blogs/NewBlog">
+                            <Link href={`/Blogs/${'projectName'}`}>
                                 <a className="title is-4">{"projectName"}</a>
                             </Link>
                          </div>
                     </div>
 
-                        <div className="content">
+                    <div className="content">
                             <p>{"projectDescription"}</p>
                             <p></p>
                             <hr/>

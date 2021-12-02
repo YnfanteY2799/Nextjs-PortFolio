@@ -101,6 +101,7 @@ function Carousel({options = [0,1,2]}){
 }
 
 function HeroCarousel({options = [1,2,3]}){
+    
     let [ actSlide, setActSlide ] = useState(1);
     let moveFoward = () => setActSlide(actSlide >= options.length ? actSlide - (options.length - 1) : actSlide + 1 );
     let moveBackwards = () =>  setActSlide(actSlide === 0 ? actSlide + 1 : actSlide - 1 );
@@ -151,8 +152,18 @@ function AppBar(){
     ];
 
     // Hookified - Variables
+    // const mquery = useMediaQuery();
     const [ mobileDropdownActive, setMobileDropdownActive ] = useState(false);
-    
+    const [ isDarkModeActive, setIsDarkModeActive ] = useState(false);
+
+    // Functions in-component
+    function setDarkmode(){
+        setIsDarkModeActive(!isDarkModeActive);
+    }
+
+    // console.log(localStorage)
+
+
     // Router Next Hook
     const rout = useRouter();
 
@@ -202,6 +213,20 @@ function AppBar(){
                     <div className="navbar-item">
 
                         <div className="field is-grouped">
+         
+                            <p className="control">
+                                <button className={`button is-rounded`} onClick={setDarkmode}>
+                                    <span className="icon">
+                                        {
+                                            isDarkModeActive ? 
+                                            <i className="fas fa-cloud-sun"/>
+                                            :
+                                            <i className="fas fa-sun"/> 
+                                        }
+                                    </span>
+                                </button>
+                            </p>
+
                             <p className="control">
                                 <Link href="/Details">                    
                                     <a className={`button ${rout.pathname === "/Details" ? 'is-success' : "is-white"}`}>
@@ -210,6 +235,7 @@ function AppBar(){
                                     </a>
                                 </Link>
                             </p>
+
                         </div>
 
                     </div>

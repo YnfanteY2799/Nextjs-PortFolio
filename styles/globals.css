@@ -41,6 +41,11 @@ aside {
   padding-top: 20px;
 }
 
+.rounded_card {
+  border-radius: 10px;
+
+}
+
 .isHoverable {
   padding-left: 6px;
   padding-right: 6px;

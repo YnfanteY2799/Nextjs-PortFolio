@@ -1,6 +1,5 @@
 import { AppBar } from "../components/NavigationComponents";
 import Image from "next/image";
-import Head from "next/head";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -12,7 +11,6 @@ function formatDates(arg = '2021-10-29T20:42:56Z'){
         arg = (arg??'');
         arg = arg.split("-");
         arg = ` ${arg[2]?.split("T")[0]}/${arg[1]}/${arg[0]}`
-
         return arg;
     }
 }
@@ -65,16 +63,26 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
                             </div>
                         </div>
 
+                        {(source !== undefined) && (
+         
                         <footer className="card-footer">
+                            
                             <Link href={`${source}/commits`}>
-                                <a className="card-footer-item"> Details </a>
+                                <a className="card-footer-item"> History </a>
                             </Link>
-                            <div className="card-footer-item"/>
+                            
                             <Link href={`${source}`}>
                                 <a className="card-footer-item"> Source </a>
                             </Link>
-                        </footer>
+                            
+                            <div className="card-footer-item">
+                                <Link href={`/CodePlayGround?pro=nhen`}>
+                                    <a className="card-footer-item"> Test it! </a>
+                                </Link>
+                            </div>
 
+                        </footer>
+                        )}
                     </div>
                 </div>
             </div>
@@ -84,11 +92,11 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
     for(let i = 0; i < data.length; i++){
         if(i % chunking === 0){
             let subData = data.slice(i, i + chunking);
-            subDivided = [...subDivided, (
+            subDivided = [...subDivided,
             <div key={i} className="columns">
                 <RenderingCards dataToRender={subData}/>
             </div>
-            )];
+            ];
         }
     }
 
@@ -96,20 +104,18 @@ function Cards({data = [1,2,3,4,5,6,7,8], chunking = 3}){
 }
 
 function Body({projects = []}){
-    return projects.map(({divisionName, subAddOnIcon, subTitle, projects},index) => {
-      return( 
+    return projects.map(({divisionName, subAddOnIcon, subTitle, projects},index) => 
       <div className="container card_container" key={index}>
         <p className="title is-1 is-spaced">
             {divisionName}
-            <Image src={subAddOnIcon} height="40" width="38" alt={subTitle}/>
-            <a name={`${(divisionName??'').split(" ")[0].toLowerCase()}`}></a>
+            <Image src={subAddOnIcon} height = "40" width= "38" alt={subTitle}/>
+            <a name={`${(divisionName??'').split(" ")[0].toLowerCase()}`}/>
         </p>
         <p className="subtitle is-3">{subTitle}</p>
         <hr/>
         <Cards data={projects} chunking={3} />
       </div>
-      );
-    })
+    );
 }
 
 export default function Projects(){
@@ -119,10 +125,12 @@ export default function Projects(){
 
     // constant Variables
     const _projects = [
-        {division: "NodeJs Projects ", subAddOnIcon:"/node.svg" ,subTitle:"Projects i've made while i was learning NodeJs", projects:[1,2,3]},
-        {division: "DenoJs Projects ", subAddOnIcon:"/deno.svg" ,subTitle:"", projects:[1,2,3]},
-        {division: "Java Projects ", subAddOnIcon:"/java.svg" ,subTitle:"", projects:[1,2,3]},
-        {division: "Rust Projects ", subAddOnIcon:"/rust.svg" ,subTitle:"", projects:[1,2,3]},
+        {
+            divisionName: "Loading Projects", 
+            subAddOnIcon:"/loading-25.gif" ,
+            subTitle:" Wait until the projects information is loaded ", 
+            projects:[1,2,3]
+        },
     ];
 
     // Functions
@@ -138,11 +146,6 @@ export default function Projects(){
         <AppBar />
         <div>    
             <Body projects={_dinamProjects.length > 0 ? _dinamProjects : _projects}/>
-            
-            
-
-
-
         </div>   
         </>
     );
