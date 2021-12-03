@@ -3,10 +3,8 @@ import Head from "next/head";
 import 'bulma/css/bulma.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 export default function MyApp({Component, pageProps}){
-
-    return( 
+  return( 
     <>
       <Head>
         {/* Responsive Header */}
@@ -15,5 +13,6 @@ export default function MyApp({Component, pageProps}){
       </Head>
       
       <Component {...pageProps}/>  
-    </>);
+    </>
+  );
 }

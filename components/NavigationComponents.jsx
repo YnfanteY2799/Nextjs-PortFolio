@@ -161,9 +161,6 @@ function AppBar(){
         setIsDarkModeActive(!isDarkModeActive);
     }
 
-    // console.log(localStorage)
-
-
     // Router Next Hook
     const rout = useRouter();
 
@@ -263,7 +260,7 @@ function Hero({ color = "primary", title = "Set Title" , description = "set Desc
             {foot !== undefined ? foot : null}
         </section>
     </>
-
+    
 // https://bulma.io/documentation/layout/hero/
 // https://bulma.io/documentation/components/card/
 // https://bulma.io/documentation/form/general/

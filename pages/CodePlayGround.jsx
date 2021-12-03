@@ -1,55 +1,35 @@
-import { codeDefaultNhen } from "../public/static/codeDefaults.js";
 import { AppBar } from "../components/NavigationComponents.jsx";
-import Editor from "@monaco-editor/react";
-
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
-
-function defineDefaultValue(str){
-    switch(str){
-        case 'Nhen':
-            return codeDefaultNhen;
-
-    }
-
-}
+import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from "@codemirror/lang-javascript";
 
 
 export default function CodePlayGround({baseCode = "Nhen"}){
 
     // Statefull Variables
-    const monacoRef = useRef();
     const routing = useRouter();
     const [ codeValue, setCodeValue ] = useState("");
 
     
-    console.log(routing.query)
 
     // functions
-    function handleEditorMount(value) {
-        monacoRef.current = value;
-    }
-    
-    function getValue(){
-        setCodeValue(monacoRef.current.getValue());
-    }
-
-
 
     return( 
         <>
           <AppBar/>
             <div className="columns">
                 <div className="column">
-                        <Editor height={"500px"} width={"700px"}
-                        defaultLanguage="javascript"
-                        theme="vs-dark" //onChange={e => setCodeValue(e)}
-                        onMount={handleEditorMount}
-                        />
+                <CodeMirror
+                    value={codeValue}
+                    height="575px"
+                    extensions={[javascript({ jsx: true })]}
+                    onChange={(value) => setCodeValue(value)} 
+                    theme='dark'/>
                 </div>
                 <div className="column">
 
-                    <button onClick={() => getValue()}>Run : 
+                    <button >Run : 
                         <span>
                             <i className="fas fa-play"/>
                         </span>

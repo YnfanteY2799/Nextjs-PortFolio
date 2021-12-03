@@ -1,7 +1,14 @@
 import { AppBar } from "../components/NavigationComponents.jsx";
 
+
+
+
 export default function Home(){
-    return <>
+
+
+
+
+  return <>
       <AppBar />
     <div>
 
