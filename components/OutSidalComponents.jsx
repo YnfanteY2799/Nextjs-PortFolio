@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ToastContainer, toast } from "react-toastify"; 
+import { ToastContainer, toast } from "react-toastify";
+import { groupBy, structureLinks } from '../public/static/codeDefaults';
 import Image from "next/image";
-
+import Link from 'next/link';
 
 // functions 
 function IsOk({valid = false}){
@@ -22,7 +23,6 @@ async function sendMail({mail, me}){
 function validateEmail(value){
     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
 }
-
 
 // Components 
 export function EmailSavingComponent(){
@@ -107,16 +107,56 @@ export function EmailSavingComponent(){
     );
 }
 
-export function SocialContacts(){
+export function SocialContacts({ renderingBadges = [] }){
 
-    return (
+    renderingBadges = structureLinks(renderingBadges);
+    renderingBadges = groupBy(renderingBadges, 'type');
+    let keys = Object.keys(renderingBadges);
+    console.log(renderingBadges[keys[0]])
 
+    return (       
         <div className="box">
-            
-            <Image src={"https://www.codewars.com/users/Nobu-Nobu/badges/large"} width="400" height="100" alt="codewars-props"/>
-
-        
+            {keys.map((x,i) => 
+                <div className="columns" key={i}>
+                    {renderingBadges[x].map(({baseLink, custoMoji}, ind) => {
+                        console.log(custoMoji)
+                        return(
+                            <div className="colum" key={ind}>
+                                <Link href={`${baseLink}`}>
+                                    <a className="button">
+                                        <Image src={(custoMoji??'/loading.gif')} alt={(custoMoji??'/loading.gif')} width="100" height="100"/>
+                                    </a>
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div>
+                )
+            })
         </div>
     );
 }
 
+export function HeroFooter({options = [] , activetab = 0, tabSetter }){
+    return( 
+    <> 
+        <div className="hero-foot">
+            <nav className="tabs is-boxed is-fullwidth">
+                <div className="container">
+                    <ul>
+                        {options.map(({name, moji},i) => 
+                        <li className={activetab === i ? "is-active" : ""} key={i} onClick={() => tabSetter(i)}>
+                            <a>
+                                <span className="icon is-small">
+                                    <i className={moji} aria-hidden="true"/>
+                                </span>
+                                <span>{name}</span>
+                            </a>
+                        </li>)}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </>
+    );
+}

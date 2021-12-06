@@ -4,6 +4,7 @@ module.exports = {
       'pexels.com', 
       'images.pexels.com', 
       'www.codewars.com', 
+      'img.shields.io',
     ],
   },
   reactStrictMode: true,
