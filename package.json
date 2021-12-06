@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "create_svg": "node ./scripts/svgMaker.js",
     "lint": "next lint"
   },
   "dependencies": {

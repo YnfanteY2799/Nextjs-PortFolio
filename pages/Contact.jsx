@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AppBar, Hero } from "../components/NavigationComponents.jsx";
 import { EmailSavingComponent, SocialContacts, HeroFooter } from "../components/OutSidalComponents.jsx";
+import { socialLinks } from "../public/static/codeDefaults.js";
 
 // Constants
 const title = "Did you liked one of my projects ?";
