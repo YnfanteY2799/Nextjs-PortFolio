@@ -8,11 +8,18 @@ import { useRouter } from 'next/router';
 let getIcon = n => `/${n.toLowerCase()}.svg`;
 
 function evalRoute( str ){
-    if(str.split("/")[1] === 'Blogs'){
-        return '/Blog';
-    } else {
-        return str;
+
+    let subStr = str.split("/")[1];
+
+    switch(subStr){
+        case 'Blogs':
+            return '/Blog';
+        case 'CodeGround':
+            return '/CodePlayGround';
+        default :
+            return str;
     }
+
 }
 
 function setSize(size){

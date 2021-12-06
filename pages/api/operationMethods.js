@@ -41,7 +41,7 @@ export default function handler(req, res) {
            }
     });
 
-    res.status(200);
+    res.status(200).Ok();
 
     }catch(e){
         res.status(404);

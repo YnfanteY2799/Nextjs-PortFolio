@@ -1,6 +1,10 @@
 module.exports = {
   images: {
-    domains: ['pexels.com', 'images.pexels.com', 'www.codewars.com'],
+    domains: [
+      'pexels.com', 
+      'images.pexels.com', 
+      'www.codewars.com', 
+    ],
   },
   reactStrictMode: true,
   async redirects(){

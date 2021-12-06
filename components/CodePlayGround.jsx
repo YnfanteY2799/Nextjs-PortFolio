@@ -1,4 +1,4 @@
-import { AppBar } from "../components/NavigationComponents.jsx";
+import { AppBar } from "./NavigationComponents.jsx";
 import { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Editor from "@monaco-editor/react";
@@ -13,30 +13,35 @@ export default function CodePlayGround({baseCode = "Nhen"}){
     const routing = useRouter();
     const [ codeValue, setCodeValue ] = useState("");
 
+    // functions
     function handleEditorMount(value) {
         monacoRef.current = value;
     }
     
 
-    // functions
+    function handleEditorChange (value, event) {
+
+        
+
+
+        console.log(value)
+        // console.log(reference)
+        setCodeValue()
+    }
+
+    console.log(window)
 
     return( 
         <>
           <AppBar/>
             <div className="columns">
                 <div className="column">
-                {/* <CodeMirror
-                    value={codeValue}
-                    height="565px"
-                    extensions={[javascript({ jsx: true })]}
-                    onChange={v => setCodeValue(v)} 
-                    theme='dark'/>
-                </div> */}
-
-                <Editor height={"500px"} width={"700px"}
+                    <Editor 
+                        height={"500px"} width={"700px"}
                         defaultLanguage="javascript"
-                        theme="vs-dark" //onChange={e => setCodeValue(e)}
+                        theme="vs-dark" 
                         onMount={handleEditorMount}
+                        onChange={handleEditorChange}
                         />
 
                     <div className="column">
