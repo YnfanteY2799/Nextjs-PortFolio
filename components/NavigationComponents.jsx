@@ -174,8 +174,9 @@ function AppBar(){
 
     return <> 
         <Head>
-            <title>NobuCoder | {_basicLeftOptions.filter(({route}) => evalRoute( rout.pathname ) === route)[0].name} </title>
+            <title>NobuCoder | { _basicLeftOptions.filter(({route}) => evalRoute( rout.pathname ) === route)[0].name } </title>
         </Head>
+        
         <nav className="navbar is-black">
                 
             <div className="navbar-brand">
