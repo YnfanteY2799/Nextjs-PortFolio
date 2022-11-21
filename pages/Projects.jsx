@@ -22,14 +22,7 @@ function Cards({ data = [1, 2, 3, 4, 5, 6, 7, 8], chunking = 5 }) {
   let RenderingCards = ({ dataToRender }) => {
     return dataToRender.map(
       (
-        {
-          projectName,
-          mainImg,
-          secondImg,
-          projectDescription,
-          source,
-          last_commit,
-        },
+        { projectName, mainImg, secondImg, projectDescription, source, last_commit },
         i
       ) => {
         return (
@@ -63,8 +56,8 @@ function Cards({ data = [1, 2, 3, 4, 5, 6, 7, 8], chunking = 5 }) {
                       </figure>
                     </div>
                     <div className="media-content">
-                      <Link href={`${source}`}>
-                        <a className="title is-4">{projectName}</a>
+                      <Link href={`${source}`} className="title is-4">
+                        {projectName}
                       </Link>
                     </div>
                   </div>
@@ -75,26 +68,27 @@ function Cards({ data = [1, 2, 3, 4, 5, 6, 7, 8], chunking = 5 }) {
                     <hr />
                     <p>
                       Last Commit at :
-                      <time dateTime="2016-1-1">
-                        {formatDates(last_commit)}
-                      </time>
+                      <time dateTime="2016-1-1">{formatDates(last_commit)}</time>
                     </p>
                   </div>
                 </div>
 
                 {source !== undefined && (
                   <footer className="card-footer">
-                    <Link href={`${source}/commits`}>
-                      <a className="card-footer-item"> History </a>
+                    <Link className="card-footer-item" href={`${source}/commits`}>
+                      History
                     </Link>
 
-                    <Link href={`${source}`}>
-                      <a className="card-footer-item"> Source </a>
+                    <Link className="card-footer-item" href={`${source}`}>
+                      Source
                     </Link>
 
                     <div className="card-footer-item">
-                      <Link href={`/CodePlayGround?pro=nhen`}>
-                        <a className="card-footer-item"> Test it! </a>
+                      <Link
+                        href={`/CodePlayGround?pro=nhen`}
+                        className="card-footer-item"
+                      >
+                        Test it!
                       </Link>
                     </div>
                   </footer>
@@ -123,20 +117,18 @@ function Cards({ data = [1, 2, 3, 4, 5, 6, 7, 8], chunking = 5 }) {
 }
 
 function Body({ projects = [] }) {
-  return projects.map(
-    ({ divisionName, subAddOnIcon, subTitle, projects }, index) => (
-      <div className="container card_container" key={index}>
-        <p className="title is-1 is-spaced">
-          {divisionName}
-          <Image src={subAddOnIcon} height="40" width="38" alt={subTitle} />
-          <a name={`${(divisionName ?? "").split(" ")[0].toLowerCase()}`} />
-        </p>
-        <p className="subtitle is-3">{subTitle}</p>
-        <hr />
-        <Cards data={projects} chunking={3} />
-      </div>
-    )
-  );
+  return projects.map(({ divisionName, subAddOnIcon, subTitle, projects }, index) => (
+    <div className="container card_container" key={index}>
+      <p className="title is-1 is-spaced">
+        {divisionName}
+        <Image src={subAddOnIcon} height="40" width="38" alt={subTitle} />
+        <a name={`${(divisionName ?? "").split(" ")[0].toLowerCase()}`} />
+      </p>
+      <p className="subtitle is-3">{subTitle}</p>
+      <hr />
+      <Cards data={projects} chunking={3} />
+    </div>
+  ));
 }
 
 export default function Projects() {
@@ -168,9 +160,7 @@ export default function Projects() {
     <>
       <AppBar />
       <div>
-        <Body
-          projects={_dinamProjects.length > 0 ? _dinamProjects : _projects}
-        />
+        <Body projects={_dinamProjects.length > 0 ? _dinamProjects : _projects} />
       </div>
     </>
   );

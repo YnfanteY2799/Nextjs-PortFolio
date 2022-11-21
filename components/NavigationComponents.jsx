@@ -63,19 +63,17 @@ function setColor(val) {
 // Components
 function DropDownOpts({ opts = [] }) {
   return opts.map(({ name, route }, i) => (
-    <Link key={i} href={route}>
-      <a className="navbar-item">
-        {name}
-        <span className="dropDownLogo">
-          <Image
-            className="dropDownLogo"
-            src={getIcon(name.split(" ")[0])}
-            width="30"
-            height="30"
-            alt={name}
-          />
-        </span>
-      </a>
+    <Link key={i} href={route} className="navbar-item">
+      {name}
+      <span className="dropDownLogo">
+        <Image
+          className="dropDownLogo"
+          src={getIcon(name.split(" ")[0])}
+          width="30"
+          height="30"
+          alt={name}
+        />
+      </span>
     </Link>
   ));
 }
@@ -85,17 +83,19 @@ function NavbarOptions({ opts = [] }) {
   const rou = useRouter();
   return opts.map(({ name, route }, i) => {
     return (
-      <Link href={route} key={i}>
-        <a
-          className={`navbar-item ${
-            route ===
-            (rou.pathname.split("/").length >= 3
-              ? "/" + rou.pathname.split("/")[1]
-              : rou.pathname)
-              ? "is-active"
-              : ""
-          }`}
-        >{`${name}`}</a>
+      <Link
+        href={route}
+        key={i}
+        className={`navbar-item ${
+          route ===
+          (rou.pathname.split("/").length >= 3
+            ? "/" + rou.pathname.split("/")[1]
+            : rou.pathname)
+            ? "is-active"
+            : ""
+        }`}
+      >
+        {`${name}`}
       </Link>
     );
   });
@@ -105,25 +105,15 @@ function Carousel({ options = [0, 1, 2] }) {
   let [actSlide, setActSlide] = useState(options[0]);
   let moveFoward = () =>
     setActSlide(
-      actSlide >= options.length
-        ? actSlide - (options.length - 1)
-        : actSlide + 1
+      actSlide >= options.length ? actSlide - (options.length - 1) : actSlide + 1
     );
   let moveBackwards = () =>
     setActSlide(actSlide === 0 ? options.length - 1 : actSlide - 1);
   return (
     <>
       {options.map((x) => (
-        <div
-          className={`${actSlide === x ? "active" : "hidden"}_carousel fade`}
-          key={x}
-        >
-          <Image
-            src={`/temp/${x}.jpg`}
-            alt={`${x}`}
-            width="1280"
-            height="620"
-          />
+        <div className={`${actSlide === x ? "active" : "hidden"}_carousel fade`} key={x}>
+          <Image src={`/temp/${x}.jpg`} alt={`${x}`} width="1280" height="620" />
         </div>
       ))}
       <a className="next" onClick={moveFoward}>
@@ -140,12 +130,9 @@ function HeroCarousel({ options = [1, 2, 3] }) {
   let [actSlide, setActSlide] = useState(1);
   let moveFoward = () =>
     setActSlide(
-      actSlide >= options.length
-        ? actSlide - (options.length - 1)
-        : actSlide + 1
+      actSlide >= options.length ? actSlide - (options.length - 1) : actSlide + 1
     );
-  let moveBackwards = () =>
-    setActSlide(actSlide === 0 ? actSlide + 1 : actSlide - 1);
+  let moveBackwards = () => setActSlide(actSlide === 0 ? actSlide + 1 : actSlide - 1);
 
   console.log(actSlide, actSlide === 0);
   console.log(options[actSlide], `el largo es : ${options.length} y `);
@@ -153,10 +140,7 @@ function HeroCarousel({ options = [1, 2, 3] }) {
   return (
     <>
       {options.map((x) => (
-        <div
-          className={`${actSlide === x ? "active" : "hidden"}_carousel fade`}
-          key={x}
-        >
+        <div className={`${actSlide === x ? "active" : "hidden"}_carousel fade`} key={x}>
           <div className="hero-body">
             <p className="title">{`Primary ${x}`}</p>
             <p className="subtitle">Primary subtitle</p>
@@ -220,14 +204,11 @@ function AppBar() {
       <nav className="navbar is-black">
         <div className="navbar-brand">
           {/* Brand */}
-          <Link href="/Home">
-            <a
-              className={`navbar-item ${
-                rout.pathname === "/Home" ? "is-active" : ""
-              }`}
-            >
-              Nobu_Coder!
-            </a>
+          <Link
+            href="/Home"
+            className={`navbar-item ${rout.pathname === "/Home" ? "is-active" : ""}`}
+          >
+            Nobu_Coder!
           </Link>
 
           {/* Hamburguer */}
@@ -240,10 +221,7 @@ function AppBar() {
           </div>
         </div>
 
-        <div
-          id="navbar"
-          className={`navbar-menu ${mobileDropdownActive && "is-active"}`}
-        >
+        <div id="navbar" className={`navbar-menu ${mobileDropdownActive && "is-active"}`}>
           {/* Navbar Start */}
           <div className="navbar-start">
             <NavbarOptions opts={_basicLeftOptions} />
@@ -276,17 +254,16 @@ function AppBar() {
                 </p>
 
                 <p className="control">
-                  <Link href="/Details">
-                    <a
-                      className={`button ${
-                        rout.pathname === "/Details" ? "is-success" : "is-white"
-                      }`}
-                    >
-                      <span className="icon">
-                        <i className="far fa-user" />
-                      </span>
-                      <span> Click Me for Details </span>
-                    </a>
+                  <Link
+                    href="/Details"
+                    className={`button ${
+                      rout.pathname === "/Details" ? "is-success" : "is-white"
+                    }`}
+                  >
+                    <span className="icon">
+                      <i className="far fa-user" />
+                    </span>
+                    <span> Click Me for Details </span>
                   </Link>
                 </p>
               </div>
@@ -340,12 +317,4 @@ function Modal({ is_active }) {
   );
 }
 
-export {
-  AppBar,
-  AsidedLeftMenu,
-  Hero,
-  Carousel,
-  HeroCarousel,
-  setColor,
-  Modal,
-};
+export { AppBar, AsidedLeftMenu, Hero, Carousel, HeroCarousel, setColor, Modal };

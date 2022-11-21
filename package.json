@@ -9,22 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@codemirror/lang-javascript": "^6.0.1",
-    "@monaco-editor/react": "^4.4.5",
-    "@types/node": "^18.0.1",
-    "@types/react": "^18.0.14",
-    "@uiw/react-codemirror": "^4.10.4",
+    "@codemirror/lang-javascript": "^6.1.1",
+    "@monaco-editor/react": "^4.4.6",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@uiw/react-codemirror": "^4.15.1",
     "bulma": "^0.9.4",
     "codemirror": "^6.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "next": "12.2.0",
-    "nodemailer": "^6.7.6",
+    "next": "13.0.4",
+    "nodemailer": "^6.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-toastify": "^9.0.5"
+    "react-toastify": "^9.1.1"
   },
   "devDependencies": {
-    "eslint": "8.19.0",
-    "eslint-config-next": "12.2.0"
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.4"
   }
 }
