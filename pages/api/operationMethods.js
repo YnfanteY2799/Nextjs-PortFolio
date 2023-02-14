@@ -2,7 +2,7 @@ import Nodemailer from "nodemailer";
 const { MAIL_USER, MAIL_PASS, OWNER_MAIL } = process.env;
 
 export default function handler({ query }, res) {
-  let { mail, message } = query;
+  const { mail, message } = query;
 
   try {
     Nodemailer.createTransport({
