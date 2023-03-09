@@ -1,20 +1,20 @@
 import { ReactElement, useState, MouseEvent } from "react";
-import Link from "next/link";
 import NavList from "./NavList";
+import Link from "next/link";
 import Image from "next/image";
 
-export default function Navbar(): ReactElement {
+export default function Navbar() : ReactElement {
   const [active, setActive] = useState("" as string);
   const [isToggle, setToggle] = useState(false as boolean);
 
   function handleActive(
-    event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string
+    e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string
   ): void {
-    typeof event === "string" ? setActive(event) : setActive("");
+    typeof e === "string" ? setActive(e) : setActive("");
     window.scrollTo(0, 0);
   }
 
-  function toggle(): void {
+  function toggle() : void {
     setToggle(!isToggle);
   }
 
@@ -23,7 +23,7 @@ export default function Navbar(): ReactElement {
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-2" onClick={handleActive}>
           <Image
-            src={"/public/logo.svg"}
+            src="/logo.svg"
             alt="logo"
             className="w-9 h-9 object-contain"
             width={0}
@@ -38,7 +38,7 @@ export default function Navbar(): ReactElement {
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <Image
-            src={"next.svg"}
+            src="/next.svg"
             width={0}
             height={0}
             alt="menu"
