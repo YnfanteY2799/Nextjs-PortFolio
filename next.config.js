@@ -1,22 +1,6 @@
-module.exports = {
-  images: {
-    domains: [
-      'pexels.com', 
-      'images.pexels.com', 
-      'www.codewars.com', 
-      'img.shields.io',
-    ],
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
-  async redirects(){
-
-    return [
-      {source:"/PlayMe", destination: "/CodePlayGround", permanent:true },
-      {source:"/ppp", destination: "/CodePlayGround", permanent:true },
-      {source:"/", destination: "/Home", permanent:true },
-      {source:"/Blogs", destination: "/Blog", permanent:true },
-
-
-    ]
-  }
 }
+
+module.exports = nextConfig

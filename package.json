@@ -1,30 +1,20 @@
 {
-  "name": "nextjs-blog",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3099",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@codemirror/lang-javascript": "^6.1.1",
-    "@monaco-editor/react": "^4.4.6",
-    "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@uiw/react-codemirror": "^4.15.1",
-    "bulma": "^0.9.4",
-    "codemirror": "^6.0.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "next": "13.0.4",
-    "nodemailer": "^6.8.0",
+    "@types/node": "18.14.6",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-toastify": "^9.1.1"
-  },
-  "devDependencies": {
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.4"
+    "typescript": "4.9.5"
   }
 }
