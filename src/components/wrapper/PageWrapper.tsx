@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from "react";
+import { motion } from "framer-motion";
 import Header from "../ui/head/Head";
 import Navbar from "../ui/Navbar/Navbar";
 
@@ -8,10 +9,8 @@ export interface PageWrapperProps {
 
 export default function PageWrapper({ children }: PageWrapperProps): ReactElement {
   return (
-    <>
-      <Header />
-      <Navbar />
-      {children}
-    </>
+    <div className="relative z-0 bg-primary">
+
+    </div>
   );
 }

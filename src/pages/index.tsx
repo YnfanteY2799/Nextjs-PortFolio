@@ -1,6 +1,18 @@
 import { ReactElement } from "react";
-import { PageWrapper } from "@/components";
+import Navbar from "@/components/ui/Navbar/Navbar";
 
 export default function Home(): ReactElement {
-  return <PageWrapper></PageWrapper>;
+  return (
+    <div className="relative z-0 bg-primary">
+      <div className="bg-hero-patter bg-cover bg-no-repeat bg-center">
+        <Navbar />
+        {/* <Hero /> */}
+      </div>
+
+      <div className="relative z-0">
+        {/* <Contact /> */}
+        {/* <StarsCanvas /> */}
+      </div>
+    </div>
+  );
 }
