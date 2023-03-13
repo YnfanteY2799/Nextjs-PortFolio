@@ -14,8 +14,9 @@ export default function Model({ isMobile }: ModelProps): ReactElement {
       <pointLight intensity={1} />
       <pointLight
         position={[20, 50, 10]}
-        angle={0.12}
-        penumbra={1}
+        
+     //    angle={0.12}
+     //    penumbra={1}
         intensity={1}
         castShadow={true}
         shadow-mapSize={1024}
