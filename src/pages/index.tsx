@@ -1,17 +1,29 @@
 import { ReactElement } from "react";
 import Navbar from "@/components/ui/Navbar/Navbar";
+import {
+  Hero,
+  About,
+  Experience,
+  Tech,
+  Works,
+  Feedbacks,
+  Contact
+} from "@/components/page_componentials";
 
 export default function Home(): ReactElement {
   return (
     <div className="relative z-0 bg-primary">
-      <div className="bg-hero-patter bg-cover bg-no-repeat bg-center">
+      <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
         <Navbar />
-        {/* <Hero /> */}
+        <Hero />
       </div>
-
+      <About />
+      <Experience />
+      <Tech />
+      <Works />
+      <Feedbacks />
       <div className="relative z-0">
-        {/* <Contact /> */}
-        {/* <StarsCanvas /> */}
+        <Contact />
       </div>
     </div>
   );
