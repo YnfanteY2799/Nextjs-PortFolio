@@ -1,14 +1,20 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer } from "@/utils/utils";
+import { SectionsProps } from "@/types/Sections";
 
 export interface SWProps {
   Component?: Function;
   id?: string;
+  ComponentProps?: SectionsProps;
 }
 
-export default function SectionWrapper({ Component, id }: SWProps): Function {
-  return function HOC(): ReactElement {
+export default function SectionWrapper({
+  Component,
+  id,
+  ComponentProps,
+}: SWProps): Function {
+  return function HOC(xd:SectionsProps): ReactElement {
     return (
       <motion.section
         variants={staggerContainer()}
@@ -20,7 +26,7 @@ export default function SectionWrapper({ Component, id }: SWProps): Function {
         <span className="hash-span" id={id}>
           &nbsp;
         </span>
-        {Component !== undefined && <Component />}
+        {Component !== undefined && <Component {...xd} />}
       </motion.section>
     );
   };
