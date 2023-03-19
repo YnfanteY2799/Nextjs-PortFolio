@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect } from "react";
 import {
   Hero,
   About,
@@ -9,16 +9,17 @@ import {
   Contact,
 } from "@/components/page_componentials";
 import Navbar from "@/components/ui/Navbar/Navbar";
+import { useLandingStore } from "@/store/StoreLanding";
+import { shallow } from "zustand/shallow";
 
 export default function Home(): ReactElement {
-  const [data, setData] = useState();
+  const { history, perkz, techs, aboutText, projects, projectsText } =
+    useLandingStore((s) => s, shallow);
+
+  const { getData, addData } = useLandingStore();
 
   useEffect(() => {
-    fetch("/api/initial")
-      .then((x) => x.json())
-      .then((x) => {
-        setData(x);
-      });
+    addData({ aboutText: "Hey" });
   }, []);
 
   return (
@@ -27,11 +28,13 @@ export default function Home(): ReactElement {
         <Navbar />
         <Hero />
       </div>
+
       <About />
       <Experience />
       <Tech />
       <Works />
       <Feedbacks />
+
       <div className="relative z-0">
         <Contact />
       </div>

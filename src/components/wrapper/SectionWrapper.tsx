@@ -14,7 +14,7 @@ export default function SectionWrapper({
   id,
   ComponentProps,
 }: SWProps): Function {
-  return function HOC(xd:SectionsProps): ReactElement {
+  return function HOC(): ReactElement {
     return (
       <motion.section
         variants={staggerContainer()}
@@ -26,7 +26,7 @@ export default function SectionWrapper({
         <span className="hash-span" id={id}>
           &nbsp;
         </span>
-        {Component !== undefined && <Component {...xd} />}
+        {Component !== undefined && <Component {...ComponentProps} />}
       </motion.section>
     );
   };

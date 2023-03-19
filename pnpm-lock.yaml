@@ -1,15 +1,15 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@react-three/drei': ^9.57.2
-  '@react-three/fiber': 8.11.9
-  '@types/node': 18.15.1
+  '@react-three/drei': ^9.57.3
+  '@react-three/fiber': 8.12.0
+  '@types/node': 18.15.3
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@types/react-vertical-timeline-component': ^3.3.3
   '@types/three': ^0.149.0
   autoprefixer: ^10.4.14
-  framer-motion: ^10.2.4
+  framer-motion: ^10.6.0
   next: 13.2.4
   postcss: ^8.4.21
   react: 18.2.0
@@ -18,23 +18,25 @@ specifiers:
   react-vertical-timeline-component: ^3.6.0
   tailwindcss: ^3.2.7
   three: ^0.150.1
-  typescript: 4.9.5
+  typescript: 5.0.2
+  zustand: ^4.3.6
 
 dependencies:
-  '@react-three/drei': 9.57.2_gt7okhljij2s52mhkkae23rqvy
-  '@react-three/fiber': 8.11.9_73epb4osyabtjyiaeamriercbi
-  '@types/node': 18.15.1
+  '@react-three/drei': 9.57.3_u3iila23zl7kxrjj2wxuc6ojr4
+  '@react-three/fiber': 8.12.0_73epb4osyabtjyiaeamriercbi
+  '@types/node': 18.15.3
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@types/three': 0.149.0
-  framer-motion: 10.2.4_biqbaboplfbrettd7655fr4n2y
+  framer-motion: 10.6.0_biqbaboplfbrettd7655fr4n2y
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-tilt: 0.1.4_biqbaboplfbrettd7655fr4n2y
   react-vertical-timeline-component: 3.6.0_react@18.2.0
   three: 0.150.1
-  typescript: 4.9.5
+  typescript: 5.0.2
+  zustand: 4.3.6_react@18.2.0
 
 devDependencies:
   '@types/react-vertical-timeline-component': 3.3.3
@@ -265,7 +267,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-spring/three/9.6.1_27tl7pbp4bbvjxtuvifdfib22u:
+  /@react-spring/three/9.6.1_lfvpzd3m5escehi2gx2mx2fjgy:
     resolution: {integrity: sha512-Tyw2YhZPKJAX3t2FcqvpLRb71CyTe1GvT3V+i+xJzfALgpk10uPGdGaQQ5Xrzmok1340DAeg2pR/MCfaW7b8AA==}
     peerDependencies:
       '@react-three/fiber': '>=6.0'
@@ -276,7 +278,7 @@ packages:
       '@react-spring/core': 9.6.1_react@18.2.0
       '@react-spring/shared': 9.6.1_react@18.2.0
       '@react-spring/types': 9.6.1
-      '@react-three/fiber': 8.11.9_73epb4osyabtjyiaeamriercbi
+      '@react-three/fiber': 8.12.0_73epb4osyabtjyiaeamriercbi
       react: 18.2.0
       three: 0.150.1
     dev: false
@@ -285,8 +287,8 @@ packages:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
     dev: false
 
-  /@react-three/drei/9.57.2_gt7okhljij2s52mhkkae23rqvy:
-    resolution: {integrity: sha512-wkbpMruvjGj5dA0QEA7cuIm3O1NvcfZHkYtZTAicKnZ83OF4w97inE+epp5/j7juVlUFU7AQBHEYmNGiHKCKOQ==}
+  /@react-three/drei/9.57.3_u3iila23zl7kxrjj2wxuc6ojr4:
+    resolution: {integrity: sha512-zkkrIrd3kuKkRlT0IUg6y8dBppZiv2KXrS6IzUIOKAAwbsNAotAQT//0u6Z242q0WdSfxiQgPFi3WApKpbENPw==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -297,8 +299,8 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.21.0
-      '@react-spring/three': 9.6.1_27tl7pbp4bbvjxtuvifdfib22u
-      '@react-three/fiber': 8.11.9_73epb4osyabtjyiaeamriercbi
+      '@react-spring/three': 9.6.1_lfvpzd3m5escehi2gx2mx2fjgy
+      '@react-three/fiber': 8.12.0_73epb4osyabtjyiaeamriercbi
       '@use-gesture/react': 10.2.24_react@18.2.0
       camera-controls: 2.3.1_three@0.150.1
       detect-gpu: 5.0.15
@@ -324,8 +326,8 @@ packages:
       - '@types/three'
     dev: false
 
-  /@react-three/fiber/8.11.9_73epb4osyabtjyiaeamriercbi:
-    resolution: {integrity: sha512-5vZBlbdy+QbNIIjohERs1NL59LOo6XQwM4x4jjV1PKc5KkSy+73Y+/tQGdz6muEkbeOCt4TeM2KtcFjoAdjl1g==}
+  /@react-three/fiber/8.12.0_73epb4osyabtjyiaeamriercbi:
+    resolution: {integrity: sha512-o6DkNtNHqcOFRbxaiY5xayelE/9+Z0z9wWu5awqjVbc0c/1QM6AttJH6rKW0U/O6LWxSfxDTARXVzknZqpDJ7A==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
@@ -365,8 +367,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@types/node/18.15.1:
-    resolution: {integrity: sha512-U2TWca8AeHSmbpi314QBESRk7oPjSZjDsR+c+H4ECC1l+kFgpZf8Ydhv3SJpPy51VyZHHqxlb6mTTqYNNRVAIw==}
+  /@types/node/18.15.3:
+    resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==}
     dev: false
 
   /@types/offscreencanvas/2019.7.0:
@@ -653,8 +655,8 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: true
 
-  /framer-motion/10.2.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-0a5yR1jwOfSO0jJEpZUrgWYEa1EPU2yGVmytSu+uMYWV7bcFHwaHVYz2GchzWPH1rW7nXg8zmw8cp4+zNJJaUA==}
+  /framer-motion/10.6.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-RkZe8iBhdWNs1y2HfYh4WlM9Co11/Vu+JCSQzmLaP5alM3QbBiue6OkeXygfxsRDp4yCar95ExoHE0CZQNyuVQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -1313,9 +1315,9 @@ packages:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
     dev: false
 
-  /typescript/4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
+  /typescript/5.0.2:
+    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
+    engines: {node: '>=12.20'}
     hasBin: true
     dev: false
 
@@ -1329,6 +1331,14 @@ packages:
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
+
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -1371,4 +1381,20 @@ packages:
         optional: true
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /zustand/4.3.6_react@18.2.0:
+    resolution: {integrity: sha512-6J5zDxjxLE+yukC2XZWf/IyWVKnXT9b9HUv09VJ/bwGCpKNcaTqp7Ws28Xr8jnbvnZcdRaidztAPsXFBIqufiw==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
     dev: false

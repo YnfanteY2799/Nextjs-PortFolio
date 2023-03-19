@@ -1,5 +1,5 @@
-import { useGLTF } from "@react-three/drei";
 import { ReactElement } from "react";
+import { useGLTF } from "@react-three/drei";
 
 export interface ModelProps {
   isMobile?: boolean;

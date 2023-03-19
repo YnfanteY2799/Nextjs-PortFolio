@@ -1,5 +1,5 @@
-import { Canvas } from "@react-three/fiber";
 import { ReactElement, Suspense, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { CanvasLoader } from "@/components/canvas";
 import { OrbitControls, Preload } from "@react-three/drei";
 import Model from "./HeroModel";
