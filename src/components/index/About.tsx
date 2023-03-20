@@ -6,9 +6,9 @@ import { SectionsProps } from "@/types/Sections";
 import { fadeIn } from "@/utils/utils";
 import { SectionHead } from "@/components/ui";
 
-function About({ Text, cardsInfo }: SectionsProps): ReactElement {
+export default function About({ Text, cardsInfo }: SectionsProps): ReactElement {
   return (
-    <>
+    <SectionWrapper id="About">
       <SectionHead Head="About Me" SubHead="Intro"/>
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
@@ -21,8 +21,7 @@ function About({ Text, cardsInfo }: SectionsProps): ReactElement {
           <ServiceCard key={i} index={i} {...s} />
         ))}
       </div>
-    </>
+    </SectionWrapper>
   );
 }
 
-export default SectionWrapper({ Component: About, id: "about" });

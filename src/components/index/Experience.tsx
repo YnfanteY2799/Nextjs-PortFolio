@@ -5,10 +5,10 @@ import SectionWrapper from "@/components/wrapper/SectionWrapper";
 import { SectionHead } from "@/components/ui";
 import "react-vertical-timeline-component/style.min.css";
 
-function Experience(): ReactElement {
+export default function Experience(): ReactElement {
   return (
-    <>
-      <SectionHead Head="I've Worked on :  " />
+    <SectionWrapper id="work">
+      <SectionHead Head="I've Worked on/at :  " SubHead="My experience"/>
       <div className="flex flex-col mt-20">
         <VerticalTimeline>
           {[].map((xp: any, i) => (
@@ -16,8 +16,7 @@ function Experience(): ReactElement {
           ))}
         </VerticalTimeline>
       </div>
-    </>
+    </SectionWrapper>
   );
 }
 
-export default SectionWrapper({ Component: Experience, id: "work" });

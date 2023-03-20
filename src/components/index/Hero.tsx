@@ -14,7 +14,7 @@ export default function Hero(): ReactElement {
             Hi, I'm <span className="text-orange-600"> Yassett </span>
           </h1>
           <p className="mt-2 font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] text-white-100">
-            I'm a FullStack Javascript Developer
+            A FullStack Javascript Developer
             <br className="hidden sm:block" />
           </p>
         </div>

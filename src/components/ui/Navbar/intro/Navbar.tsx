@@ -4,13 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "../../head/Head";
 
-export default function Navbar(): ReactElement {
+export interface IntroNavbarProps {
+  sectionList: { id: string; title: string }[];
+}
+
+export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement {
   const [active, setActive] = useState("" as string);
   const [isToggle, setToggle] = useState(false as boolean);
 
-  function handleActive(
-    e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string
-  ): void {
+
+  function handleActive(e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string): void {
     typeof e === "string" ? setActive(e) : setActive("");
     window.scrollTo(0, 0);
   }
@@ -37,7 +40,7 @@ export default function Navbar(): ReactElement {
             </p>
           </Link>
 
-          <NavList active={active} handleActive={handleActive} list={[]} />
+          <NavList active={active} handleActive={handleActive} list={sectionList} />
 
           <div className="flex flex-1 justify-end items-center sm:hidden">
             <Image
@@ -56,7 +59,7 @@ export default function Navbar(): ReactElement {
               <NavList
                 active={active}
                 handleActive={handleActive}
-                list={[]}
+                list={sectionList}
                 flex={true}
                 handleToggle={toggle}
               />
