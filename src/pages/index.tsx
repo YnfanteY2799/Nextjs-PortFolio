@@ -7,7 +7,7 @@ import {
   Works,
   Feedbacks,
   Contact,
-} from "@/components/page_componentials";
+} from "@/components";
 import Navbar from "@/components/ui/Navbar/Navbar";
 
 export default function Home(): ReactElement {

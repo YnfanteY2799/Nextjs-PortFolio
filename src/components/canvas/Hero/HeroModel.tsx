@@ -12,12 +12,7 @@ export default function Model({ isMobile }: ModelProps): ReactElement {
     <mesh>
       <hemisphereLight intensity={0.15} groundColor="black" />
       <pointLight intensity={1} />
-      <pointLight
-        position={[20, 50, 10]}
-        intensity={1}
-        castShadow={true}
-        shadow-mapSize={1024}
-      />
+      <pointLight position={[20, 50, 10]} intensity={1} castShadow={true} shadow-mapSize={1024} />
       <primitive
         object={loadedModel.scene}
         scale={isMobile ? 0.7 : 0.75}
