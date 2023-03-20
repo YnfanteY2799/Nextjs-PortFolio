@@ -4,14 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "../../head/Head";
 
+export type SelectionListNode = { id: string; title: string };
+
 export interface IntroNavbarProps {
-  sectionList: { id: string; title: string }[];
+  sectionList: Array<SelectionListNode>;
 }
 
 export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement {
   const [active, setActive] = useState("" as string);
   const [isToggle, setToggle] = useState(false as boolean);
-
 
   function handleActive(e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string): void {
     typeof e === "string" ? setActive(e) : setActive("");
