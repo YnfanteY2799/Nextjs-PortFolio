@@ -19,7 +19,7 @@ export default function Hero(): ReactElement {
           </p>
         </div>
       </div>
-      <HeroCanvas />
+        <HeroCanvas />
     </section>
   );
 }

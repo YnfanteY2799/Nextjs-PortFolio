@@ -7,14 +7,14 @@ import {
   Works,
   Feedbacks,
   Contact,
+  IntroNavbar
 } from "@/components";
-import Navbar from "@/components/ui/Navbar/Navbar";
 
 export default function Home(): ReactElement {
   return (
     <div className="relative z-0 bg-primary">
       <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
-        <Navbar />
+        <IntroNavbar />
         <Hero />
       </div>
       <About />

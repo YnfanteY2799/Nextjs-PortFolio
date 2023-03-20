@@ -6,3 +6,4 @@ export { default as Tech } from "./index/Tech";
 export { default as Works } from "./index/Works";
 export { default as Feedbacks } from "./index/Feedbacks";
 export { default as Contact } from "./index/Contact";
+export { default as IntroNavbar } from "./ui/Navbar/intro/Navbar";

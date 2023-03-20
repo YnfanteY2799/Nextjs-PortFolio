@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from "react";
 import { motion } from "framer-motion";
 import Header from "../ui/head/Head";
-import Navbar from "../ui/Navbar/Navbar";
+import Navbar from "../ui/Navbar/intro/Navbar";
 
 export interface PageWrapperProps {
   children?: JSX.Element | ReactNode;

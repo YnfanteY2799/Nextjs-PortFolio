@@ -2,7 +2,7 @@ import { ReactElement, useState, MouseEvent } from "react";
 import NavList from "./NavList";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../head/Head";
+import Header from "../../head/Head";
 
 export default function Navbar(): ReactElement {
   const [active, setActive] = useState("" as string);
@@ -22,24 +22,24 @@ export default function Navbar(): ReactElement {
   return (
     <>
       <Header />
-      <nav className="sm:px-16 px-6 w-full flex items-center py-5 fixed top-0 z-20 bg-primary">
-        <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-          <Link href="/" className="flex items-center gap-2" onClick={handleActive}>
+      <nav className="flex fixed top-0 z-20 items-center px-6 py-5 w-full sm:px-16 bg-primary">
+        <div className="flex justify-between items-center mx-auto w-full max-w-7xl">
+          <Link href="/" className="flex gap-2 items-center" onClick={handleActive}>
             <Image
               src="/logo.svg"
               alt="logo"
-              className="w-9 h-9 object-contain"
+              className="object-contain w-9 h-9"
               width={0}
               height={0}
             />
             <p className="text-white text-[18px] font-bold cursor-pointer flex">
-              <span className="sm:block hidden"> YJ &nbsp;| FullStack Developer</span>
+              <span className="hidden sm:block"> YJ &nbsp;| FullStack Developer</span>
             </p>
           </Link>
 
           <NavList active={active} handleActive={handleActive} list={[]} />
 
-          <div className="sm:hidden flex flex-1 justify-end items-center">
+          <div className="flex flex-1 justify-end items-center sm:hidden">
             <Image
               src="/next.svg"
               width={0}
