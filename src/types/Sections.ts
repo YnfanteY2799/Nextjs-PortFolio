@@ -6,4 +6,5 @@ export interface SectionsProps {
 export interface InitialPartProps {
   Head?: string;
   SubHead?: string;
+  MoreDetails?: any;
 }
