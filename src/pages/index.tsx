@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { GetServerSideProps } from "next";
 import {
   Hero,
   About,
@@ -7,17 +8,25 @@ import {
   Works,
   Feedbacks,
   Contact,
-  IntroNavbar
+  IntroNavbar,
 } from "@/components";
+import { Fetch } from "@/utils";
+import type { data } from "../types/bendProps";
 
-export default function Home(): ReactElement {
+export interface HomeProps {
+  name?: string;
+  charge?: string;
+  about?: string;
+}
+
+export default function Home({ name, charge, about }: HomeProps): ReactElement {
   return (
     <div className="relative z-0 bg-primary">
       <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
         <IntroNavbar sectionList={[]} />
-        <Hero />
+        <Hero name={name} charge={charge} />
       </div>
-      <About />
+      <About Text={about} />
       <Experience />
       <Tech />
       <Works />
@@ -29,3 +38,11 @@ export default function Home(): ReactElement {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { name, charge, about, experiences }: data = await (
+    await Fetch("/basics", "GET", {})
+  ).json();
+
+  return { props: { name, charge, about, experiences } };
+};
