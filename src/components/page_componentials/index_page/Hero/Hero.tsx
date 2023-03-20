@@ -11,14 +11,14 @@ export default function Hero(): ReactElement {
         </div>
         <div>
           <h1 className="font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
-            {/* Hi, I'm <span className="text-orange-600"> Yassett </span> */}
+            Hi, I'm <span className="text-orange-600"> Yassett </span>
           </h1>
           <p
             className={`mt-2 font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] text-white-100`}
           >
-            I develop 3D visuals, user
+            I'm a FullStack
             <br className="hidden sm:block" />
-            interfaces and web
+            Javascript, web Developer
           </p>
         </div>
       </div>

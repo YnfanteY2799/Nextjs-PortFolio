@@ -3,36 +3,21 @@ import { useGLTF } from "@react-three/drei";
 
 export interface ModelProps {
   isMobile?: boolean;
-  model?: "PC" | "OTHER";
 }
 
-function getModel(str: string): string {
-  switch (str) {
-    case "PC":
-      return "./desktop_pc/scene.gltf";
-    default:
-      return "";
-  }
-}
-
-export default function Model({ isMobile, model }: ModelProps): ReactElement {
-  const loadedModel = useGLTF(getModel(model ?? ""));
+export default function Model({ isMobile }: ModelProps): ReactElement {
+  const loadedModel = useGLTF("./desktop_pc/scene.gltf");
 
   return (
     <mesh>
       <hemisphereLight intensity={0.15} groundColor="black" />
       <pointLight intensity={1} />
-      
       <pointLight
         position={[20, 50, 10]}
-        distance={1}
-        // angle={0.12}
-        // penumbra={1}
         intensity={1}
         castShadow={true}
         shadow-mapSize={1024}
       />
-
       <primitive
         object={loadedModel.scene}
         scale={isMobile ? 0.7 : 0.75}
