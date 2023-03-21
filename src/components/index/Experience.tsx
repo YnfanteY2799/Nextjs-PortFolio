@@ -8,7 +8,7 @@ import "react-vertical-timeline-component/style.min.css";
 
 export default function Experience({ experiences }: ExpProps): ReactElement {
   return (
-    <SectionWrapper id="work">
+    <SectionWrapper id="Exp">
       <SectionHead Head="I've Worked at :  " SubHead="My experience" />
       <div className="flex flex-col mt-20">
         <VerticalTimeline>

@@ -13,12 +13,23 @@ export interface ExpProps {
   experiences?: Array<Experience>;
 }
 
+export type SectionType = {
+  id: string;
+  name: string;
+  img: string;
+};
+
+export interface FloatingMenuProps {
+  sections?: Array<SectionType>;
+}
+
 export interface HomeProps {
   name?: string;
   charge?: string;
   about?: string;
   aboutCards?: Array<any>;
   experiences?: Array<Experience>;
+  sections?: Array<SectionType>;
 }
 
 export interface SectionsProps {
@@ -40,6 +51,7 @@ export interface SWProps {
 export interface HeroProps {
   name?: string;
   charge?: string;
+  id?: string;
 }
 
 export interface ExperienceCardProps {

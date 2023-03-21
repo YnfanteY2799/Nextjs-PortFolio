@@ -12,7 +12,8 @@ import {
 } from "@/components";
 import { Fetch } from "@/utils";
 import type { data } from "../types/BackEnd";
-import type { HomeProps } from "@/types/ComponentProps";
+import type { HomeProps, SectionType } from "@/types/ComponentProps";
+import Floating from "@/components/ui/Navbar/floating/Floating";
 
 export default function Home({
   name,
@@ -20,17 +21,19 @@ export default function Home({
   about,
   aboutCards,
   experiences,
+  sections,
 }: HomeProps): ReactElement {
   return (
     <div className="relative z-0 bg-primary">
+      <Floating sections={sections} />
       <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
         <IntroNavbar sectionList={[]} />
-        <Hero name={name} charge={charge} />
+        <Hero name={name} charge={charge} id="" />
       </div>
       <About Text={about} cardsInfo={aboutCards} />
       <Experience experiences={experiences} />
       <TechStacks />
-      <Works />
+      <Works id="Projects" />
       <Feedbacks />
       <div className="relative z-0">
         <Contact />
@@ -45,5 +48,13 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
     await Fetch("/basics", "GET", {})
   ).json();
 
-  return { props: { name, charge, about, experiences, aboutCards } };
+  const sections: Array<SectionType> = [
+    { id: "", name: "Home", img: "home" },
+    { id: "About", name: "About", img: "info" },
+    { id: "Exp", name: "Experience", img: "stars" },
+    { id: "Projects", name: "Projects", img: "brief" },
+    { id: "Contact", name: "Contact", img: "world" },
+  ];
+
+  return { props: { name, charge, about, experiences, aboutCards, sections } };
 };

@@ -1,7 +1,8 @@
 import { ReactElement, useState } from "react";
+import { SectionWrapper } from "../wrapper";
 
-export default function Hero(): ReactElement {
+export default function Works({ id }: { id?: string }): ReactElement {
   const [text, setText] = useState("Ts" as string);
 
-  return <>Hey!{text}</>;
+  return <SectionWrapper id={id}>Hey!{text}</SectionWrapper>;
 }

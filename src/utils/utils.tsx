@@ -52,3 +52,9 @@ export const fadeIn = (direction: string, type: any, delay: any, duration: any) 
     },
   };
 };
+
+export const selectedFloatingSection =
+  "flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 dark:bg-sky-900 dark:text-sky-50";
+
+export const nonSelectedFloatingSection =
+  "flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 dark:text-sky-50";
