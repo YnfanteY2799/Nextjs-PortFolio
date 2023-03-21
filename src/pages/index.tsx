@@ -49,8 +49,6 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
     await Fetch("/basics", "GET", {})
   ).json();
 
-    console.log(projects)
-
   const sections: Array<SectionType> = [
     { id: "", name: "Home", img: "home" },
     { id: "About", name: "About", img: "info" },
