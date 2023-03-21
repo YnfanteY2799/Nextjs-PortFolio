@@ -1,13 +1,29 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
+import { motion } from "framer-motion";
 import { SectionWrapper } from "../wrapper";
+import { sectionHeadText, sectionSubText, slideIn } from "@/utils/utils";
 
-export default function Hero(): ReactElement {
-  const [text, setText] = useState("Ts" as string);
-
+export default function Contact(): ReactElement {
   return (
     <SectionWrapper id="Contact">
+      <div className="flex overflow-hidden flex-col-reverse gap-10 xl:mt-12 xl:flex-row">
+        <motion.div
+          variants={slideIn("left", "tween", 0.2, 1)}
+          className="flex-[0.7] bg-black-100 p-8 rounded-2xl"
+        >
+          <p className={sectionSubText}>Get in touch!</p>
+          <h3 className={sectionHeadText}>Contact.</h3>
 
-    KLK
+          {/* <ContactForm /> */}
+        </motion.div>
+
+        <motion.div
+          variants={slideIn("right", "tween", 0.2, 1)}
+          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+        >
+          {/* <EarthCanvas /> */}
+        </motion.div>
+      </div>
     </SectionWrapper>
   );
 }
