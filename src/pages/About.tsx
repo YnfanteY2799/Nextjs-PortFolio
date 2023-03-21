@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import { PageWrapper } from "@/components";
-import { useLandingStore } from "@/store/StoreLanding";
 import { shallow } from "zustand/shallow";
+import { useLandingStore } from "@/store/StoreLanding";
+import { PageWrapper } from "@/components";
 
 export default function About(): ReactElement {
   const { aboutText } = useLandingStore((s) => s, shallow);
