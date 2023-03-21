@@ -145,7 +145,7 @@ const projects = [
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<data>) {
   res.status(200).json({
-    name: "Yassett",
+    name: "",
     charge: "A FullStack Javascript Developer",
     about: aboutText,
     experiences,
