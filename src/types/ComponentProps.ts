@@ -80,3 +80,11 @@ export interface ProjectsCardProps {
   source_code_link: string;
   index: number;
 }
+
+export interface TagProp {
+  color?: "BLUE" | "GREEN" | "ORANGE" | "RED" | "GRAY";
+  icon?: string;
+  children?: ReactNode;
+  upper?: boolean;
+  cn?: string;
+}

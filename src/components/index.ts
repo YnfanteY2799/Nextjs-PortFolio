@@ -8,3 +8,4 @@ export { default as Works } from "./index/Works";
 export { default as Feedbacks } from "./index/Feedbacks";
 export { default as Contact } from "./index/Contact";
 export { default as IntroNavbar } from "./ui/Navbar/intro/Navbar";
+export { default as Tag } from "./ui/tags/Tags";

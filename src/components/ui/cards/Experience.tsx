@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import { ExperienceCardProps } from "@/types/ComponentProps";
 
-
 export default function ExperienceCard({
   title,
   company_name,

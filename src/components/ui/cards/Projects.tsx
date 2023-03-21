@@ -4,6 +4,7 @@ import Tilt from "react-tilt";
 import { fadeIn } from "@/utils/utils";
 import { ProjectsCardProps } from "@/types/ComponentProps";
 import Image from "next/image";
+import { Tag } from "@/components";
 
 export default function Projects({
   name,
@@ -48,9 +49,9 @@ export default function Projects({
 
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map(({ name, color }, i) => (
-            <p key={`tag-##${i}`} className={`text-[14px] ${color}`}>
+            <Tag key={`tag-##${i}`} cn={`text-[14px] ${color}`}>
               #{name}
-            </p>
+            </Tag>
           ))}
         </div>
       </Tilt>
