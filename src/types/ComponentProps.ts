@@ -36,3 +36,8 @@ export interface SWProps {
   id?: string;
   children?: ReactNode;
 }
+
+export interface HeroProps {
+  name?: string;
+  charge?: string;
+}

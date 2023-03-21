@@ -1,12 +1,8 @@
 import { ReactElement } from "react";
 import { HeroCanvas } from "@/components/canvas";
+import type { HeroProps } from "@/types/ComponentProps";
 
-export interface HeroProps{
-  name?:string;
-  charge?:string;
-}
-
-export default function Hero({ name, charge }:HeroProps): ReactElement {
+export default function Hero({ name, charge }: HeroProps): ReactElement {
   return (
     <section className="relative mx-auto w-full h-screen">
       <div className="sm:px-16 px-6 absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5">
@@ -24,7 +20,7 @@ export default function Hero({ name, charge }:HeroProps): ReactElement {
           </p>
         </div>
       </div>
-        <HeroCanvas />
+      <HeroCanvas />
     </section>
   );
 }

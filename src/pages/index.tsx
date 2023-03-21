@@ -40,7 +40,7 @@ export default function Home({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (_ctx) => {
   const { name, charge, about, experiences, aboutCards }: data = await (
     await Fetch("/basics", "GET", {})
   ).json();
