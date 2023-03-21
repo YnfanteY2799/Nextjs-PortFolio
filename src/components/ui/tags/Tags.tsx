@@ -25,11 +25,11 @@ export default function Tags({ icon, color, children, upper, cn }: TagProp): Rea
   return (
     <div className={baseTag + getColor() + `${upper ? " uppercase" : " "} leading-sm ` + cn}>
       <Image
-        src={icon ?? ""}
+        src={`/TechStacks/${icon}.svg` ?? ""}
         className="mr-2 feather feather-bell-off"
         alt={icon ?? ""}
-        width={10}
-        height={10}
+        width={15}
+        height={15}
       />
       {children}
     </div>

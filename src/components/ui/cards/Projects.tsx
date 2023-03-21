@@ -14,7 +14,6 @@ export default function Projects({
   source_code_link,
   index,
 }: ProjectsCardProps): ReactElement {
-  console.log(tags);
 
   function redirection(str: string) {
     window.open(str, "_blank");
@@ -27,7 +26,7 @@ export default function Projects({
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
-          <img src={image} alt={name} className="object-cover w-full h-full rounded-2xl" />
+          <Image src={image} alt={name} className="object-cover w-full h-full rounded-2xl" />
           <div className="flex absolute inset-0 justify-end m-3 card-img_hover">
             <div
               onClick={(_) => redirection(source_code_link)}
@@ -51,7 +50,7 @@ export default function Projects({
 
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map(({ name, color }, i) => (
-            <Tag key={`tag-##${i}`} cn="text-[14px]" color={color}>
+            <Tag key={`tag-##${i}`} cn="text-[14px]" color={color} icon={name}>
               #{name}
             </Tag>
           ))}
