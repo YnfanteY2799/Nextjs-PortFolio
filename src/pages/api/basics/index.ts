@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { data } from "../../../types/bendProps";
+import type { data } from "../../../types/BackEnd";
 
 const experiences = [
   {
@@ -58,11 +58,31 @@ const experiences = [
 const aboutText =
   "I'm a Fullstack software developer with experience and preference for Javascript and Typescript, and expertise in frameworks like NextJs, Express, NodeJs and Many Others. I'm a quick learner and use to collaborate closely with clients to create the solution they need,so if you're interested in working with me you can contact me, otherwise if you are interested in me or want to know a little bit more about me click the arrow at the beggining of this section";
 
+const aboutCards = [
+  {
+    title: "Web Developer",
+    icon: "web",
+  },
+  {
+    title: "React Native Developer",
+    icon: "mobile",
+  },
+  {
+    title: "Backend Developer",
+    icon: "backend",
+  },
+  {
+    title: "Content Creator",
+    icon: "creator",
+  },
+];
+
 export default function handler(req: NextApiRequest, res: NextApiResponse<data>) {
   res.status(200).json({
     name: "Yassett",
     charge: "A FullStack Javascript Developer",
     about: aboutText,
     experiences,
+    aboutCards,
   });
 }

@@ -26,7 +26,7 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
   return (
     <>
       <Header />
-      <nav className="flex fixed top-0 z-20 items-center px-6 py-5 w-full sm:px-16 bg-primary">
+      <nav className="flex fixed top-0 z-20 items-center px-6 py-5 w-full sm:px-16 transparent">
         <div className="flex justify-between items-center mx-auto w-full max-w-7xl">
           <Link href="/" className="flex gap-2 items-center" onClick={handleActive}>
             <Image

@@ -2,14 +2,14 @@ import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/wrapper";
 import { ServiceCard } from "@/components/ui/cards";
-import { SectionsProps } from "@/types/Sections";
 import { fadeIn } from "@/utils/utils";
 import { SectionHead } from "@/components/ui";
+import type { SectionsProps } from "@/types/ComponentProps";
 
 export default function About({ Text, cardsInfo }: SectionsProps): ReactElement {
   return (
     <SectionWrapper id="About">
-      <SectionHead Head="About Me" SubHead="Intro" MoreDetails={"XD"}/>
+      <SectionHead Head="About Me" SubHead="Intro" MoreDetails={"XD"} />
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
@@ -24,4 +24,3 @@ export default function About({ Text, cardsInfo }: SectionsProps): ReactElement 
     </SectionWrapper>
   );
 }
-

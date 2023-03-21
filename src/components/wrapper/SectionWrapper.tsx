@@ -1,12 +1,7 @@
-import { ReactElement, ReactNode } from "react";
+import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer } from "@/utils/utils";
-import { SectionsProps } from "@/types/Sections";
-
-export interface SWProps {
-  id?: string;
-  children?:ReactNode;
-}
+import type { SWProps } from "@/types/ComponentProps";
 
 export default function SectionWrapper({ id, children }: SWProps): ReactElement {
   return (

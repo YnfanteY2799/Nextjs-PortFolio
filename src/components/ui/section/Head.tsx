@@ -1,7 +1,7 @@
-import { InitialPartProps } from "@/types/Sections";
-import { sectionHeadText, sectionSubText, TextVariants } from "@/utils/utils";
 import { motion } from "framer-motion";
 import { ReactElement } from "react";
+import type { InitialPartProps } from "@/types/ComponentProps";
+import { sectionHeadText, sectionSubText, TextVariants } from "@/utils/utils";
 
 export default function Head({ Head, SubHead, MoreDetails }: InitialPartProps): ReactElement {
   return (

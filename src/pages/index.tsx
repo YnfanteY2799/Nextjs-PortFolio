@@ -11,23 +11,24 @@ import {
   IntroNavbar,
 } from "@/components";
 import { Fetch } from "@/utils";
-import type { data } from "../types/bendProps";
+import type { data } from "../types/BackEnd";
+import type { HomeProps } from "@/types/ComponentProps";
 
-export interface HomeProps {
-  name?: string;
-  charge?: string;
-  about?: string;
-}
-
-export default function Home({ name, charge, about }: HomeProps): ReactElement {
+export default function Home({
+  name,
+  charge,
+  about,
+  aboutCards,
+  experiences,
+}: HomeProps): ReactElement {
   return (
-    <div className="relative z-0 bg-primary">
+    <div className="relative z-0 bg-gradient">
       <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
         <IntroNavbar sectionList={[]} />
         <Hero name={name} charge={charge} />
       </div>
-      <About Text={about} />
-      <Experience />
+      <About Text={about} cardsInfo={aboutCards} />
+      <Experience experiences={experiences} />
       <Tech />
       <Works />
       <Feedbacks />
@@ -40,9 +41,9 @@ export default function Home({ name, charge, about }: HomeProps): ReactElement {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { name, charge, about, experiences }: data = await (
+  const { name, charge, about, experiences, aboutCards }: data = await (
     await Fetch("/basics", "GET", {})
   ).json();
 
-  return { props: { name, charge, about, experiences } };
+  return { props: { name, charge, about, experiences, aboutCards } };
 };
