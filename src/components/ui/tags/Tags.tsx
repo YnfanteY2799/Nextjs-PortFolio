@@ -17,11 +17,13 @@ export default function Tags({ icon, color, children, upper, cn }: TagProp): Rea
         return "text-red-700 bg-red-200";
       case "GRAY":
         return "text-gray-700 bg-white";
+      case "PINK":
+        return "text-pink-700 bg-pink-200";
     }
   }
 
   return (
-    <div className={baseTag + getColor() + `${upper ? " uppercase" : ""} leading-sm ` + cn}>
+    <div className={baseTag + getColor() + `${upper ? " uppercase" : " "} leading-sm ` + cn}>
       <Image
         src={icon ?? ""}
         className="mr-2 feather feather-bell-off"

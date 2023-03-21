@@ -7,8 +7,6 @@ import { ProjectsCard } from "../ui/cards";
 import { WorksProps } from "@/types/ComponentProps";
 
 export default function Works({ id, projects }: WorksProps): ReactElement {
-  console.log(projects);
-
   return (
     <SectionWrapper id={id}>
       <SectionHead />

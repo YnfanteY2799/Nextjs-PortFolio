@@ -14,6 +14,8 @@ export default function Projects({
   source_code_link,
   index,
 }: ProjectsCardProps): ReactElement {
+  console.log(tags);
+
   function redirection(str: string) {
     window.open(str, "_blank");
   }
@@ -49,7 +51,7 @@ export default function Projects({
 
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map(({ name, color }, i) => (
-            <Tag key={`tag-##${i}`} cn={`text-[14px] ${color}`}>
+            <Tag key={`tag-##${i}`} cn="text-[14px]" color={color}>
               #{name}
             </Tag>
           ))}

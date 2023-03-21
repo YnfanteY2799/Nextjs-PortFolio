@@ -72,19 +72,17 @@ export interface WorksProps {
 export interface ProjectsCardProps {
   name: string;
   description: string;
-  tags: Array<{
-    name: string;
-    color: string;
-  }>;
+  tags: Array<TagProp>;
   image: string;
   source_code_link: string;
   index: number;
 }
 
 export interface TagProp {
-  color?: "BLUE" | "GREEN" | "ORANGE" | "RED" | "GRAY";
+  color?: "BLUE" | "GREEN" | "ORANGE" | "RED" | "GRAY" | "PINK";
   icon?: string;
   children?: ReactNode;
   upper?: boolean;
   cn?: string;
+  name?: string;
 }
