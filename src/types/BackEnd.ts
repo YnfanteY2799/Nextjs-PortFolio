@@ -15,4 +15,5 @@ export type data = {
   about: string;
   aboutCards?: Array<AboutCard>;
   experiences: Array<Experience>;
+  projects?: Array<any>;
 };

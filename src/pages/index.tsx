@@ -22,6 +22,7 @@ export default function Home({
   aboutCards,
   experiences,
   sections,
+  projects,
 }: HomeProps): ReactElement {
   return (
     <div className="relative z-0 bg-primary">
@@ -33,7 +34,7 @@ export default function Home({
       <About Text={about} cardsInfo={aboutCards} />
       <Experience experiences={experiences} />
       <TechStacks />
-      <Works id="Projects" />
+      <Works id="Projects" projects={projects} />
       <Feedbacks />
       <div className="relative z-0">
         <Contact />
@@ -44,9 +45,11 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-  const { name, charge, about, experiences, aboutCards }: data = await (
+  const { name, charge, about, experiences, aboutCards, projects }: data = await (
     await Fetch("/basics", "GET", {})
   ).json();
+
+    console.log(projects)
 
   const sections: Array<SectionType> = [
     { id: "", name: "Home", img: "home" },
@@ -56,5 +59,5 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
     { id: "Contact", name: "Contact", img: "world" },
   ];
 
-  return { props: { name, charge, about, experiences, aboutCards, sections } };
+  return { props: { name, charge, about, experiences, aboutCards, sections, projects } };
 };

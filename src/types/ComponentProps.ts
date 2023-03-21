@@ -30,6 +30,7 @@ export interface HomeProps {
   aboutCards?: Array<any>;
   experiences?: Array<Experience>;
   sections?: Array<SectionType>;
+  projects?: Array<any>;
 }
 
 export interface SectionsProps {
@@ -61,4 +62,21 @@ export interface ExperienceCardProps {
   iconBg?: string;
   date?: string;
   points: string[];
+}
+
+export interface WorksProps {
+  id?: string;
+  projects?: Array<any>;
+}
+
+export interface ProjectsCardProps {
+  name: string;
+  description: string;
+  tags: Array<{
+    name: string;
+    color: string;
+  }>;
+  image: string;
+  source_code_link: string;
+  index: number;
 }
