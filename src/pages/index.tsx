@@ -4,7 +4,7 @@ import {
   Hero,
   About,
   Experience,
-  Tech,
+  TechStacks,
   Works,
   Feedbacks,
   Contact,
@@ -22,14 +22,14 @@ export default function Home({
   experiences,
 }: HomeProps): ReactElement {
   return (
-    <div className="relative z-0 bg-gradient">
+    <div className="relative z-0 bg-primary">
       <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
         <IntroNavbar sectionList={[]} />
         <Hero name={name} charge={charge} />
       </div>
       <About Text={about} cardsInfo={aboutCards} />
       <Experience experiences={experiences} />
-      <Tech />
+      <TechStacks />
       <Works />
       <Feedbacks />
       <div className="relative z-0">
