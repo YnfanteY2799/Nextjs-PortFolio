@@ -30,14 +30,14 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
         <div className="flex justify-between items-center mx-auto w-full max-w-7xl">
           <Link href="/" className="flex gap-2 items-center" onClick={handleActive}>
             <Image
-              src="/logo.svg"
+              src="/logo-no-background.svg"
               alt="logo"
-              className="object-contain w-9 h-9"
-              width={0}
-              height={0}
+              className="object-contain w-16 h-16"
+              width={16}
+              height={16}
             />
             <p className="text-white text-[18px] font-bold cursor-pointer flex">
-              <span className="hidden sm:block"> YJ &nbsp;| FullStack Developer</span>
+              <span className="hidden sm:block">| FullStack Developer</span>
             </p>
           </Link>
 

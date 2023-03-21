@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AnimatedDown(): ReactElement {
   return (
-    <div className="flex absolute bottom-32 justify-center items-end w-full xs:bottom-10">
+    <div className="flex absolute bottom-36 justify-center items-end w-full xs:bottom-10">
       <a href="#About">
         <motion.div
           animate={{
@@ -16,7 +16,7 @@ export default function AnimatedDown(): ReactElement {
             repeatType: "loop",
           }}
         >
-          <Image src={"/down_arrow.svg"} alt={"Arrow"} width={100} height={100} />
+          <Image src={"/down_arrow.svg"} alt={"Arrow"} width={90} height={90} />
         </motion.div>
       </a>
     </div>
