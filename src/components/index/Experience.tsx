@@ -3,21 +3,20 @@ import { VerticalTimeline } from "react-vertical-timeline-component";
 import { ExperienceCard } from "@/components/ui/cards";
 import SectionWrapper from "@/components/wrapper/SectionWrapper";
 import { SectionHead } from "@/components/ui";
+import type { ExpProps } from "@/types/ComponentProps";
 import "react-vertical-timeline-component/style.min.css";
 
-function Experience(): ReactElement {
+export default function Experience({ experiences }: ExpProps): ReactElement {
   return (
-    <>
-      <SectionHead Head="I've Worked on :  " />
+    <SectionWrapper id="Exp">
+      <SectionHead Head="I've Worked at :  " SubHead="My experience" />
       <div className="flex flex-col mt-20">
         <VerticalTimeline>
-          {[].map((xp: any, i) => (
+          {(experiences ?? []).map((xp, i) => (
             <ExperienceCard key={i} {...xp} />
           ))}
         </VerticalTimeline>
       </div>
-    </>
+    </SectionWrapper>
   );
 }
-
-export default SectionWrapper({ Component: Experience, id: "work" });

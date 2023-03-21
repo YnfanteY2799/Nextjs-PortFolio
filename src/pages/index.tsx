@@ -1,40 +1,63 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
+import { GetServerSideProps } from "next";
 import {
   Hero,
   About,
   Experience,
-  Tech,
+  TechStacks,
   Works,
   Feedbacks,
   Contact,
-} from "@/components/page_componentials";
-import Navbar from "@/components/ui/Navbar/Navbar";
+  IntroNavbar,
+} from "@/components";
+import { Fetch } from "@/utils";
+import type { data } from "../types/BackEnd";
+import type { HomeProps, SectionType } from "@/types/ComponentProps";
+import Floating from "@/components/ui/Navbar/floating/Floating";
 
-export default function Home(): ReactElement {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    fetch("/api/initial")
-      .then((x) => x.json())
-      .then((x) => {
-        setData(x);
-      });
-  }, []);
-
+export default function Home({
+  name,
+  charge,
+  about,
+  aboutCards,
+  experiences,
+  sections,
+  projects,
+}: HomeProps): ReactElement {
   return (
     <div className="relative z-0 bg-primary">
+      <Floating sections={sections} />
       <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
-        <Navbar />
-        <Hero />
+        <IntroNavbar sectionList={[]} />
+        <Hero name={name} charge={charge} id="" />
       </div>
-      <About />
-      <Experience />
-      <Tech />
-      <Works />
+      <About Text={about} cardsInfo={aboutCards} />
+      <Experience experiences={experiences} />
+      <TechStacks />
+      <Works id="Projects" projects={projects} />
       <Feedbacks />
       <div className="relative z-0">
         <Contact />
+        {/* <StarsCanvas /> */}
       </div>
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (_ctx) => {
+  const { name, charge, about, experiences, aboutCards, projects }: data = await (
+    await Fetch("/basics", "GET", {})
+  ).json();
+
+    console.log(projects)
+
+  const sections: Array<SectionType> = [
+    { id: "", name: "Home", img: "home" },
+    { id: "About", name: "About", img: "info" },
+    { id: "Exp", name: "Experience", img: "stars" },
+    { id: "Projects", name: "Projects", img: "brief" },
+    { id: "Contact", name: "Contact", img: "world" },
+  ];
+
+  return { props: { name, charge, about, experiences, aboutCards, sections, projects } };
+};

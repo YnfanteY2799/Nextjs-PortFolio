@@ -2,15 +2,19 @@ import { ReactElement, useState, MouseEvent } from "react";
 import NavList from "./NavList";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../head/Head";
+import Header from "../../head/Head";
 
-export default function Navbar(): ReactElement {
+export type SelectionListNode = { id: string; title: string };
+
+export interface IntroNavbarProps {
+  sectionList: Array<SelectionListNode>;
+}
+
+export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement {
   const [active, setActive] = useState("" as string);
   const [isToggle, setToggle] = useState(false as boolean);
 
-  function handleActive(
-    e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string
-  ): void {
+  function handleActive(e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string): void {
     typeof e === "string" ? setActive(e) : setActive("");
     window.scrollTo(0, 0);
   }
@@ -22,24 +26,24 @@ export default function Navbar(): ReactElement {
   return (
     <>
       <Header />
-      <nav className="sm:px-16 px-6 w-full flex items-center py-5 fixed top-0 z-20 bg-primary">
-        <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-          <Link href="/" className="flex items-center gap-2" onClick={handleActive}>
+      <nav className="flex fixed top-0 z-20 items-center px-6 py-5 w-full sm:px-16 bg-primary">
+        <div className="flex justify-between items-center mx-auto w-full max-w-7xl">
+          <Link href="/" className="flex gap-2 items-center" onClick={handleActive}>
             <Image
-              src="/logo.svg"
+              src="/logo-no-background.svg"
               alt="logo"
-              className="w-9 h-9 object-contain"
-              width={0}
-              height={0}
+              className="object-contain w-16 h-16"
+              width={16}
+              height={16}
             />
             <p className="text-white text-[18px] font-bold cursor-pointer flex">
-              <span className="sm:block hidden"> YJ &nbsp;| FullStack Developer</span>
+              <span className="hidden sm:block">| FullStack Developer</span>
             </p>
           </Link>
 
-          <NavList active={active} handleActive={handleActive} list={[]} />
+          <NavList active={active} handleActive={handleActive} list={sectionList} />
 
-          <div className="sm:hidden flex flex-1 justify-end items-center">
+          <div className="flex flex-1 justify-end items-center sm:hidden">
             <Image
               src="/next.svg"
               width={0}
@@ -56,7 +60,7 @@ export default function Navbar(): ReactElement {
               <NavList
                 active={active}
                 handleActive={handleActive}
-                list={[]}
+                list={sectionList}
                 flex={true}
                 handleToggle={toggle}
               />

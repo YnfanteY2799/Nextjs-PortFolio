@@ -1,14 +1,6 @@
 import { ReactElement } from "react";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
-
-export interface ExperienceCardProps {
-  title?: string;
-  company_name?: string;
-  icon?: string;
-  iconBg?: string;
-  date?: string;
-  points: string[];
-}
+import { ExperienceCardProps } from "@/types/ComponentProps";
 
 export default function ExperienceCard({
   title,
@@ -25,7 +17,7 @@ export default function ExperienceCard({
       date={date}
       iconStyle={{ background: iconBg }}
       icon={
-        <div className="flex items-center justify-center w-full h-full">
+        <div className="flex justify-center items-center w-full h-full">
           <img src={icon} alt={company_name} className="w-[60%] h-[60%] object-contain" />
         </div>
       }
