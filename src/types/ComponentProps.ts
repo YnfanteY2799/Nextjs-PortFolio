@@ -86,3 +86,10 @@ export interface TagProp {
   cn?: string;
   name?: string;
 }
+
+
+export type MailForm = {
+  name: string;
+  email: string;
+  message: string;
+};

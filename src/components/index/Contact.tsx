@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../wrapper";
 import { sectionHeadText, sectionSubText, slideIn } from "@/utils/utils";
 import { RotationCanvas } from "../canvas";
+import ContactForm from "../ui/forms/ContactForm";
 
 export default function Contact(): ReactElement {
   return (
@@ -15,7 +16,7 @@ export default function Contact(): ReactElement {
           <p className={sectionSubText}>Lets Talk!</p>
           <h3 className={sectionHeadText}>Contact.</h3>
 
-          {/* <ContactForm /> */}
+          <ContactForm />
         </motion.div>
 
         <motion.div
