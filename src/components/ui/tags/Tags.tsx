@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import Image from "next/image";
-import { TagProp } from "@/types/ComponentProps";
+import type { TagProp } from "@/types/ComponentProps";
 
 export default function Tags({ icon, color, children, upper, cn }: TagProp): ReactElement {
   const baseTag = "inline-flex items-center px-3 py-1 text-xs font-bold rounded-full ";

@@ -1,10 +1,11 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import Tilt from "react-tilt";
-import { fadeIn } from "@/utils/utils";
-import { ProjectsCardProps } from "@/types/ComponentProps";
 import Image from "next/image";
+
+import { fadeIn } from "@/utils/utils";
 import { Tag } from "@/components";
+import type { ProjectsCardProps } from "@/types/ComponentProps";
 
 export default function Projects({
   name,

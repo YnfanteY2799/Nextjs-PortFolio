@@ -2,9 +2,9 @@ import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "../wrapper";
 import { fadeIn } from "@/utils/utils";
-import { SectionHead } from "../ui";
+import { SectionHead } from "../index";
 import { ProjectsCard } from "../ui/cards";
-import { WorksProps } from "@/types/ComponentProps";
+import type { WorksProps } from "@/types/ComponentProps";
 
 export default function Works({ id, projects }: WorksProps): ReactElement {
   return (

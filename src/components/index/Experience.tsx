@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import { ExperienceCard } from "@/components/ui/cards";
 import SectionWrapper from "@/components/wrapper/SectionWrapper";
-import { SectionHead } from "@/components/ui";
+import { SectionHead } from "@/components";
 import type { ExpProps } from "@/types/ComponentProps";
 import "react-vertical-timeline-component/style.min.css";
 

@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "../wrapper";
 import { sectionHeadText, sectionSubText, slideIn } from "@/utils/utils";
+import { RotationCanvas } from "../canvas";
 
 export default function Contact(): ReactElement {
   return (
@@ -11,7 +12,7 @@ export default function Contact(): ReactElement {
           variants={slideIn("left", "tween", 0.2, 1)}
           className="flex-[0.7] bg-black-100 p-8 rounded-2xl"
         >
-          <p className={sectionSubText}>Get in touch!</p>
+          <p className={sectionSubText}>Lets Talk!</p>
           <h3 className={sectionHeadText}>Contact.</h3>
 
           {/* <ContactForm /> */}
@@ -21,7 +22,7 @@ export default function Contact(): ReactElement {
           variants={slideIn("right", "tween", 0.2, 1)}
           className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
         >
-          {/* <EarthCanvas /> */}
+          <RotationCanvas />
         </motion.div>
       </div>
     </SectionWrapper>
