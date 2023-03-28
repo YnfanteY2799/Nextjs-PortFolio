@@ -87,9 +87,19 @@ export interface TagProp {
   name?: string;
 }
 
-
 export type MailForm = {
   name: string;
   email: string;
   message: string;
 };
+
+type changingStates = {
+  default?: string;
+  onGoing?: string;
+  final?: string;
+};
+
+export interface DownloadButtonProps {
+  className?: string;
+  states?: changingStates;
+}

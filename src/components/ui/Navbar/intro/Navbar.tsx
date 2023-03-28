@@ -3,6 +3,7 @@ import NavList from "./NavList";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../../head/Head";
+import { DownloadButton } from "../../buttons";
 
 export type SelectionListNode = { id: string; title: string };
 
@@ -40,8 +41,8 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
               <span className="hidden sm:block">| FullStack Developer</span>
             </p>
           </Link>
-
           <NavList active={active} handleActive={handleActive} list={sectionList} />
+          <DownloadButton className="" />
 
           <div className="flex flex-1 justify-end items-center sm:hidden">
             <Image
