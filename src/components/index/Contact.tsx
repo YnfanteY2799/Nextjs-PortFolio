@@ -4,10 +4,13 @@ import { SectionWrapper } from "../wrapper";
 import { sectionHeadText, sectionSubText, slideIn } from "@/utils/utils";
 import { RotationCanvas } from "../canvas";
 import ContactForm from "../ui/forms/ContactForm";
+import { SectionHead } from "../index";
 
 export default function Contact(): ReactElement {
   return (
     <SectionWrapper id="Contact">
+      <SectionHead Head="Do you wanna have a chat ?"/>
+
       <div className="flex overflow-hidden flex-col-reverse gap-10 xl:mt-12 xl:flex-row">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}

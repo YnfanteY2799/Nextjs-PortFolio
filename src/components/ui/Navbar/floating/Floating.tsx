@@ -39,7 +39,7 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
         ))
       ) : (
         <button onClick={handleShowFloat}>
-          <Image src="./menu.svg" alt={"menu"} width={20} height={20} />
+          <Image src="./menu.svg" alt={"menu"} width={30} height={30} />
         </button>
       )}
     </motion.nav>

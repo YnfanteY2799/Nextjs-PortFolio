@@ -9,7 +9,7 @@ import type { WorksProps } from "@/types/ComponentProps";
 export default function Works({ id, projects }: WorksProps): ReactElement {
   return (
     <SectionWrapper id={id}>
-      <SectionHead />
+      <SectionHead Head="My Projects" SubHead="I've working on : "/>
       <div className="w-full w-flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
