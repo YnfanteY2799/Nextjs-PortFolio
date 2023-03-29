@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from "react";
+import { ReactNode, MouseEvent } from "react";
 
 export type Experience = {
   title?: string;
@@ -102,6 +102,7 @@ type changingStates = {
 export interface DownloadButtonProps {
   className?: string;
   states?: changingStates;
+  onClick?: () => void;
 }
 
 export interface NavlistProps {
@@ -117,4 +118,14 @@ export type SelectionListNode = { id: string; title: string };
 
 export interface IntroNavbarProps {
   sectionList: Array<SelectionListNode>;
+}
+
+export interface BdropProps {
+  children?: ReactNode;
+  click?: any;
+}
+
+export interface AnimatedModalProps {
+  open?: boolean;
+  action?: (e: MouseEvent) => void;
 }

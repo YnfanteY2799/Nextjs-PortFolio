@@ -12,6 +12,8 @@ import Image from "next/image";
 import Header from "../../head/Head";
 import { DownloadButton } from "../../buttons";
 import { SelectionListNode } from "@/types/ComponentProps";
+import Modal from "@/components/animation/Modal";
+import { Backdrop } from "@/components";
 
 const List: Array<SelectionListNode> = [
   { title: "About", id: "/About" },
@@ -19,6 +21,7 @@ const List: Array<SelectionListNode> = [
 ];
 
 export default function Navbar(): ReactElement {
+
   const [active, setActive] = useState("" as string);
   const [isToggle, setToggle] = useState(false as boolean);
   const mobileNavbarRef = useRef<HTMLDivElement>(null);
