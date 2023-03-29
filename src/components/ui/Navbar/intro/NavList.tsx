@@ -19,8 +19,8 @@ export default function NavList({
     <ul
       className={`list-none ${
         flex
-          ? "flex justify-end items-start flex-col gap-4"
-          : "hidden sm:flex flex-row gap-10"
+          ? "flex flex-col gap-4 justify-end items-start"
+          : "hidden flex-row gap-10 sm:flex"
       } `}
     >
       {list.map(({ id, title }) => (

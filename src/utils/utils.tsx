@@ -58,7 +58,7 @@ export const selectedFloatingSection =
 export const nonSelectedFloatingSection =
   "flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 dark:text-sky-50";
 
-export const slideIn = (direction: string, type: any, delay: any, duration: any) => {
+export const slideIn = (direction: string, type: string, delay: number, duration: number) => {
   return {
     hidden: {
       x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,

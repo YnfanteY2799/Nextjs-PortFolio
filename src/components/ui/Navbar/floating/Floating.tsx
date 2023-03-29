@@ -1,5 +1,4 @@
 import { ReactElement, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { FloatingMenuProps } from "@/types/ComponentProps";
 import { selectedFloatingSection, nonSelectedFloatingSection, slideIn } from "@/utils/utils";
@@ -31,8 +30,7 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
   }, [isOpen]);
 
   return (
-    <motion.nav
-      variants={slideIn("left", "tween", 0.2, 1)}
+    <nav
       className="z-20 flex shrink-0 grow-0 justify-around gap-4 border-t border-gray-200 bg-white/50 p-2.5 shadow-lg backdrop-blur-lg dark:border-slate-600/60 dark:bg-slate-800/50 fixed top-2/4 -translate-y-2/4 left-6 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
       ref={floatingRef}
     >
@@ -56,6 +54,6 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
           <Image src="./menu.svg" alt="menu" width={30} height={30} />
         </button>
       )}
-    </motion.nav>
+    </nav>
   );
 }
