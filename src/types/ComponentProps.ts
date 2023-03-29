@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 export type Experience = {
   title?: string;
@@ -102,4 +102,19 @@ type changingStates = {
 export interface DownloadButtonProps {
   className?: string;
   states?: changingStates;
+}
+
+export interface NavlistProps {
+  list: Array<SelectionListNode>;
+  active: string;
+  handleActive: Function;
+  flex?: boolean;
+  handleToggle?: Function;
+  lastPart?: ReactNode;
+}
+
+export type SelectionListNode = { id: string; title: string };
+
+export interface IntroNavbarProps {
+  sectionList: Array<SelectionListNode>;
 }

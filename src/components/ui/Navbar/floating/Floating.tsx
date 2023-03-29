@@ -1,11 +1,11 @@
 import { ReactElement, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FloatingMenuProps } from "@/types/ComponentProps";
-import { selectedFloatingSection, nonSelectedFloatingSection, slideIn } from "@/utils/utils";
+import { selectedFloatingSection, nonSelectedFloatingSection } from "@/utils/utils";
 
 export default function Floating({ sections }: FloatingMenuProps): ReactElement {
   const [lastClicked, setLastClicked] = useState(0 as number);
-  const [isOpen, setIsOpen] = useState(true as boolean);
+  const [isOpen, setIsOpen] = useState(false as boolean);
   const floatingRef = useRef<HTMLElement>(null);
 
   function handleShowFloat(): void {
@@ -18,8 +18,8 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
   }
 
   useEffect(() => {
-    const checkIfClickedOutside = (e: MouseEvent) => {
-      if (isOpen && floatingRef.current && !floatingRef.current.contains(e.target as Node)) {
+    const checkIfClickedOutside = ({ target }: MouseEvent) => {
+      if (isOpen && floatingRef.current && !floatingRef.current.contains(target as Node)) {
         handleShowFloat();
       }
     };
@@ -31,7 +31,7 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
 
   return (
     <nav
-      className="z-20 flex shrink-0 grow-0 justify-around gap-4 border-t border-gray-200 bg-white/50 p-2.5 shadow-lg backdrop-blur-lg dark:border-slate-600/60 dark:bg-slate-800/50 fixed top-2/4 -translate-y-2/4 left-6 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
+      className="z-20 flex shrink-0 grow-0 justify-around gap-4 border-t border-gray-200 bg-white/50 p-2.5 shadow-lg backdrop-blur-lg dark:border-slate-600/60 dark:bg-slate-800/50 fixed top-2/4 -translate-y-2/4 left-4 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
       ref={floatingRef}
     >
       {isOpen ? (
@@ -51,7 +51,7 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
         ))
       ) : (
         <button onClick={handleShowFloat} className="flex flex-col justify-center items-center">
-          <Image src="./menu.svg" alt="menu" width={30} height={30} />
+          <Image src="/icons/menu.svg" alt="menu" width={30} height={30} />
         </button>
       )}
     </nav>

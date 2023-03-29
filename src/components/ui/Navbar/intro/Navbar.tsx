@@ -1,17 +1,24 @@
-import { ReactElement, useState, useRef, useEffect, MouseEvent as ReactMouseEvent } from "react";
+import {
+  ReactElement,
+  useState,
+  useRef,
+  useEffect,
+  MouseEvent as ReactMouseEvent,
+  ReactNode,
+} from "react";
 import NavList from "./NavList";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../../head/Head";
 import { DownloadButton } from "../../buttons";
+import { SelectionListNode } from "@/types/ComponentProps";
 
-export type SelectionListNode = { id: string; title: string };
+const List: Array<SelectionListNode> = [
+  { title: "About", id: "/About" },
+  { title: "Projects", id: "/Projects" },
+];
 
-export interface IntroNavbarProps {
-  sectionList: Array<SelectionListNode>;
-}
-
-export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement {
+export default function Navbar(): ReactElement {
   const [active, setActive] = useState("" as string);
   const [isToggle, setToggle] = useState(false as boolean);
   const mobileNavbarRef = useRef<HTMLDivElement>(null);
@@ -26,11 +33,11 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
   }
 
   useEffect(() => {
-    const closeOnClickOut = (e: MouseEvent) => {
+    const closeOnClickOut = ({ target }: MouseEvent) => {
       if (
         isToggle &&
         mobileNavbarRef.current &&
-        !mobileNavbarRef.current.contains(e.target as Node)
+        !mobileNavbarRef.current.contains(target as Node)
       ) {
         toggle();
       }
@@ -58,12 +65,16 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
               <span className="hidden sm:block">| FullStack Developer</span>
             </p>
           </Link>
-          <NavList active={active} handleActive={handleActive} list={sectionList} />
-          {/* <DownloadButton className="" /> */}
+          <NavList
+            active={active}
+            handleActive={handleActive}
+            list={List}
+            lastPart={<DownloadButton />}
+          />
 
-          <div className="flex flex-1 justify-end items-center sm:hidden">
+          <div className="flex flex-1 justify-end items-center sm:hidden" ref={mobileNavbarRef}>
             <Image
-              src="/menu.svg"
+              src={isToggle ? "/icons/close.svg" : "/icons/menu.svg"}
               width={0}
               height={0}
               alt="menu"
@@ -74,12 +85,11 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
               className={`${
                 isToggle ? "flex" : "hidden"
               } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-              ref={mobileNavbarRef}
             >
               <NavList
                 active={active}
                 handleActive={handleActive}
-                list={[{ title: "XD" }]}
+                list={List}
                 flex={true}
                 handleToggle={toggle}
               />

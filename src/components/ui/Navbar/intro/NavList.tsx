@@ -1,12 +1,6 @@
 import { ReactElement } from "react";
-
-export interface NavlistProps {
-  list: Array<any>;
-  active: string;
-  handleActive: Function;
-  flex?: boolean;
-  handleToggle?: Function;
-}
+import Link from "next/link";
+import { NavlistProps } from "@/types/ComponentProps";
 
 export default function NavList({
   list,
@@ -14,13 +8,12 @@ export default function NavList({
   handleActive,
   flex,
   handleToggle,
+  lastPart,
 }: NavlistProps): ReactElement {
   return (
     <ul
       className={`list-none ${
-        flex
-          ? "flex flex-col gap-4 justify-end items-start"
-          : "hidden flex-row gap-10 sm:flex"
+        flex ? "flex flex-col gap-4 justify-end items-start" : "hidden flex-row gap-10 sm:flex"
       } `}
     >
       {list.map(({ id, title }) => (
@@ -29,16 +22,17 @@ export default function NavList({
           className={`${active === title ? "text-white" : "text-secondary"} ${
             flex
               ? "font-poppins font-medium cursor-pointer text-[16px]"
-              : "hover:text-white text-[18px] font-medium cursor-pointer"
+              : "hover:text-white text-[18px] font-medium cursor-pointer pt-[3px]"
           }`}
           onClick={() => {
             handleActive(title);
             handleToggle !== undefined && handleToggle();
           }}
         >
-          <a href={`#${id}`}>{title}</a>
+          <Link href={id}>{title}</Link>
         </li>
       ))}
+      {lastPart && <li>{lastPart}</li>}
     </ul>
   );
 }

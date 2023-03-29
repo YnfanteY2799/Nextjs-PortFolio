@@ -28,7 +28,7 @@ export default function Home({
     <div className="relative z-0 bg-primary">
       <Floating sections={sections} />
       <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
-        <IntroNavbar sectionList={[]} />
+        <IntroNavbar />
         <Hero name={name} charge={charge} id="" />
       </div>
       <About Text={about} cardsInfo={aboutCards} />
