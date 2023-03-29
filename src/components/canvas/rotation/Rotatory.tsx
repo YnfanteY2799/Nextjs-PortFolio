@@ -7,7 +7,7 @@ export default function Earth(): ReactElement {
     <mesh>
       <hemisphereLight intensity={0.25} groundColor="white" />
 
-      <primitive object={planet.scene} scale={0.4} position-y={-1} rotation-y={0} />
+      <primitive object={planet.scene} scale={0.4} position-y={-1.9} rotation-y={0} />
     </mesh>
   );
 }
