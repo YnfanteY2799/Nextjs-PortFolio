@@ -19,7 +19,7 @@ export default function ContactForm(): ReactElement {
           name="name"
           // value={""}
           // onBlur={handleBlur}
-          placeholder=" What's you'r name ? "
+          placeholder=" What's your name ? "
           className="px-6 py-4 font-medium text-white rounded-lg border-none outline-none bg-tertiary placeholder:text-secondary"
         />
       </label>
@@ -30,7 +30,7 @@ export default function ContactForm(): ReactElement {
           name="email"
           // value={"form.email"}
           // onBlur={handleBlur}
-          placeholder=" What's you'r email ? "
+          placeholder=" What's your email ? "
           className="px-6 py-4 font-medium text-white rounded-lg border-none outline-none bg-tertiary placeholder:text-secondary"
         />
       </label>
@@ -41,7 +41,7 @@ export default function ContactForm(): ReactElement {
           name="message"
           // value={"form.message"}
           // onBlur={handleBlur}
-          placeholder=" What do you want to say ? "
+          placeholder=" Your Message goes Here! "
           className="px-6 py-4 font-medium text-white rounded-lg border-none outline-none bg-tertiary placeholder:text-secondary"
         />
       </label>

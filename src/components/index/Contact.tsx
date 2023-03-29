@@ -9,15 +9,13 @@ import { SectionHead } from "../index";
 export default function Contact(): ReactElement {
   return (
     <SectionWrapper id="Contact">
-      <SectionHead Head="Do you wanna have a chat ?"/>
-
       <div className="flex overflow-hidden flex-col-reverse gap-10 xl:mt-12 xl:flex-row">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
           className="flex-[0.7] bg-black-100 p-8 rounded-2xl"
         >
           <p className={sectionSubText}>Lets Talk!</p>
-          <h3 className={sectionHeadText}>Contact.</h3>
+          <h3 className={sectionHeadText}>Contact</h3>
 
           <ContactForm />
         </motion.div>

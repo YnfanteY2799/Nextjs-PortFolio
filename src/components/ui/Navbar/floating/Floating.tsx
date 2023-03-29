@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FloatingMenuProps } from "@/types/ComponentProps";
@@ -7,6 +7,7 @@ import { selectedFloatingSection, nonSelectedFloatingSection, slideIn } from "@/
 export default function Floating({ sections }: FloatingMenuProps): ReactElement {
   const [lastClicked, setLastClicked] = useState(0 as number);
   const [isOpen, setIsOpen] = useState(true as boolean);
+  const floatingRef = useRef<HTMLElement>(null);
 
   function handleShowFloat(): void {
     setIsOpen(!isOpen);
@@ -17,10 +18,23 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
     handleShowFloat();
   }
 
+  useEffect(() => {
+    const checkIfClickedOutside = (e: MouseEvent) => {
+      if (isOpen && floatingRef.current && !floatingRef.current.contains(e.target as Node)) {
+        handleShowFloat();
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => document.removeEventListener("mousedown", checkIfClickedOutside);
+  }, [isOpen]);
+
   return (
     <motion.nav
       variants={slideIn("left", "tween", 0.2, 1)}
       className="z-20 flex shrink-0 grow-0 justify-around gap-4 border-t border-gray-200 bg-white/50 p-2.5 shadow-lg backdrop-blur-lg dark:border-slate-600/60 dark:bg-slate-800/50 fixed top-2/4 -translate-y-2/4 left-6 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
+      ref={floatingRef}
     >
       {isOpen ? (
         (sections ?? []).map(({ id, name, img }, ind) => (
@@ -38,8 +52,8 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
           </>
         ))
       ) : (
-        <button onClick={handleShowFloat}>
-          <Image src="./menu.svg" alt={"menu"} width={30} height={30} />
+        <button onClick={handleShowFloat} className="flex flex-col justify-center items-center">
+          <Image src="./menu.svg" alt="menu" width={30} height={30} />
         </button>
       )}
     </motion.nav>
