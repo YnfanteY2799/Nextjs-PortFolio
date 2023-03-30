@@ -11,8 +11,6 @@ export interface ServiceCardProps {
 }
 
 export default function ServiceCard({ title, icon, index }: ServiceCardProps): ReactElement {
-  console.log("Icon is : ", icon);
-
   return (
     <Tilt className="xs:w-[250px] w-full ">
       <motion.div
@@ -27,7 +25,7 @@ export default function ServiceCard({ title, icon, index }: ServiceCardProps): R
           }}
           className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
         >
-          {/* <Image src={icon} alt={title} className="object-contain" width={16} height={16}/> */}
+          <Image src={`/doodle/${icon}.svg`} alt={title} className="object-contain" width={120} height={120}/>
           <h3 className="text-white text-[20px] font-bold text-center">{title}</h3>
         </motion.div>
       </motion.div>
