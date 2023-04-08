@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 import { fadeIn } from "@/utils/utils";
 

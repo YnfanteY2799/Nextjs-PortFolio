@@ -50,7 +50,7 @@ export default function Floating({ sections }: FloatingMenuProps): ReactElement 
           </>
         ))
       ) : (
-        <button onClick={handleShowFloat} className="flex flex-col justify-center items-center">
+        <button onClick={handleShowFloat} className="flex flex-col items-center justify-center">
           <Image src="/icons/menu.svg" alt="menu" width={30} height={30} />
         </button>
       )}

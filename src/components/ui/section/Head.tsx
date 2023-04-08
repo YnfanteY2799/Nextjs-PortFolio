@@ -10,7 +10,7 @@ export default function Head({ Head, SubHead, MoreDetails }: InitialPartProps): 
   return (
     <motion.div variants={TextVariants}>
       <p className={sectionSubText}>{SubHead}</p>
-      <div className="flex">
+      <div className="flex flex-row">
         <h2 className={sectionHeadText + "z-0"}>
           {Head}
           {MoreDetails !== undefined && (
