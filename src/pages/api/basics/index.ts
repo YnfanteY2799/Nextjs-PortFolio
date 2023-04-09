@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { data } from "../../../types/BackEnd";
+import type { data } from "@/types";
 
 const experiences = [
   {

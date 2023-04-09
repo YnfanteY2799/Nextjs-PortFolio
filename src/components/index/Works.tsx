@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
-import { SectionWrapper } from "../wrapper";
-import { fadeIn } from "@/utils/utils";
+import { SectionWrapper } from "@/components";
+import { fadeIn } from "@/utils";
 import { SectionHead } from "../index";
 import { ProjectsCard } from "../ui/cards";
 import type { WorksProps } from "@/types/ComponentProps";
@@ -23,7 +23,7 @@ export default function Works({ id, projects }: WorksProps): ReactElement {
           est laborum.
         </motion.p>
       </div>
-      <div className="flex flex-wrap gap-7 mt-20">
+      <div className="flex flex-wrap mt-20 gap-7">
         {(projects ?? []).map((p, i) => (
           <ProjectsCard index={i} key={`project-${i}`} {...p} />
         ))}

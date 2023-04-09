@@ -1,4 +1,5 @@
 export { default as PageWrapper } from "./wrapper/PageWrapper";
+export { default as SectionWrapper } from "./wrapper/SectionWrapper";
 export { default as Head } from "./ui/head/Head";
 export { default as Hero } from "./index/Hero";
 export { default as About } from "./index/About";

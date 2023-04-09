@@ -1,9 +1,8 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
-import { SectionWrapper } from "@/components/wrapper";
+import { SectionWrapper, SectionHead } from "@/components";
 import { ServiceCard } from "@/components/ui/cards";
-import { fadeIn } from "@/utils/utils";
-import { SectionHead } from "@/components";
+import { fadeIn } from "@/utils";
 import type { SectionsProps } from "@/types/ComponentProps";
 
 export default function About({ Text, cardsInfo }: SectionsProps): ReactElement {

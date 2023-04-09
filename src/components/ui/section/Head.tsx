@@ -1,12 +1,16 @@
-import { motion } from "framer-motion";
 import { ReactElement } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-import { sectionHeadText, sectionSubText, TextVariants } from "@/utils/utils";
 import type { InitialPartProps } from "@/types/ComponentProps";
+import { sectionHeadText, sectionSubText, TextVariants } from "@/utils";
 
-export default function Head({ Head, SubHead, MoreDetails }: InitialPartProps): ReactElement {
+export default function Head({
+  Head,
+  SubHead,
+  MoreDetails,
+}: InitialPartProps): ReactElement {
   return (
     <motion.div variants={TextVariants}>
       <p className={sectionSubText}>{SubHead}</p>

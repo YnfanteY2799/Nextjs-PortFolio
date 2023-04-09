@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Tilt  from "react-parallax-tilt";
 import Image from "next/image";
 
-import { fadeIn } from "@/utils/utils";
+import { fadeIn } from "@/utils";
 import { Tag } from "@/components";
 import type { ProjectsCardProps } from "@/types/ComponentProps";
 
