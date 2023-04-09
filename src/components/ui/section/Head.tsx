@@ -11,11 +11,11 @@ export default function Head({ Head, SubHead, MoreDetails }: InitialPartProps): 
     <motion.div variants={TextVariants}>
       <p className={sectionSubText}>{SubHead}</p>
       <div className="flex flex-row">
-        <h2 className={sectionHeadText + "z-0"}>
+        <h2 className={sectionHeadText + "z-0 flex"}>
           {Head}
           {MoreDetails !== undefined && (
-            <Link href={MoreDetails}>
-              <Image src="/right_arrow.svg" alt={MoreDetails} width={40} height={40} />
+            <Link href={MoreDetails} className="flex pl-[15px]">
+              <Image src="/right_arrow.svg" alt={MoreDetails} width={60} height={40} />
             </Link>
           )}
         </h2>
