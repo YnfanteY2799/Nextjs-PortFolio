@@ -13,3 +13,4 @@ export { default as Tag } from "./ui/tags/Tags";
 export { default as ContactForm } from "./ui/forms/ContactForm";
 export { default as SectionHead } from "./ui/section/Head";
 export { default as Backdrop } from "./ui/modal/backdrop";
+export { default as Floating } from "./ui/Navbar/floating/Floating";

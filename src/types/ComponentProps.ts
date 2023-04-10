@@ -129,3 +129,7 @@ export interface AnimatedModalProps {
   open?: boolean;
   action?: (e: MouseEvent) => void;
 }
+
+export interface ErrorPageProps {
+  code?: string;
+}

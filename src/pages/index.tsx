@@ -9,13 +9,11 @@ import {
   Feedbacks,
   Contact,
   IntroNavbar,
-  Backdrop,
   PageWrapper,
+  Floating
 } from "@/components";
 import { Fetch } from "@/utils";
-import type { data } from "../types/BackEnd";
-import type { HomeProps, SectionType } from "@/types/ComponentProps";
-import Floating from "@/components/ui/Navbar/floating/Floating";
+import type { data, HomeProps, SectionType } from "@/types";
 
 export default function Home({
   name,
