@@ -1,27 +1,30 @@
+export * from "./Supabase";
+
 export interface DB {
   public: {
     Tables: {
       Projects: {
         Row: {
           id: number;
-          project_name: string;
-          project_description: string;
-          project_image: Blob;
-          inserted_at: string;
+          name: string;
+          description: string;
+          image_url: string;
+          tags: string | Array<string>;
+          created_at: Date;
         };
         Insert: {
           id?: number;
-          inserted_at?: string;
-          is_complete?: boolean | null;
-          task?: string | null;
-          user_id: string;
+          name: string;
+          description: string;
+          image_url: string;
+          tags: string | Array<string>;
         };
         Update: {
           id?: number;
-          inserted_at?: string;
-          is_complete?: boolean | null;
-          task?: string | null;
-          user_id?: string;
+          name: string;
+          description: string;
+          image_url: string;
+          tags: string | Array<string>;
         };
       };
     };

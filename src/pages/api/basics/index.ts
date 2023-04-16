@@ -1,4 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { SupabaseClient } from "@supabase/supabase-js";
+import { supabase, DB } from "@/base";
+
 import type { data } from "@/types";
 
 const experiences = [
@@ -143,7 +146,16 @@ const projects = [
   },
 ];
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<data>) {
+export default async function handler(_req: NextApiRequest, res: NextApiResponse<data>) {
+  const { data: Projects } = await supabase
+    .from("Projects")
+    .select("*")
+    .order("id", { ascending: true });
+
+  console.log("Projects from supa : ", Projects);
+
+
+
   res.status(200).json({
     name: "",
     charge: "A FullStack Javascript Developer",

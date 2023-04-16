@@ -5,7 +5,7 @@ import AnimatedDown from "../animation/Down";
 
 export default function Hero({ name, charge, id }: HeroProps): ReactElement {
   return (
-    <section className="relative mx-auto w-full h-screen" id={id}>
+    <section className="relative w-full h-screen mx-auto" id={id}>
       <div className="sm:px-16 px-6 absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5">
         <div>
           <h1 className="font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
@@ -17,8 +17,10 @@ export default function Hero({ name, charge, id }: HeroProps): ReactElement {
           </p>
         </div>
       </div>
-      <HeroCanvas />
-      <AnimatedDown />
+      <>
+        <HeroCanvas />
+        <AnimatedDown />
+      </>
     </section>
   );
 }

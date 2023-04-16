@@ -2,20 +2,20 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@react-three/drei':
-    specifier: ^9.64.0
-    version: 9.64.0(@react-three/fiber@8.12.0)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
+    specifier: ^9.65.3
+    version: 9.65.3(@react-three/fiber@8.12.1)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
   '@react-three/fiber':
-    specifier: 8.12.0
-    version: 8.12.0(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
+    specifier: 8.12.1
+    version: 8.12.1(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
   '@supabase/supabase-js':
-    specifier: ^2.15.0
-    version: 2.15.0
+    specifier: ^2.20.0
+    version: 2.20.0
   '@types/node':
     specifier: 18.15.11
     version: 18.15.11
   '@types/react':
-    specifier: 18.0.33
-    version: 18.0.33
+    specifier: 18.0.35
+    version: 18.0.35
   '@types/react-dom':
     specifier: 18.0.11
     version: 18.0.11
@@ -23,11 +23,11 @@ dependencies:
     specifier: ^0.150.1
     version: 0.150.1
   framer-motion:
-    specifier: ^10.11.2
-    version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^10.12.2
+    version: 10.12.2(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: 13.3.0
-    version: 13.3.0(react-dom@18.2.0)(react@18.2.0)(sass@1.61.0)
+    version: 13.3.0(react-dom@18.2.0)(react@18.2.0)(sass@1.62.0)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -35,14 +35,14 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   react-parallax-tilt:
-    specifier: ^1.7.126
-    version: 1.7.126(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.7.128
+    version: 1.7.128(react-dom@18.2.0)(react@18.2.0)
   react-vertical-timeline-component:
     specifier: ^3.6.0
     version: 3.6.0(react@18.2.0)
   sass:
-    specifier: ^1.61.0
-    version: 1.61.0
+    specifier: ^1.62.0
+    version: 1.62.0
   three:
     specifier: ^0.151.3
     version: 0.151.3
@@ -254,7 +254,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-spring/three@9.6.1(@react-three/fiber@8.12.0)(react@18.2.0)(three@0.151.3):
+  /@react-spring/three@9.6.1(@react-three/fiber@8.12.1)(react@18.2.0)(three@0.151.3):
     resolution: {integrity: sha512-Tyw2YhZPKJAX3t2FcqvpLRb71CyTe1GvT3V+i+xJzfALgpk10uPGdGaQQ5Xrzmok1340DAeg2pR/MCfaW7b8AA==}
     peerDependencies:
       '@react-three/fiber': '>=6.0'
@@ -265,7 +265,7 @@ packages:
       '@react-spring/core': 9.6.1(react@18.2.0)
       '@react-spring/shared': 9.6.1(react@18.2.0)
       '@react-spring/types': 9.6.1
-      '@react-three/fiber': 8.12.0(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
+      '@react-three/fiber': 8.12.1(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
       react: 18.2.0
       three: 0.151.3
     dev: false
@@ -274,8 +274,8 @@ packages:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
     dev: false
 
-  /@react-three/drei@9.64.0(@react-three/fiber@8.12.0)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3):
-    resolution: {integrity: sha512-xkdc26PcNQlp3lXKBV+FUEAbC4zuBugfhkuptJa1Mb2yoDNmsGnIApgWCRR/Wd2zZqU7W9yw/a7derZa1oPQxg==}
+  /@react-three/drei@9.65.3(@react-three/fiber@8.12.1)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3):
+    resolution: {integrity: sha512-kVyrCtyCE3gN8On0ndf9798jCVcYHxNF22rWBsIi82SgskHnYIKBde5S6Udvwb4RWL34Y+vz4103MLmjcgMwxg==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -286,8 +286,8 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.21.0
-      '@react-spring/three': 9.6.1(@react-three/fiber@8.12.0)(react@18.2.0)(three@0.151.3)
-      '@react-three/fiber': 8.12.0(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
+      '@react-spring/three': 9.6.1(@react-three/fiber@8.12.1)(react@18.2.0)(three@0.151.3)
+      '@react-three/fiber': 8.12.1(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
       '@use-gesture/react': 10.2.24(react@18.2.0)
       camera-controls: 2.3.1(three@0.151.3)
       detect-gpu: 5.0.15
@@ -313,8 +313,8 @@ packages:
       - '@types/three'
     dev: false
 
-  /@react-three/fiber@8.12.0(react-dom@18.2.0)(react@18.2.0)(three@0.151.3):
-    resolution: {integrity: sha512-o6DkNtNHqcOFRbxaiY5xayelE/9+Z0z9wWu5awqjVbc0c/1QM6AttJH6rKW0U/O6LWxSfxDTARXVzknZqpDJ7A==}
+  /@react-three/fiber@8.12.1(react-dom@18.2.0)(react@18.2.0)(three@0.151.3):
+    resolution: {integrity: sha512-5KHuXAQsvR7drbL33G/3Fzj9+DkVvSrsQfebLnuVtzQdPApoom4rH8MixTakhGsTheedY1/2s4H1GS82V0+JeA==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
@@ -356,8 +356,8 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/gotrue-js@2.20.1:
-    resolution: {integrity: sha512-TvXAhLpB/ghLAMNRX5Du3EAc9t0W1w9OFKFn9FNgX3mCAvyhJOni2DVdeSYas4xKbUuyMt4Mp3NDSculLtD0DA==}
+  /@supabase/gotrue-js@2.22.1:
+    resolution: {integrity: sha512-hwM8dFzGqqU/xqv9coxIpujSU++bs2Vw6EiZZSeUdGZkeKQ07YXFlNG56aQKkwnpHRIQjHSgZ2bAoVX1n9Owbw==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -382,22 +382,22 @@ packages:
       - supports-color
     dev: false
 
-  /@supabase/storage-js@2.4.0:
-    resolution: {integrity: sha512-uCT6WjeZsyxH/Br1MnXieJnXrYxS3DpIkdNxEFTKCoaPX/KZ2t62v++R2IMNB/XGI1LMuJfN5wM28uuK6DMpfw==}
+  /@supabase/storage-js@2.5.1:
+    resolution: {integrity: sha512-nkR0fQA9ScAtIKA3vNoPEqbZv1k5B5HVRYEvRWdlP6mUpFphM9TwPL2jZ/ztNGMTG5xT6SrHr+H7Ykz8qzbhjw==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/supabase-js@2.15.0:
-    resolution: {integrity: sha512-gtgq8Tyb4AJoTGeUH3EISOiobdSYwUPcjV+mqL8zGMND+mfqh6l90fnxVPxepnIFXeppJh67YIFTu2bZhr6AMA==}
+  /@supabase/supabase-js@2.20.0:
+    resolution: {integrity: sha512-6sNX4WEaVBbmOS1K2U3PcpAhp0FcjVo1FRSEoj4N+NZ6DIokX+yut8IBhF176pg5kFCdFIL2wyNhf3SltREmWw==}
     dependencies:
       '@supabase/functions-js': 2.1.0
-      '@supabase/gotrue-js': 2.20.1
+      '@supabase/gotrue-js': 2.22.1
       '@supabase/postgrest-js': 1.5.0
       '@supabase/realtime-js': 2.7.2
-      '@supabase/storage-js': 2.4.0
+      '@supabase/storage-js': 2.5.1
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
@@ -428,29 +428,29 @@ packages:
   /@types/react-dom@18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
-      '@types/react': 18.0.33
+      '@types/react': 18.0.35
     dev: false
 
   /@types/react-reconciler@0.26.7:
     resolution: {integrity: sha512-mBDYl8x+oyPX/VBb3E638N0B7xG+SPk/EAMcVPeexqus/5aTpTphQi0curhhshOqRrc9t6OPoJfEUkbymse/lQ==}
     dependencies:
-      '@types/react': 18.0.33
+      '@types/react': 18.0.35
     dev: false
 
   /@types/react-reconciler@0.28.2:
     resolution: {integrity: sha512-8tu6lHzEgYPlfDf/J6GOQdIc+gs+S2yAqlby3zTsB3SP2svlqTYe5fwZNtZyfactP74ShooP2vvi1BOp9ZemWw==}
     dependencies:
-      '@types/react': 18.0.33
+      '@types/react': 18.0.35
     dev: false
 
   /@types/react-vertical-timeline-component@3.3.3:
     resolution: {integrity: sha512-xmKeQ9TtZLeGtsWQx2im0U79wnC0M2F/FPEAHP7uS3G9SAVgis1XSHzq/mq7XrcbnI9eiZbL7dhiy/TqCuDc7w==}
     dependencies:
-      '@types/react': 18.0.33
+      '@types/react': 18.0.35
     dev: true
 
-  /@types/react@18.0.33:
-    resolution: {integrity: sha512-sHxzVxeanvQyQ1lr8NSHaj0kDzcNiGpILEVt69g9S31/7PfMvNCKLKcsHw4lYKjs3cGNJjXSP4mYzX43QlnjNA==}
+  /@types/react@18.0.35:
+    resolution: {integrity: sha512-6Laome31HpetaIUGFWl1VQ3mdSImwxtFZ39rh059a1MNnKGqBpC88J6NJ8n/Is3Qx7CefDGLgf/KhN/sYCf7ag==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -773,8 +773,8 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: true
 
-  /framer-motion@10.11.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-IrwuC9regNOU99JoM/Z62CAMA3awGV6AcF7e3bcgXk/ZoNlGSt5aVq0J7UAwtLmCkwVlRvBkiMnvv2mZ1GW2pg==}
+  /framer-motion@10.12.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-DD3Ieqy4pjmL0qBtfNMqnU/IONchUqnhHtgFtu0Nq5jw7bhkksD/Cs4cNhLYd1vs7iB8Q+WInxuBeMmzIoA5Xg==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -1006,7 +1006,7 @@ packages:
     resolution: {integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==}
     dev: false
 
-  /next@13.3.0(react-dom@18.2.0)(react@18.2.0)(sass@1.61.0):
+  /next@13.3.0(react-dom@18.2.0)(react@18.2.0)(sass@1.62.0):
     resolution: {integrity: sha512-OVTw8MpIPa12+DCUkPqRGPS3thlJPcwae2ZL4xti3iBff27goH024xy4q2lhlsdoYiKOi8Kz6uJoLW/GXwgfOA==}
     engines: {node: '>=14.6.0'}
     hasBin: true
@@ -1034,7 +1034,7 @@ packages:
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sass: 1.61.0
+      sass: 1.62.0
       styled-jsx: 5.1.1(react@18.2.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 13.3.0
@@ -1266,8 +1266,8 @@ packages:
     resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
     dev: false
 
-  /react-parallax-tilt@1.7.126(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-TQbFNLSX2okQMy3sr+usps+JtLowgVIB7VcZxbMRVZekx43KyCl2bkNklx367WiDqAsaJhglleV/uAX3AyIAWA==}
+  /react-parallax-tilt@1.7.128(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-JsKdSlicpg8iyKS9nB49kZz7Bj3iznTBH72/fyDA9b3DewraQbUnuyNOieL6H4czu3BPtuM2thaLkpR07bDjng==}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
       react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -1361,8 +1361,8 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
-  /sass@1.61.0:
-    resolution: {integrity: sha512-PDsN7BrVkNZK2+dj/dpKQAWZavbAQ87IXqVvw2+oEYI+GwlTWkvbQtL7F2cCNbMqJEYKPh1EcjSxsnqIb/kyaQ==}
+  /sass@1.62.0:
+    resolution: {integrity: sha512-Q4USplo4pLYgCi+XlipZCWUQz5pkg/ruSSgJ0WRDSb/+3z9tXUOkQ7QPYn4XrhZKYAK4HlpaQecRwKLJX6+DBg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
