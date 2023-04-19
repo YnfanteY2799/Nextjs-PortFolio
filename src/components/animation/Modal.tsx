@@ -1,7 +1,7 @@
 import { ReactElement, MouseEvent } from "react";
 import { motion } from "framer-motion";
 import { Backdrop } from "../index";
-import { dropIn } from "@/utils/utils";
+import { dropIn } from "@/utils";
 import { AnimatedModalProps } from "@/types/ComponentProps";
 
 export default function AnimatedModal({ open, action }: AnimatedModalProps): ReactElement {
