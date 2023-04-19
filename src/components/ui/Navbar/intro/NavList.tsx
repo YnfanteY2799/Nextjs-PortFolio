@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import Link from "next/link";
-import { NavlistProps } from "@/types/ComponentProps";
+import type { NavlistProps } from "@/types/ComponentProps";
 
 export default function NavList({
   list,
@@ -13,7 +13,9 @@ export default function NavList({
   return (
     <ul
       className={`list-none ${
-        flex ? "flex flex-col gap-4 justify-end items-start" : "hidden flex-row gap-10 sm:flex"
+        flex
+          ? "flex flex-col gap-4 justify-end items-start"
+          : "hidden flex-row gap-10 sm:flex"
       } `}
     >
       {list.map(({ id, title }) => (

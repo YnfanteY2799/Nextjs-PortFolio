@@ -10,10 +10,11 @@ import {
   Contact,
   IntroNavbar,
   PageWrapper,
-  Floating
+  Floating,
 } from "@/components";
 import { Fetch } from "@/utils";
 import type { data, HomeProps, SectionType } from "@/types";
+import { supabase } from "@/base";
 
 export default function Home({
   name,
@@ -46,8 +47,9 @@ export default function Home({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-  const { name, charge, about, experiences, aboutCards, projects }: data = await (
+export const getServerSideProps: GetServerSideProps = async (_) => {
+
+  const { name, charge, about, experiences, aboutCards }: data = await (
     await Fetch("/basics", "GET", {})
   ).json();
 
@@ -59,5 +61,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
     { id: "Contact", name: "Contact", img: "world" },
   ];
 
-  return { props: { name, charge, about, experiences, aboutCards, sections, projects } };
+  return {
+    props: { name, charge, about, experiences, aboutCards, sections, projects: [] },
+  };
 };

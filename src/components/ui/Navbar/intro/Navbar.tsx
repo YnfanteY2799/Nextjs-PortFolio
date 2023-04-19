@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "../../head/Head";
 import { DownloadButton } from "../../buttons";
-import { SelectionListNode } from "@/types/ComponentProps";
+import type { SelectionListNode } from "@/types/ComponentProps";
 
 const List: Array<SelectionListNode> = [
   { title: "About", id: "/About" },
@@ -44,9 +44,9 @@ export default function Navbar(): ReactElement {
   return (
     <>
       <Header />
-      <nav className="flex fixed top-0 z-20 items-center px-6 py-5 w-full sm:px-16 bg-primary">
-        <div className="flex justify-between items-center mx-auto w-full max-w-7xl">
-          <Link href="/" className="flex gap-2 items-center" onClick={handleActive}>
+      <nav className="fixed top-0 z-20 flex items-center w-full px-6 py-5 sm:px-16 bg-primary">
+        <div className="flex items-center justify-between w-full mx-auto max-w-7xl">
+          <Link href="/" className="flex items-center gap-2" onClick={handleActive}>
             <Image
               src="/logo-no-background.svg"
               alt="logo"
@@ -65,7 +65,7 @@ export default function Navbar(): ReactElement {
             lastPart={<DownloadButton />}
           />
 
-          <div className="flex flex-1 justify-end items-center sm:hidden" ref={mobileNavbarRef}>
+          <div className="flex items-center justify-end flex-1 sm:hidden" ref={mobileNavbarRef}>
             <Image
               src={isToggle ? "/icons/close.svg" : "/icons/menu.svg"}
               width={0}
