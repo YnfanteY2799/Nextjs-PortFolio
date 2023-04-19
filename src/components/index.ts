@@ -1,4 +1,5 @@
 export { default as PageWrapper } from "./wrapper/PageWrapper";
+export { default as SectionWrapper } from "./wrapper/SectionWrapper";
 export { default as Head } from "./ui/head/Head";
 export { default as Hero } from "./index/Hero";
 export { default as About } from "./index/About";
@@ -9,3 +10,7 @@ export { default as Feedbacks } from "./index/Feedbacks";
 export { default as Contact } from "./index/Contact";
 export { default as IntroNavbar } from "./ui/Navbar/intro/Navbar";
 export { default as Tag } from "./ui/tags/Tags";
+export { default as ContactForm } from "./ui/forms/ContactForm";
+export { default as SectionHead } from "./ui/section/Head";
+export { default as Backdrop } from "./ui/modal/backdrop";
+export { default as Floating } from "./ui/Navbar/floating/Floating";

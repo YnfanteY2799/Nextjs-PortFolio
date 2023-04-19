@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, MouseEvent } from "react";
 
 export type Experience = {
   title?: string;
@@ -85,4 +85,51 @@ export interface TagProp {
   upper?: boolean;
   cn?: string;
   name?: string;
+}
+
+export type MailForm = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type changingStates = {
+  default?: string;
+  onGoing?: string;
+  final?: string;
+};
+
+export interface DownloadButtonProps {
+  className?: string;
+  states?: changingStates;
+  onClick?: () => void;
+}
+
+export interface NavlistProps {
+  list: Array<SelectionListNode>;
+  active: string;
+  handleActive: Function;
+  flex?: boolean;
+  handleToggle?: Function;
+  lastPart?: ReactNode;
+}
+
+export type SelectionListNode = { id: string; title: string };
+
+export interface IntroNavbarProps {
+  sectionList: Array<SelectionListNode>;
+}
+
+export interface BdropProps {
+  children?: ReactNode;
+  click?: any;
+}
+
+export interface AnimatedModalProps {
+  open?: boolean;
+  action?: (e: MouseEvent) => void;
+}
+
+export interface ErrorPageProps {
+  code?: string;
 }

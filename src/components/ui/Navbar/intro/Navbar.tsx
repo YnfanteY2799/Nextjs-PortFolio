@@ -1,20 +1,22 @@
-import { ReactElement, useState, MouseEvent } from "react";
+import { ReactElement, useState, useRef, useEffect, MouseEvent as ReactMouseEvent } from "react";
 import NavList from "./NavList";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../../head/Head";
+import { DownloadButton } from "../../buttons";
+import type { SelectionListNode } from "@/types/ComponentProps";
 
-export type SelectionListNode = { id: string; title: string };
+const List: Array<SelectionListNode> = [
+  { title: "About", id: "/About" },
+  { title: "Projects", id: "/Projects" },
+];
 
-export interface IntroNavbarProps {
-  sectionList: Array<SelectionListNode>;
-}
-
-export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement {
+export default function Navbar(): ReactElement {
   const [active, setActive] = useState("" as string);
   const [isToggle, setToggle] = useState(false as boolean);
+  const mobileNavbarRef = useRef<HTMLDivElement>(null);
 
-  function handleActive(e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> | string): void {
+  function handleActive(e: ReactMouseEvent | string): void {
     typeof e === "string" ? setActive(e) : setActive("");
     window.scrollTo(0, 0);
   }
@@ -23,12 +25,28 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
     setToggle(!isToggle);
   }
 
+  useEffect(() => {
+    const closeOnClickOut = ({ target }: MouseEvent) => {
+      if (
+        isToggle &&
+        mobileNavbarRef.current &&
+        !mobileNavbarRef.current.contains(target as Node)
+      ) {
+        toggle();
+      }
+    };
+
+    document.addEventListener("mousedown", closeOnClickOut);
+
+    return () => document.removeEventListener("mousedown", closeOnClickOut);
+  }, []);
+
   return (
     <>
       <Header />
-      <nav className="flex fixed top-0 z-20 items-center px-6 py-5 w-full sm:px-16 bg-primary">
-        <div className="flex justify-between items-center mx-auto w-full max-w-7xl">
-          <Link href="/" className="flex gap-2 items-center" onClick={handleActive}>
+      <nav className="fixed top-0 z-20 flex items-center w-full px-6 py-5 sm:px-16 bg-primary">
+        <div className="flex items-center justify-between w-full mx-auto max-w-7xl">
+          <Link href="/" className="flex items-center gap-2" onClick={handleActive}>
             <Image
               src="/logo-no-background.svg"
               alt="logo"
@@ -40,12 +58,16 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
               <span className="hidden sm:block">| FullStack Developer</span>
             </p>
           </Link>
+          <NavList
+            active={active}
+            handleActive={handleActive}
+            list={List}
+            lastPart={<DownloadButton />}
+          />
 
-          <NavList active={active} handleActive={handleActive} list={sectionList} />
-
-          <div className="flex flex-1 justify-end items-center sm:hidden">
+          <div className="flex items-center justify-end flex-1 sm:hidden" ref={mobileNavbarRef}>
             <Image
-              src="/next.svg"
+              src={isToggle ? "/icons/close.svg" : "/icons/menu.svg"}
               width={0}
               height={0}
               alt="menu"
@@ -60,7 +82,7 @@ export default function Navbar({ sectionList }: IntroNavbarProps): ReactElement 
               <NavList
                 active={active}
                 handleActive={handleActive}
-                list={sectionList}
+                list={List}
                 flex={true}
                 handleToggle={toggle}
               />

@@ -1,5 +1,4 @@
 import { ReactElement, ReactNode } from "react";
-import { motion } from "framer-motion";
 
 export interface PageWrapperProps {
   children?: ReactNode;

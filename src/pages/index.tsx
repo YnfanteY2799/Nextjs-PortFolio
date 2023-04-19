@@ -9,11 +9,11 @@ import {
   Feedbacks,
   Contact,
   IntroNavbar,
+  PageWrapper,
+  Floating,
 } from "@/components";
 import { Fetch } from "@/utils";
-import type { data } from "../types/BackEnd";
-import type { HomeProps, SectionType } from "@/types/ComponentProps";
-import Floating from "@/components/ui/Navbar/floating/Floating";
+import type { data, HomeProps } from "@/types";
 
 export default function Home({
   name,
@@ -25,37 +25,28 @@ export default function Home({
   projects,
 }: HomeProps): ReactElement {
   return (
-    <div className="relative z-0 bg-primary">
-      <Floating sections={sections} />
-      <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
-        <IntroNavbar sectionList={[]} />
-        <Hero name={name} charge={charge} id="" />
+    <PageWrapper>
+      <div className="relative z-0 bg-primary">
+        <Floating sections={sections} />
+
+        <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
+          <IntroNavbar />
+          <Hero name={name} charge={charge} id="" />
+        </div>
+        <About Text={about} cardsInfo={aboutCards} />
+        <Experience experiences={experiences} />
+        <TechStacks />
+        <Works id="Projects" projects={projects} />
+        <Feedbacks />
+        <div className="relative z-0">
+          <Contact />
+        </div>
       </div>
-      <About Text={about} cardsInfo={aboutCards} />
-      <Experience experiences={experiences} />
-      <TechStacks />
-      <Works id="Projects" projects={projects} />
-      <Feedbacks />
-      <div className="relative z-0">
-        <Contact />
-        {/* <StarsCanvas /> */}
-      </div>
-    </div>
+    </PageWrapper>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-  const { name, charge, about, experiences, aboutCards, projects }: data = await (
-    await Fetch("/basics", "GET", {})
-  ).json();
-
-  const sections: Array<SectionType> = [
-    { id: "", name: "Home", img: "home" },
-    { id: "About", name: "About", img: "info" },
-    { id: "Exp", name: "Experience", img: "stars" },
-    { id: "Projects", name: "Projects", img: "brief" },
-    { id: "Contact", name: "Contact", img: "world" },
-  ];
-
-  return { props: { name, charge, about, experiences, aboutCards, sections, projects } };
+export const getServerSideProps: GetServerSideProps = async (_) => {
+  const basicData: data = await (await Fetch("/basics")).json();
+  return { props: basicData };
 };

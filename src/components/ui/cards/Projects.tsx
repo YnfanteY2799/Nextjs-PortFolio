@@ -1,10 +1,11 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
-import Tilt from "react-tilt";
-import { fadeIn } from "@/utils/utils";
-import { ProjectsCardProps } from "@/types/ComponentProps";
+import Tilt  from "react-parallax-tilt";
 import Image from "next/image";
+
+import { fadeIn } from "@/utils";
 import { Tag } from "@/components";
+import type { ProjectsCardProps } from "@/types/ComponentProps";
 
 export default function Projects({
   name,
@@ -22,15 +23,14 @@ export default function Projects({
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
-        options={{ max: 45, scale: 1, speed: 450 }}
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
           <Image src={image} alt={name} className="object-cover w-full h-full rounded-2xl" />
-          <div className="flex absolute inset-0 justify-end m-3 card-img_hover">
+          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
               onClick={(_) => redirection(source_code_link)}
-              className="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer black-gradient"
+              className="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer black-gradient"
             >
               <Image
                 src="/icons/github.png"
