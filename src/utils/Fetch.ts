@@ -1,6 +1,6 @@
 export type Mode = "POST" | "GET";
 
-export default function Fetch(uri: string, mode: Mode, body: any) {
+export default function Fetch(uri: string, mode: Mode = "GET", body?: any) {
   switch (mode) {
     case "GET":
       return fetch("http://localhost:3000/api/" + uri);

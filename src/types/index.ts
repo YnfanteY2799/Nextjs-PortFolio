@@ -1,3 +1,5 @@
+import { SectionType } from "./ComponentProps";
+
 export * from "./ComponentProps";
 
 export type AboutCard = {};
@@ -29,4 +31,5 @@ export type data = {
   aboutCards?: Array<AboutCard>;
   experiences: Array<Experience>;
   projects?: Array<ProjectCard>;
+  sections?: Array<SectionType>
 };

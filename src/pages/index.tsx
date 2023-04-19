@@ -14,7 +14,6 @@ import {
 } from "@/components";
 import { Fetch } from "@/utils";
 import type { data, HomeProps, SectionType } from "@/types";
-import { supabase } from "@/base";
 
 export default function Home({
   name,
@@ -48,20 +47,7 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_) => {
-
-  const { name, charge, about, experiences, aboutCards }: data = await (
-    await Fetch("/basics", "GET", {})
-  ).json();
-
-  const sections: Array<SectionType> = [
-    { id: "", name: "Home", img: "home" },
-    { id: "About", name: "About", img: "info" },
-    { id: "Exp", name: "Experience", img: "stars" },
-    { id: "Projects", name: "Projects", img: "brief" },
-    { id: "Contact", name: "Contact", img: "world" },
-  ];
-
-  return {
-    props: { name, charge, about, experiences, aboutCards, sections, projects: [] },
-  };
+  const basicData: data = await (await Fetch("/basics")).json();
+  console.log(basicData)
+  return { props: { ...basicData } };
 };
