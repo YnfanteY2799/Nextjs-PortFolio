@@ -13,7 +13,7 @@ import {
   Floating,
 } from "@/components";
 import { Fetch } from "@/utils";
-import type { data, HomeProps, SectionType } from "@/types";
+import type { data, HomeProps } from "@/types";
 
 export default function Home({
   name,
@@ -48,6 +48,5 @@ export default function Home({
 
 export const getServerSideProps: GetServerSideProps = async (_) => {
   const basicData: data = await (await Fetch("/basics")).json();
-  console.log(basicData)
-  return { props: { ...basicData } };
+  return { props: basicData };
 };
