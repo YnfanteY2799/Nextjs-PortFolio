@@ -31,5 +31,12 @@ export type data = {
   aboutCards?: Array<AboutCard>;
   experiences: Array<Experience>;
   projects?: Array<ProjectCard>;
-  sections?: Array<SectionType>
+  sections?: Array<SectionType>;
 };
+
+export type CustomValid = {
+  isValid: boolean;
+  username: string;
+};
+
+export type AuthRes = { response: string; username?: string };

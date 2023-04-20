@@ -1,4 +1,5 @@
 export { default as Fetch } from "./Fetch";
+export * from "./logUtils";
 
 export const TextVariants = {
      hidden: {
