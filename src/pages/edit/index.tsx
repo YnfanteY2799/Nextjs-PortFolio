@@ -2,11 +2,15 @@ import { ReactElement, useState } from "react";
 import { GetServerSideProps } from "next";
 import { data } from "@/types";
 import { Fetch } from "@/utils";
+import { PageWrapper } from "@/components";
+import Navbar from "@/components/ui/Navbar/intro/Navbar";
 
 export default function EditPage(props: data): ReactElement {
-  const [text, setText] = useState("Ts" as string);
-
-  return <>Hey!{text}</>;
+  return (
+    <PageWrapper>
+      <Navbar />
+    </PageWrapper>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
