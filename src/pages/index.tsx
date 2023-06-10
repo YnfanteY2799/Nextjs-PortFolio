@@ -1,52 +1,50 @@
-import { ReactElement } from "react";
-import { GetServerSideProps } from "next";
 import {
-  Hero,
-  About,
-  Experience,
-  TechStacks,
-  Works,
-  Feedbacks,
-  Contact,
-  IntroNavbar,
   PageWrapper,
-  Floating,
+  ExperienceSection,
+  AboutSection,
+  HeroSection,
+  TechSection,
+  ProjectsSection,
+  ContactSection,
+  FloatingNavigation,
 } from "@/components";
-import { Fetch } from "@/utils";
-import type { data, HomeProps } from "@/types";
+import { useSessionStore } from "@/store";
+import { HomeSectionNavigation } from "@/utils";
 
-export default function Home({
-  name,
-  charge,
-  about,
-  aboutCards,
-  experiences,
-  sections,
-  projects,
-}: HomeProps): ReactElement {
+import type { ReactElement } from "react";
+import type { IHomeProps } from "@/types";
+import type { GetServerSideProps } from "next";
+
+export default function Home(props: IHomeProps): ReactElement {
+  
+  // Props
+  const { socials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
+
+  // Hooks
+  const { theme, setTheme } = useSessionStore();
+
   return (
-    <PageWrapper>
-      <div className="relative z-0 bg-primary">
-        <Floating sections={sections} />
-
-        <div className="bg-center bg-no-repeat bg-cover bg-hero-patter">
-          <IntroNavbar />
-          <Hero name={name} charge={charge} id="" />
-        </div>
-        <About Text={about} cardsInfo={aboutCards} />
-        <Experience experiences={experiences} />
-        <TechStacks />
-        <Works id="Projects" projects={projects} />
-        <Feedbacks />
-        <div className="relative z-0">
-          <Contact />
-        </div>
-      </div>
+    <PageWrapper Theme={theme} ChangeTheme={setTheme}>
+      <FloatingNavigation allDevices={false} sections={HomeSectionNavigation} />
+      <HeroSection socials={socials} cv={cv} />
+      <AboutSection Services={aboutCards} Text={aboutText} />
+      <TechSection techs={techs} />
+      <ProjectsSection projects={projects} />
+      <ExperienceSection experience={experiences} theme={theme} />
+      <ContactSection />
     </PageWrapper>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async (_) => {
-  const basicData: data = await (await Fetch("/basics")).json();
-  return { props: basicData };
+  try {
+    const data = await fetch(process.env.NEXT_PUBLIC_GITHUB_LINK || "");
+    if (!data.ok) return { props: {} };
+    else {
+      return { props: { ...(await data.json()), cv: process.env.NEXT_PUBLIC_DRIVE_LINK } };
+    }
+  } catch (e) {
+    console.error("Error loading : ", e);
+    return { props: {} };
+  }
 };
