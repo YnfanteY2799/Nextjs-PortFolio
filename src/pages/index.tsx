@@ -16,6 +16,7 @@ import type { IHomeProps } from "@/types";
 import type { GetServerSideProps } from "next";
 
 export default function Home(props: IHomeProps): ReactElement {
+  
   // Props
   const { socials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
 
