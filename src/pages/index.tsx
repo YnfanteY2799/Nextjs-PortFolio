@@ -1,3 +1,49 @@
-export default function Home() {
-  return <>A</>;
+import {
+  PageWrapper,
+  ExperienceSection,
+  AboutSection,
+  HeroSection,
+  TechSection,
+  ProjectsSection,
+  ContactSection,
+  FloatingNavigation,
+} from "@/components";
+import { useSessionStore } from "@/store";
+import { HomeSectionNavigation } from "@/utils";
+
+import type { ReactElement } from "react";
+import type { IHomeProps } from "@/types";
+import type { GetServerSideProps } from "next";
+
+export default function Home(props: IHomeProps): ReactElement {
+  // Props
+  const { socials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
+
+  // Hooks
+  const { theme, setTheme } = useSessionStore();
+
+  return (
+    <PageWrapper Theme={theme} ChangeTheme={setTheme}>
+      <FloatingNavigation allDevices={false} sections={HomeSectionNavigation} />
+      <HeroSection socials={socials} cv={cv} />
+      <AboutSection Services={aboutCards} Text={aboutText} />
+      <TechSection techs={techs} />
+      <ProjectsSection projects={projects} />
+      <ExperienceSection experience={experiences} theme={theme} />
+      <ContactSection />
+    </PageWrapper>
+  );
 }
+
+export const getServerSideProps: GetServerSideProps = async (_) => {
+  try {
+    const data = await fetch(process.env.NEXT_PUBLIC_GITHUB_LINK || "");
+    if (!data.ok) return { props: {} };
+    else {
+      return { props: { ...(await data.json()), cv: process.env.NEXT_PUBLIC_DRIVE_LINK } };
+    }
+  } catch (e) {
+    console.error("Error loading : ", e);
+    return { props: {} };
+  }
+};

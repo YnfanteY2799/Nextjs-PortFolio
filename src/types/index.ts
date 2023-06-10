@@ -1,42 +1,18 @@
-import { SectionType } from "./ComponentProps";
+export * from "./componentProps";
 
-export * from "./ComponentProps";
+export type TTheme = "luxury" | "cupcake";
 
-export type AboutCard = {};
+export interface ISessionStore {
+  theme: TTheme;
+  setTheme: (s: TTheme) => void;
+}
 
-export type Experience = {
-  title?: string;
-  company_name?: string;
-  icon?: string;
-  iconBg?: string;
-  date?: string;
-  points: string[];
-};
+export type TSocialsType = { link: string; icon: string }
 
-export type ProjectCard = {
+export type SectionType = {
+  id: string;
   name: string;
-  description: string;
-  tags: Array<{
-    name: string;
-    color: string;
-  }>;
-  image: string;
-  source_code_link: string;
+  img: string;
 };
 
-export type data = {
-  name: string;
-  charge: string;
-  about: string;
-  aboutCards?: Array<AboutCard>;
-  experiences: Array<Experience>;
-  projects?: Array<ProjectCard>;
-  sections?: Array<SectionType>;
-};
-
-export type CustomValid = {
-  isValid: boolean;
-  username: string;
-};
-
-export type AuthRes = { response: string; username?: string };
+export type T_Techs = { icon: string; title: string; experience: string };
