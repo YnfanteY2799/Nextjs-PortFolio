@@ -16,7 +16,7 @@ export default function PageWrapper({ children, Theme, ChangeTheme }: IPageWrapp
         <meta charSet="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/logo-no-background.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title> | Porfolio </title>
+        <title>YJ | Porfolio </title>
       </Head>
       <div data-theme={Theme}>
         <Navbar Theme={Theme} ChangeTheme={handleChangeTheme} />

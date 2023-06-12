@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { sectionHeadText, sectionSubText, slideIn } from "@/utils";
+import { slideIn } from "@/utils";
 import { SectionWrapper } from "@/components";
 import Form from "./parts/Form";
 import dynamic from "next/dynamic";
@@ -17,8 +17,8 @@ export default function ContactSection(): ReactElement {
           variants={slideIn("left", "tween", 0.2, 1)}
           className="flex-[0.7] bg-base-200 p-8 rounded-2xl"
         >
-          <p className={sectionSubText}>Lets Talk!</p>
-          <h3 className={sectionHeadText}>Contact</h3>
+          <p className="sm:text-[18px] text-[14px] text-primary text-xl uppercase tracking-wider">Lets Talk!</p>
+          <h3 className="font-black md:text-[60px] sm:text-[50px] text-[30px] text-5xl z-0 flex">Contact</h3>
           <Form />
         </motion.div>
 
