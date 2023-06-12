@@ -1,6 +1,7 @@
-import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer } from "@/utils";
+
+import type { ReactElement } from "react";
 import type { ISectionWrapperProps } from "@/types";
 
 export default function SectionWrapper({ id, children }: ISectionWrapperProps): ReactElement {
