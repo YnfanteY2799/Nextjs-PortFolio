@@ -1,4 +1,4 @@
-export * from "./componentProps";
+export * from "./ComponentProps";
 
 export type TTheme = "luxury" | "cupcake";
 

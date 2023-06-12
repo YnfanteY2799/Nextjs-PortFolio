@@ -4,7 +4,7 @@ import { IconSetter } from "@/components";
 
 import type { IFloatingMenuProps } from "@/types";
 
-export default function Floating({ sections = [], allDevices }: IFloatingMenuProps): ReactElement {
+export default function Floating({ sections = [] }: IFloatingMenuProps): ReactElement {
   // State
   const [lastClicked, setLastClicked] = useState(0 as number);
   const [isOpen, setIsOpen] = useState(false as boolean);
@@ -14,7 +14,7 @@ export default function Floating({ sections = [], allDevices }: IFloatingMenuPro
     setIsOpen(!isOpen);
   }
 
-  function handleSectionClick(id: number) {
+  function handleSelectionClick(id: number) {
     setLastClicked(id);
     handleShowFloat();
   }
@@ -35,7 +35,7 @@ export default function Floating({ sections = [], allDevices }: IFloatingMenuPro
 
   return (
     <nav
-      className="hidden z-20 lg:flex shrink-0 grow-0 justify-around gap-4 border-t border-gray-200 bg-transparent p-2.5 shadow-lg backdrop-blur-lg fixed top-2/4 -translate-y-2/4 left-4 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
+      className="hidden z-20 lg:flex shrink-0 grow-0 justify-around gap-4 border-t bg-transparent p-2.5 shadow-lg backdrop-blur-lg fixed top-2/4 -translate-y-2/4 left-4 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
       ref={floatingRef}
     >
       {isOpen ? (
@@ -44,13 +44,12 @@ export default function Floating({ sections = [], allDevices }: IFloatingMenuPro
             <a
               href={`#${id}`}
               className={lastClicked === ind ? selectedFloatingSection : nonSelectedFloatingSection}
-              onClick={() => handleSectionClick(ind)}
-              
+              onClick={() => handleSelectionClick(ind)}
             >
               <IconSetter size={25} icon={img} />
               <small className="text-xs font-medium text-center"> {name} </small>
             </a>
-            {ind !== sections.length - 1 && <hr className="dark:border-gray-700/60" />}
+            {ind !== sections.length - 1 && <hr />}
           </Fragment>
         ))
       ) : (

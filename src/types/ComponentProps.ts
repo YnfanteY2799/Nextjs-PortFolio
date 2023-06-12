@@ -94,7 +94,6 @@ export interface IProjectsSectionProps {
 
 export interface IFloatingMenuProps {
   sections?: Array<SectionType>;
-  allDevices?: boolean;
 }
 
 export interface ITagProp {

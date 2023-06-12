@@ -11,7 +11,8 @@ import {
   Cpu,
   FolderGit2,
   Cake,
-  Contact
+  Contact,
+  Home
 } from "lucide-react";
 import {
   DevIcon,
@@ -69,6 +70,8 @@ export default function SetIcon({ icon, size }: ISetIconProps): ReactElement {
       return <Menu size={size} />;
     case "Info":
       return <BadgeInfo size={size} />;
+    case "Home":
+      return <Home size={size} />;
     case "Tech":
       return <Cpu size={size} />;
     case "Projects":

@@ -16,7 +16,6 @@ import type { IHomeProps } from "@/types";
 import type { GetServerSideProps } from "next";
 
 export default function Home(props: IHomeProps): ReactElement {
-  
   // Props
   const { socials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
 
@@ -25,7 +24,7 @@ export default function Home(props: IHomeProps): ReactElement {
 
   return (
     <PageWrapper Theme={theme} ChangeTheme={setTheme}>
-      <FloatingNavigation allDevices={false} sections={HomeSectionNavigation} />
+      <FloatingNavigation sections={HomeSectionNavigation} />
       <HeroSection socials={socials} cv={cv} />
       <AboutSection Services={aboutCards} Text={aboutText} />
       <TechSection techs={techs} />
@@ -36,12 +35,14 @@ export default function Home(props: IHomeProps): ReactElement {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (_) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { NEXT_PUBLIC_GITHUB_LINK = "", NEXT_PUBLIC_DRIVE_LINK = "" } = process.env;
+
   try {
-    const data = await fetch(process.env.NEXT_PUBLIC_GITHUB_LINK || "");
+    const data = await fetch(NEXT_PUBLIC_GITHUB_LINK);
     if (!data.ok) return { props: {} };
     else {
-      return { props: { ...(await data.json()), cv: process.env.NEXT_PUBLIC_DRIVE_LINK } };
+      return { props: { ...(await data.json()), cv: NEXT_PUBLIC_DRIVE_LINK } };
     }
   } catch (e) {
     console.error("Error loading : ", e);
