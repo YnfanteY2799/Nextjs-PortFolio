@@ -65,15 +65,16 @@ export interface IHomeProps {
   projects?: Array<any>;
 }
 
-export interface ITechSectionProps {
-  techs?: Array<{ title: Array<string>; techs: Array<T_Techs> }>;
-}
-
 export interface ITechPieceProps {
-  title?: Array<string>;
+  titles?: Array<string>;
   techs?: Array<T_Techs>;
   index?: number;
 }
+
+export interface ITechSectionProps {
+  techs?: Array<Omit<ITechPieceProps, "index">>;
+}
+
 
 export interface ITechCardsProps extends Omit<IServiceCardProps, "i" | "onClick"> {
   experience?: string;

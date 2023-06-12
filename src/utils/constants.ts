@@ -58,7 +58,7 @@ export const ProjectsDefaults = [
 
 export const expDefaults = [
   {
-    title: ["FrontEnd", "Tools"],
+    titles: ["FrontEnd", "Tools"],
     techs: [
       { icon: "HTML", title: "HTML", experience: "5+ Years" },
       { icon: "CSS", title: "CSS", experience: "5+ Years" },
@@ -69,7 +69,7 @@ export const expDefaults = [
     ],
   },
   {
-    title: ["Backend", "Tools"],
+    titles: ["Backend", "Tools"],
     techs: [
       { icon: "NodeJs", title: "NodeJs", experience: "4+ Years" },
       { icon: "Express", title: "Express", experience: "5+ Years" },
@@ -78,7 +78,7 @@ export const expDefaults = [
     ],
   },
   {
-    title: ["Web", "Framework"],
+    titles: ["Web", "Framework"],
     techs: [
       { icon: "HTML", title: "HTML", experience: "5+ Years" },
       { icon: "CSS", title: "CSS", experience: "5+ Years" },
@@ -87,7 +87,7 @@ export const expDefaults = [
     ],
   },
   {
-    title: ["Web", "Framework"],
+    titles: ["Web", "Framework"],
     techs: [
       { icon: "HTML", title: "HTML", experience: "5+ Years" },
       { icon: "CSS", title: "CSS", experience: "5+ Years" },

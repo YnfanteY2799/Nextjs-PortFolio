@@ -10,7 +10,7 @@ export default function ExperienceCard(props: ExperienceCardProps): ReactElement
 
   return (
     <VerticalTimelineElement
-      contentStyle={{ background: theme === "luxury" ? "#171618" : "#fff"}}
+      contentStyle={{ background: theme === "luxury" ? "#171618" : "#EFEAE6"}}
       contentArrowStyle={{ borderRight: "7px solid blue" }}
       date={date}
       iconStyle={{ background: iconBg }}

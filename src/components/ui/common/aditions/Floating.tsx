@@ -35,7 +35,7 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
 
   return (
     <nav
-      className="hidden z-20 lg:flex shrink-0 grow-0 justify-around gap-4 border-t bg-transparent p-2.5 shadow-lg backdrop-blur-lg fixed top-2/4 -translate-y-2/4 left-4 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
+      className="hidden z-20 lg:flex shrink-0 grow-0 justify-around gap-4 border-t bg-transparent p-2.5 shadow-lg backdrop-blur-lg fixed top-2/4 -translate-y-2/4 left-4 min-h-[auto] min-w-[64px] flex-col rounded-lg border border-orange-600"
       ref={floatingRef}
     >
       {isOpen ? (
@@ -49,7 +49,7 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
               <IconSetter size={25} icon={img} />
               <small className="text-xs font-medium text-center"> {name} </small>
             </a>
-            {ind !== sections.length - 1 && <hr />}
+            {ind !== sections.length - 1 && <hr className="border-orange-600"/>}
           </Fragment>
         ))
       ) : (
