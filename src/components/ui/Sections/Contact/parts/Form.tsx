@@ -1,33 +1,48 @@
-import { FormEvent, ReactElement, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, ReactElement, useState } from "react";
+
+import type { TContactForm } from "@/types";
+
+const defaultCf: TContactForm = {
+  name: "",
+  email: "",
+  message: "",
+};
 
 export default function Form(): ReactElement {
   // State
   const [loading, setLoading] = useState(false as boolean);
-  const formRef = useRef(null);
+  // const [contactForm, setContactForm] = useState(defaultCf as TContactForm);
+
+  // function handleChange(ev: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  //   const { value, name } = ev.target;
+  //   setContactForm((old) => ({ ...old, [name]: value }));
+  // }
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setLoading(true);
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-8 mt-12">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-12">
       <label className="flex flex-col">
         <span className="mb-4 font-medium ">Your Name : </span>
         <input
           type="text"
           name="name"
-          // value={""}
-          // onBlur={handleBlur}
+          // value={contactForm.name}
+          // onChange={handleChange}
           placeholder=" What's your name ? "
           className="px-6 py-4 font-medium border-none rounded-lg outline-none"
         />
       </label>
       <label className="flex flex-col">
-        <span className="mb-4 font-medium">Your Name : </span>
+        <span className="mb-4 font-medium">Your Email : </span>
         <input
           type="email"
           name="email"
-          // value={"form.email"}
-          // onBlur={handleBlur}
+          // value={contactForm.email}
+          // onChange={handleChange}
           placeholder=" What's your email ? "
           className="px-6 py-4 font-medium border-none rounded-lg outline-none"
         />
@@ -37,17 +52,15 @@ export default function Form(): ReactElement {
         <textarea
           rows={7}
           name="message"
-          // value={"form.message"}
-          // onBlur={handleBlur}
+          // value={contactForm.message}
+          // onChange={handleChange}
           placeholder=" Your Message goes Here! "
           className="px-6 py-4 font-medium border-none rounded-lg outline-none "
         />
       </label>
-      <button
-        className={`btn btn-outline btn-primary rounded-2xl ${loading ? " loading " : ""} `}
-        disabled={loading}
-      >
-        {loading ? "Sending..." : "Send"}
+      <button className="btn btn-outline btn-primary rounded-2xl" disabled={loading}>
+        {loading ? "Sending" : "Send"}
+        {loading && <span className="loading loading-dots" />}
       </button>
     </form>
   );

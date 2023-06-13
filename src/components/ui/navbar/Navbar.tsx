@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
 import { navbarOptions } from "@/utils";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,8 +21,10 @@ export default function Navbar({ Theme, ChangeTheme }: NavbarProps): ReactElemen
           <span>| DEV</span>
         </Link>
       </div>
+
+      
       <div className="hidden navbar-end lg:flex">
-        <ul className="gap-2 menu menu-horizontal">
+        <ul className="gap-2 menu menu-horizontal ">
           {navbarOptions.map(({ to, title, section }, idx) => (
             <li key={idx}>
               <p>{section ? <a href={`#${to}`}>{title}</a> : <Link href={to}>{title}</Link>}</p>
@@ -30,7 +32,7 @@ export default function Navbar({ Theme, ChangeTheme }: NavbarProps): ReactElemen
           ))}
           <li key={navbarOptions.length + 1}>
             <button onClick={() => ChangeTheme && ChangeTheme()}>
-              {Theme === "luxury" ? <Moon /> : <Sun />}
+              {Theme === "night" ? <Moon /> : <Sun />}
             </button>
           </li>
         </ul>

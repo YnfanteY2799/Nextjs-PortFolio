@@ -13,8 +13,8 @@ export default function TimeLine({ experience = [], theme }: ExperienceSectionPr
     <SectionWrapper id="Exp">
       <SectionHeader Head="I've Worked at :  " SubHead="My experience" />
       <motion.div variants={fadeIn("", "", 0.1, 1)} className="flex flex-col mt-20">
-        <VerticalTimeline>
-          {experience.map((xp, i) => (
+        <VerticalTimeline animate={true}>
+          {experience.reverse().map((xp, i) => (
             <ExperienceCard key={i} {...xp} theme={theme as TTheme} />
           ))}
         </VerticalTimeline>

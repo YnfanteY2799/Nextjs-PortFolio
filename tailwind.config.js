@@ -10,12 +10,15 @@ module.exports = {
       screens: {
         xs: "450px",
       },
+      fontFamily: {
+        local: [`var(--font-local)`],
+      },
     },
   },
   darkMode: "class",
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["luxury", "cupcake"],
-    darkTheme: "luxury",
+    themes: ["night", "cupcake"],
+    darkTheme: "night",
   },
 };

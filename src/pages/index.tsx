@@ -23,7 +23,7 @@ export default function Home(props: IHomeProps): ReactElement {
   const { theme, setTheme } = useSessionStore();
 
   return (
-    <PageWrapper Theme={theme} ChangeTheme={setTheme}>
+    <PageWrapper Theme={theme} ChangeTheme={setTheme} animated={false}>
       <FloatingNavigation sections={HomeSectionNavigation} />
       <HeroSection socials={socials} cv={cv} />
       <AboutSection Services={aboutCards} Text={aboutText} />
@@ -35,7 +35,7 @@ export default function Home(props: IHomeProps): ReactElement {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (_) => {
   const { NEXT_PUBLIC_GITHUB_LINK = "", NEXT_PUBLIC_DRIVE_LINK = "" } = process.env;
 
   try {

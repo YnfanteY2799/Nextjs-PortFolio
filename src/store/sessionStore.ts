@@ -6,7 +6,7 @@ import type { ISessionStore, TTheme } from "@/types";
 const privateSessionStore = create(
   persist<ISessionStore>(
     (set) => ({
-      theme: "luxury",
+      theme: "night",
       setTheme: (s: TTheme) => set((x) => ({ ...x, theme: s })),
     }),
     { name: "sessionStore" }

@@ -21,7 +21,7 @@ export default function RotationCanvas(): ReactElement {
           minPolarAngle={Math.PI / 2}
         />
         <Phone_booth />
-        <Preload all />
+        <Preload all={true} />
       </Suspense>
     </Canvas>
   );
