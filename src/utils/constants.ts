@@ -16,11 +16,15 @@ export const TextVariants = {
   },
 };
 
+/* Un used here only due to identification needs */
+
 export const sectionSubText =
   "sm:text-[18px] text-[14px] text-primary text-xl uppercase tracking-wider";
 
 export const sectionHeadText =
   "font-black md:text-[60px] sm:text-[50px] text-[30px] text-5xl z-0 flex";
+
+/* Un used here only due to identification needs */
 
 export const navbarOptions = [
   { title: "About", to: "About", section: true },
@@ -98,7 +102,18 @@ export const expDefaults = [
 ];
 
 export const selectedFloatingSection =
-  "flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 dark:bg-sky-900 dark:text-sky-50";
+  "flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-primary";
 
 export const nonSelectedFloatingSection =
-  "flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 dark:text-sky-50";
+  "flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5";
+
+export const springIn = {
+  initial: { x: 300, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
+  exit: { x: 300, opacity: 0 },
+  transition: {
+    type: "spring",
+    stiffness: 260,
+    damping: 20,
+  },
+};

@@ -6,7 +6,7 @@ import type { IFloatingMenuProps } from "@/types";
 
 export default function Floating({ sections = [] }: IFloatingMenuProps): ReactElement {
   // State
-  const [lastClicked, setLastClicked] = useState(0 as number);
+  const [lastClicked, setLastClicked] = useState(null as number | null);
   const [isOpen, setIsOpen] = useState(false as boolean);
   const floatingRef = useRef<HTMLElement>(null);
 
@@ -49,11 +49,11 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
               <IconSetter size={25} icon={img} />
               <small className="text-xs font-medium text-center"> {name} </small>
             </a>
-            {ind !== sections.length - 1 && <hr className="border-orange-600"/>}
+            {ind !== sections.length - 1 && <hr className="mt-1 border-orange-600" />}
           </Fragment>
         ))
       ) : (
-        <button onClick={handleShowFloat} className="flex flex-col items-center justify-center">
+        <button onClick={handleShowFloat} className="flex flex-col items-center justify-center text-orange-600">
           <IconSetter icon="Menu" size={30} />
         </button>
       )}

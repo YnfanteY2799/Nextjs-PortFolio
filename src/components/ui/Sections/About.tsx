@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+
 import { SectionHeader, SectionWrapper, ServiceCard } from "@/components";
 import { fadeIn } from "@/utils";
 
@@ -6,6 +8,12 @@ import type { ReactElement } from "react";
 import type { IAboutSectionProps } from "@/types";
 
 export default function AboutSection({ Text, Services = [] }: IAboutSectionProps): ReactElement {
+  const { push } = useRouter();
+
+  function onClick(title: string) {
+    push(`/About#${title.replace(" ", "_")}`);
+  }
+
   return (
     <SectionWrapper id="About">
       <SectionHeader Head="About Me" SubHead="Intro" MoreDetails="/About" />
@@ -17,7 +25,7 @@ export default function AboutSection({ Text, Services = [] }: IAboutSectionProps
       </motion.p>
       <div className="flex flex-wrap gap-8 mt-16">
         {Services.map((x, i) => (
-          <ServiceCard {...x} key={i} />
+          <ServiceCard {...x} key={i} click={onClick} />
         ))}
       </div>
     </SectionWrapper>

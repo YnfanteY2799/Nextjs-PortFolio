@@ -5,6 +5,7 @@ export interface IPageWrapperProps {
   children?: ReactNode;
   Theme?: TTheme;
   ChangeTheme: Function;
+  animated?:boolean;
 }
 
 export interface ISectionWrapperProps {
@@ -16,7 +17,7 @@ export interface IServiceCardProps {
   title: string;
   icon: string;
   i: number;
-  onClick: MouseEventHandler;
+  click: Function;
 }
 
 export interface IInitialPartProps {
@@ -76,7 +77,7 @@ export interface ITechSectionProps {
 }
 
 
-export interface ITechCardsProps extends Omit<IServiceCardProps, "i" | "onClick"> {
+export interface ITechCardsProps extends Omit<IServiceCardProps, "i" | "click"> {
   experience?: string;
 }
 

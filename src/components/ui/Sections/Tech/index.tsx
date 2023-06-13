@@ -52,8 +52,8 @@ export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactE
         MoreDetails="Tech"
       />
       <motion.div variants={fadeIn("", "", 0.1, 1)} className="w-full mt-4">
-        <div className="flex ">
-          <div className="flex w-auto h-auto rounded-3xl">
+        <div className="flex lg:justify-end md:justify-end">
+          <div className="flex w-auto h-auto border rounded-3xl ">
             <ChevronLeft size={30} onClick={prevSlide} className="hover:cursor-pointer" />
             {play ? (
               <PlayCircle size={30} onClick={playSliding} className="hover:cursor-pointer" />
@@ -63,7 +63,7 @@ export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactE
             <ChevronRight size={30} onClick={nextSlide} className="hover:cursor-pointer" />
           </div>
         </div>
-          <TechPiece {...techs[index]} key={1} />
+          <TechPiece {...techs[index]} key={index} />
       </motion.div>
     </SectionWrapper>
   );

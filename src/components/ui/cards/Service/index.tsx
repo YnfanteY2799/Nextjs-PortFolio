@@ -1,19 +1,12 @@
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils";
-import { useRouter } from "next/router";
 import Image from "next/image";
 
 import type { ReactElement } from "react";
 import type { IServiceCardProps } from "@/types";
 
-export default function ServiceCard({ title, icon, i }: IServiceCardProps): ReactElement {
-  const { push } = useRouter();
-
-  function onClick() {
-    push(`/projects/${title.replace(" ", "_")}`);
-  }
-
+export default function ServiceCard({ title, icon, i, click }: IServiceCardProps): ReactElement {
   return (
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
@@ -31,11 +24,14 @@ export default function ServiceCard({ title, icon, i }: IServiceCardProps): Reac
           <Image
             src={`/doodle/${icon}.svg`}
             alt={title}
-            className="object-contain"
+            className="object-contain w-auto h-auto"
             width={120}
             height={120}
           />
-          <h3 className="text-[20px] font-bold text-center hover:cursor-pointer hover:underline" onClick={onClick}>
+          <h3
+            className="text-[20px] font-bold text-center hover:cursor-pointer hover:underline"
+            onClick={() => click(title)}
+          >
             {title}
           </h3>
         </motion.div>
