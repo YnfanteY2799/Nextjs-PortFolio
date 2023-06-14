@@ -38,11 +38,11 @@ export default function HeroSection({ socials = [], cv = "" }: IHeroSectionProps
 
         <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
           <img
-            src={`dudul.svg`}
+            src="dudul.svg"
             className="border rounded-lg "
             alt="Profile Pic"
-            width={"auto"}
-            height={"auto"}
+            width="auto"
+            height="auto"
             loading="lazy"
           />
         </div>
