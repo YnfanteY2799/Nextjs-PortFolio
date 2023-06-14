@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { slideIn } from "@/utils";
 import { SectionWrapper } from "@/components";
+
 import Form from "./parts/Form";
 import dynamic from "next/dynamic";
+
 import type { ReactElement } from "react";
 
 const RotationCanvas = dynamic(() => import("./parts/RotatoryCanvas").then((x) => x.default), {
