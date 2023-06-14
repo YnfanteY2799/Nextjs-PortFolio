@@ -1,6 +1,8 @@
-// import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+
 import localFont from "next/font/local";
 import "@/styles/globals.css";
+
 import type { AppProps } from "next/app";
 
 const currentFont = localFont({
@@ -9,10 +11,13 @@ const currentFont = localFont({
   preload: true,
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
-    <main className={`${currentFont.variable}`}>
-      <Component {...pageProps} />
-    </main>
+    <AnimatePresence mode="wait">
+      <main className={`${currentFont.variable}`}>
+        <Component {...pageProps} key={router.asPath} />
+      </main>
+    </AnimatePresence>
   );
 }
+

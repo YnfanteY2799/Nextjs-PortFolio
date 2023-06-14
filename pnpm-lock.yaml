@@ -6,10 +6,10 @@ settings:
 
 dependencies:
   '@react-three/drei':
-    specifier: ^9.74.8
+    specifier: ^9.74.12
     version: 9.74.12(@react-three/fiber@8.13.2)(@types/three@0.152.1)(react-dom@18.2.0)(react@18.2.0)(three@0.153.0)
   '@react-three/fiber':
-    specifier: ^8.13.1
+    specifier: ^8.13.2
     version: 8.13.2(react-dom@18.2.0)(react@18.2.0)(three@0.153.0)
   '@types/three':
     specifier: ^0.152.1

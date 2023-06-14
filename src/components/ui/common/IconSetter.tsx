@@ -12,7 +12,7 @@ import {
   FolderGit2,
   Cake,
   Contact,
-  Home
+  Home,
 } from "lucide-react";
 import {
   DevIcon,
@@ -51,6 +51,10 @@ import {
   StoryBookIcon,
   KotlinIcon,
   DartIcon,
+  UpWorkIcon,
+  FreelanceIcon,
+  CodewarsIcon,
+  LeetCodeIcon,
 } from "@/components";
 
 import type { ReactElement } from "react";
@@ -84,6 +88,14 @@ export default function SetIcon({ icon, size }: ISetIconProps): ReactElement {
       return <MalIcon size={size} />;
     case "DevTo":
       return <DevIcon size={size} />;
+    case "UpWork":
+      return <UpWorkIcon size={size} />;
+    case "Freelance":
+      return <FreelanceIcon size={size} />;
+    case "CodeWars":
+      return <CodewarsIcon size={size} />;
+    case "LeetCode":
+      return <LeetCodeIcon size={size} />;
     case "Web":
       return <Globe size={size} />;
     case "FrontEnd":
