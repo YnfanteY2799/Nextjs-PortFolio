@@ -1,11 +1,11 @@
-import type { MouseEventHandler, ReactNode } from "react";
+import type {  MouseEventHandler, ReactNode, RefObject } from "react";
 import type { SectionType, TSocialsType, TTheme, T_Techs } from "./index";
 
 export interface IPageWrapperProps {
   children?: ReactNode;
   Theme?: TTheme;
   ChangeTheme: Function;
-  animated?:boolean;
+  animated?: boolean;
 }
 
 export interface ISectionWrapperProps {
@@ -31,7 +31,7 @@ export interface NavbarProps {
   ChangeTheme?: Function;
 }
 
-export interface FooterProps extends Omit<NavbarProps, "ChangeTheme">{}
+export interface FooterProps extends Omit<NavbarProps, "ChangeTheme"> {}
 
 export interface IAboutSectionProps {
   Text?: string;
@@ -62,7 +62,7 @@ export interface IHomeProps {
   aboutCards: Array<Omit<IServiceCardProps, "i" | "onClick">>;
   experiences: Array<Omit<ExperienceCardProps, "theme">>;
   aboutText: string;
-  socials: Array<TSocialsType>;
+  initialSocials: Array<TSocialsType>;
   techs: Array<{ title: Array<string>; techs: Array<T_Techs> }>;
   cv?: string;
   projects?: Array<any>;
@@ -77,7 +77,6 @@ export interface ITechPieceProps {
 export interface ITechSectionProps {
   techs?: Array<Omit<ITechPieceProps, "index">>;
 }
-
 
 export interface ITechCardsProps extends Omit<IServiceCardProps, "i" | "click"> {
   experience?: string;
@@ -116,4 +115,10 @@ export interface IProjectsCardProps {
   image: string;
   source_code_link: string;
   index: number;
+}
+
+export interface ModalProps {
+  dialogRef: RefObject<HTMLDialogElement>;
+  close?: MouseEventHandler<HTMLButtonElement>;
+  accept?: MouseEventHandler<HTMLButtonElement>;
 }

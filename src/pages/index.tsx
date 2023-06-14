@@ -17,7 +17,7 @@ import type { GetServerSideProps } from "next";
 
 export default function Home(props: IHomeProps): ReactElement {
   // Props
-  const { socials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
+  const { initialSocials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
 
   // Hooks
   const { theme, setTheme } = useSessionStore();
@@ -25,7 +25,7 @@ export default function Home(props: IHomeProps): ReactElement {
   return (
     <PageWrapper Theme={theme} ChangeTheme={setTheme} animated={false}>
       <FloatingNavigation sections={HomeSectionNavigation} />
-      <HeroSection socials={socials} cv={cv} />
+      <HeroSection socials={initialSocials} cv={cv} />
       <AboutSection Services={aboutCards} Text={aboutText} />
       <TechSection techs={techs} />
       <ProjectsSection projects={projects} />

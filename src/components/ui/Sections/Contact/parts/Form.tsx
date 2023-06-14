@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent, ReactElement, useState } from "react";
+import { ChangeEvent, FormEvent, ReactElement, useState, useRef } from "react";
+import ContactModal from "./ContactModal";
 
 import type { TContactForm } from "@/types";
 
@@ -9,18 +10,30 @@ const defaultCf: TContactForm = {
 };
 
 export default function Form(): ReactElement {
+  // Ref
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
   // State
   const [loading, setLoading] = useState(false as boolean);
   const [contactForm, setContactForm] = useState(defaultCf as TContactForm);
 
-  function handleChange(ev: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    const { value, name } = ev.target;
+  function handleChange({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const { value, name } = target;
     setContactForm((old) => ({ ...old, [name]: value }));
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
+
+  }
+
+  function close() {
+
+  }
+
+  function accept() {
+
   }
 
   return (
@@ -62,6 +75,7 @@ export default function Form(): ReactElement {
         {loading ? "Sending" : "Send"}
         {loading && <span className="loading loading-dots" />}
       </button>
+      <ContactModal dialogRef={dialogRef} close={close} accept={accept} />
     </form>
   );
 }
