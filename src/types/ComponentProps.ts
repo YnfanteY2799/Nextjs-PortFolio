@@ -31,6 +31,8 @@ export interface NavbarProps {
   ChangeTheme?: Function;
 }
 
+export interface FooterProps extends Omit<NavbarProps, "ChangeTheme">{}
+
 export interface IAboutSectionProps {
   Text?: string;
   Services?: any[];

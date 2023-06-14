@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { springIn } from "@/utils";
 import Head from "next/head";
 import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 import type { ReactElement } from "react";
 import type { IPageWrapperProps } from "@/types";
@@ -12,6 +13,7 @@ export default function PageWrapper({
   ChangeTheme,
   animated = false,
 }: IPageWrapperProps): ReactElement {
+  // Functions
   function handleChangeTheme() {
     Theme === "night" ? ChangeTheme("cupcake") : ChangeTheme("night");
   }
@@ -28,6 +30,7 @@ export default function PageWrapper({
       <motion.main {...(animated ? springIn : {})} data-theme={Theme}>
         {children}
       </motion.main>
+      <Footer Theme={Theme} />
     </>
   );
 }
