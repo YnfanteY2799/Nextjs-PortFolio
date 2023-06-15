@@ -46,10 +46,10 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
               className={lastClicked === ind ? selectedFloatingSection : nonSelectedFloatingSection}
               onClick={() => handleSelectionClick(ind)}
             >
-              <IconSetter size={25} icon={img} />
-              <small className="text-xs font-medium text-center"> {name} </small>
+              <IconSetter size={25} icon={img} className="mt-1" />
+              <small className="text-xs font-medium text-center "> {name} </small>
             </a>
-            {ind !== sections.length - 1 && <hr className="mt-1 border-orange-600" />}
+            {ind !== sections.length - 1 && <hr className="border-orange-600" />}
           </Fragment>
         ))
       ) : (

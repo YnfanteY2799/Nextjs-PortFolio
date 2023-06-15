@@ -86,10 +86,12 @@ export interface ITechCardsProps extends Omit<IServiceCardProps, "i" | "click"> 
 export interface ISetIconProps {
   icon?: string;
   size?: number;
+  className?: string;
 }
 
 export interface IGenericIconSvg {
   size?: number;
+  className?:string;
 }
 
 export interface IProjectsSectionProps {
