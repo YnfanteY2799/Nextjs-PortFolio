@@ -9,13 +9,16 @@ import type { ITechSectionProps } from "@/types";
 
 export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactElement {
   const [index, setIndex] = useState(0 as number);
+  const [direction, setDirection] = useState("R" as "R" | "L");
   const [play, setPlay] = useState(true as boolean);
   const [intervalId, setIntervalId] = useState<NodeJS.Timer>();
 
   function prevSlide() {
+    direction !== "L" && setDirection("L");
     setIndex((prevIndex) => (prevIndex !== 0 ? prevIndex - 1 : techs.length - 1));
   }
   function nextSlide() {
+    direction !== "R" && setDirection("R");
     setIndex((prevIndex) => (prevIndex !== techs.length - 1 ? prevIndex + 1 : 0));
   }
 
@@ -26,14 +29,13 @@ export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactE
   function activateIntervals() {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex === techs.length - 1 ? 0 : prevIndex + 1));
-    }, 4000);
+    }, 5000);
     setIntervalId((_) => interval);
   }
 
   function pauseInterval() {
     clearInterval(intervalId);
   }
-
 
   useEffect(() => {
     if (!play) {
@@ -63,7 +65,7 @@ export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactE
             <ChevronRight size={30} onClick={nextSlide} className="hover:cursor-pointer" />
           </div>
         </div>
-          <TechPiece {...techs[index]} key={index} />
+        <TechPiece {...techs[index]} key={index} dir={direction} />
       </motion.div>
     </SectionWrapper>
   );

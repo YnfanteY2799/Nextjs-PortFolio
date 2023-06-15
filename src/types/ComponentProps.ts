@@ -1,4 +1,4 @@
-import type {  MouseEventHandler, ReactNode, RefObject } from "react";
+import type { MouseEventHandler, ReactNode, RefObject } from "react";
 import type { SectionType, TSocialsType, TTheme, T_Techs } from "./index";
 
 export interface IPageWrapperProps {
@@ -6,6 +6,7 @@ export interface IPageWrapperProps {
   Theme?: TTheme;
   ChangeTheme: Function;
   animated?: boolean;
+  socials?: Array<TSocialsType>;
 }
 
 export interface ISectionWrapperProps {
@@ -31,7 +32,9 @@ export interface NavbarProps {
   ChangeTheme?: Function;
 }
 
-export interface FooterProps extends Omit<NavbarProps, "ChangeTheme"> {}
+export interface FooterProps extends Omit<NavbarProps, "ChangeTheme"> {
+  socials?: Array<TSocialsType>;
+}
 
 export interface IAboutSectionProps {
   Text?: string;
@@ -44,7 +47,7 @@ export interface ExperienceCardProps {
   icon: string;
   iconBg?: string;
   date?: string;
-  points: string[];
+  points: Array<string>;
   theme: TTheme;
 }
 
@@ -54,7 +57,7 @@ export interface ExperienceSectionProps {
 }
 
 export interface IHeroSectionProps {
-  socials?: any[];
+  socials?: Array<TSocialsType>;
   cv?: string;
 }
 
@@ -63,6 +66,7 @@ export interface IHomeProps {
   experiences: Array<Omit<ExperienceCardProps, "theme">>;
   aboutText: string;
   initialSocials: Array<TSocialsType>;
+  allSocials: Array<TSocialsType>;
   techs: Array<{ title: Array<string>; techs: Array<T_Techs> }>;
   cv?: string;
   projects?: Array<any>;
@@ -72,10 +76,11 @@ export interface ITechPieceProps {
   titles?: Array<string>;
   techs?: Array<T_Techs>;
   index?: number;
+  dir?: "R" | "L";
 }
 
 export interface ITechSectionProps {
-  techs?: Array<Omit<ITechPieceProps, "index">>;
+  techs?: Array<Omit<ITechPieceProps, "index" | "dir">>;
 }
 
 export interface ITechCardsProps extends Omit<IServiceCardProps, "i" | "click"> {
@@ -85,10 +90,12 @@ export interface ITechCardsProps extends Omit<IServiceCardProps, "i" | "click"> 
 export interface ISetIconProps {
   icon?: string;
   size?: number;
+  className?: string;
 }
 
 export interface IGenericIconSvg {
   size?: number;
+  className?: string;
 }
 
 export interface IProjectsSectionProps {

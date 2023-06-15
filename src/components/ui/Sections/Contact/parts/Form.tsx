@@ -25,16 +25,11 @@ export default function Form(): ReactElement {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-
   }
 
-  function close() {
+  function close() {}
 
-  }
-
-  function accept() {
-
-  }
+  function accept() {}
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-12">
@@ -45,7 +40,8 @@ export default function Form(): ReactElement {
           name="name"
           value={contactForm.name}
           onChange={handleChange}
-          placeholder=" What's your name ? "
+          placeholder="What's your name ?"
+          required={true}
           className="px-6 py-4 font-medium border-none rounded-lg outline-none"
         />
       </div>
@@ -56,7 +52,8 @@ export default function Form(): ReactElement {
           name="email"
           value={contactForm.email}
           onChange={handleChange}
-          placeholder=" What's your email ? "
+          placeholder="What's your email ?"
+          required={true}
           className="px-6 py-4 font-medium border-none rounded-lg outline-none"
         />
       </div>
@@ -67,7 +64,8 @@ export default function Form(): ReactElement {
           name="message"
           value={contactForm.message}
           onChange={handleChange}
-          placeholder=" Your Message goes Here! "
+          required={true}
+          placeholder="Your Message goes Here!"
           className="px-6 py-4 font-medium border-none rounded-lg outline-none "
         />
       </div>

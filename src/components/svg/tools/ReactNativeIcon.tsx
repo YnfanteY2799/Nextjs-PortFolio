@@ -1,9 +1,15 @@
 import type { ReactElement } from "react";
 import type { IGenericIconSvg } from "@/types";
 
-export default function ReactNativeIcon({ size = 24 }: IGenericIconSvg): ReactElement {
+export default function ReactNativeIcon({ size = 24, className }: IGenericIconSvg): ReactElement {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" className="text-blue-200">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      className={"text-blue-200 " + className}
+    >
       <g
         fill="none"
         stroke="currentColor"

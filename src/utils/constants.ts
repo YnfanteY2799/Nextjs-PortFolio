@@ -30,6 +30,7 @@ export const navbarOptions = [
   { title: "About", to: "About", section: true },
   { title: "Projects", to: "Projects", section: true },
   { title: "Contact", to: "Contact", section: true },
+  { title: "Blog", to: "Blog", section: false },
 ];
 
 export const HomeSectionNavigation: Array<SectionType> = [

@@ -15,15 +15,21 @@ import type { ReactElement } from "react";
 import type { IHomeProps } from "@/types";
 import type { GetServerSideProps } from "next";
 
-export default function Home(props: IHomeProps): ReactElement {
-  // Props
-  const { initialSocials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
-
+export default function Home({
+  initialSocials,
+  aboutCards,
+  aboutText,
+  experiences,
+  techs,
+  cv,
+  projects,
+  allSocials,
+}: IHomeProps): ReactElement {
   // Hooks
   const { theme, setTheme } = useSessionStore();
 
   return (
-    <PageWrapper Theme={theme} ChangeTheme={setTheme} animated={false}>
+    <PageWrapper Theme={theme} ChangeTheme={setTheme} animated={false} socials={allSocials}>
       <FloatingNavigation sections={HomeSectionNavigation} />
       <HeroSection socials={initialSocials} cv={cv} />
       <AboutSection Services={aboutCards} Text={aboutText} />
