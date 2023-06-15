@@ -1,9 +1,15 @@
 import type { ReactElement } from "react";
 import type { IGenericIconSvg } from "@/types";
 
-export default function DartIcon({ size = 24 }: IGenericIconSvg): ReactElement {
+export default function DartIcon({ size = 24, className }: IGenericIconSvg): ReactElement {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 256 256">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 256 256"
+    >
       <defs>
         <radialGradient
           id="logosDart0"

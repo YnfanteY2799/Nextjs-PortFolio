@@ -1,9 +1,15 @@
 import type { ReactElement } from "react";
 import type { IGenericIconSvg } from "@/types";
 
-export default function TSIcon({ size = 24 }: IGenericIconSvg): ReactElement {
+export default function TSIcon({ size = 24, className }: IGenericIconSvg): ReactElement {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 256 256">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      className={className}
+      height={size}
+      viewBox="0 0 256 256"
+    >
       <path
         fill="#3178C6"
         d="M20 0h216c11.046 0 20 8.954 20 20v216c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20V20C0 8.954 8.954 0 20 0Z"

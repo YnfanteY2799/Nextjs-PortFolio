@@ -1,9 +1,15 @@
 import type { ReactElement } from "react";
 import type { IGenericIconSvg } from "@/types";
 
-export default function CssIcon({ size = 24 }: IGenericIconSvg): ReactElement {
+export default function CssIcon({ size = 24, className }: IGenericIconSvg): ReactElement {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 256 361">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      className={className}
+      height={size}
+      viewBox="0 0 256 361"
+    >
       <path
         fill="#264DE4"
         d="M127.844 360.088L23.662 331.166L.445 70.766h255.11l-23.241 260.36l-104.47 28.962Z"

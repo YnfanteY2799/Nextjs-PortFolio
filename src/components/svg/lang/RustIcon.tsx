@@ -1,9 +1,15 @@
 import type { ReactElement } from "react";
 import type { IGenericIconSvg } from "@/types";
 
-export default function RustIcon({ size = 24 }: IGenericIconSvg): ReactElement {
+export default function RustIcon({ size = 24, className }: IGenericIconSvg): ReactElement {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 32 32">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      className={className}
+      height={size}
+      viewBox="0 0 32 32"
+    >
       <defs>
         <radialGradient
           id="vscodeIconsFileTypeRust0"

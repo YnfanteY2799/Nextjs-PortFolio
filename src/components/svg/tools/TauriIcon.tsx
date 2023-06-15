@@ -1,9 +1,15 @@
 import type { ReactElement } from "react";
 import type { IGenericIconSvg } from "@/types";
 
-export default function TauriIcon({ size = 24 }: IGenericIconSvg): ReactElement {
+export default function TauriIcon({ size = 24, className }: IGenericIconSvg): ReactElement {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 256 289">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 256 289"
+    >
       <path
         fill="#FFC131"
         d="M178.497 104.93c0 15.155-12.285 27.44-27.44 27.44c-15.153 0-27.438-12.285-27.438-27.44c0-15.153 12.285-27.438 27.439-27.438s27.439 12.285 27.439 27.439Z"
