@@ -26,7 +26,7 @@ export default function Footer({ Theme, socials = [] }: FooterProps): ReactEleme
         )}
       </div>
       <div>
-        <div className="grid grid-flow-col gap-4">
+        {/* <div className="grid grid-flow-col ">
           {socials.map(({ icon, link }, idx) => (
             <a
               href={link}
@@ -38,7 +38,7 @@ export default function Footer({ Theme, socials = [] }: FooterProps): ReactEleme
               <IconSetter icon={icon} />
             </a>
           ))}
-        </div>
+        </div> */}
       </div>
       <div><p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p></div>
     </footer>
