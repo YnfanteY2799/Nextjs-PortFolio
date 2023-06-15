@@ -53,6 +53,7 @@ export { default as SpringIcon } from "./svg/framework/SpringIcon";
 export { default as NextJsIcon } from "./svg/framework/NextJsIcon";
 export { default as FlutterIcon } from "./svg/framework/FlutterIcon";
 export { default as DenoIcon } from "./svg/framework/DenoIcon";
+export { default as LaravelIcon } from "./svg/framework/LaravelIcon";
 
 export { default as ReactIcon } from "./svg/tools/ReactIcon";
 export { default as ReactNativeIcon } from "./svg/tools/ReactNativeIcon";

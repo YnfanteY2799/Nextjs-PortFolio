@@ -41,6 +41,7 @@ import {
   PrismaIcon,
   FlutterIcon,
   DenoIcon,
+  LaravelIcon,
   BulmaCssIcon,
   PostgreIcon,
   NestJsIcon,
@@ -153,6 +154,8 @@ export default function SetIcon({ icon, size, className }: ISetIconProps): React
       return <FlutterIcon size={size} className={className} />;
     case "Deno":
       return <DenoIcon size={size} className={className} />;
+    case "Laravel":
+      return <LaravelIcon size={size} className={className} />;
     case "Bulma":
     case "BulmaCss":
       return <BulmaCssIcon size={size} className={className} />;
