@@ -20,7 +20,7 @@ export default function HeroSection({ socials = [], cv = "" }: IHeroSectionProps
               Contact Me !
             </a>
           </div>
-          <div className="flex gap-6 pt-8 ">
+          <div className="flex pt-8 lg:gap-6 md:gap-3 sm:gap-4 xs:gap-4">
             {socials.map(({ link, icon }, idx) => (
               <div className="pb-1 tooltip tooltip-bottom" data-tip={icon} key={idx}>
                 <a
