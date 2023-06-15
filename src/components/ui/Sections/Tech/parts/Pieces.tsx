@@ -5,13 +5,16 @@ import Link from "next/link";
 import type { ReactElement } from "react";
 import type { ITechPieceProps } from "@/types";
 
-export default function TechPiece({ titles = [], techs = [] }: ITechPieceProps): ReactElement {
+export default function TechPiece({
+  titles = [],
+  techs = [],
+  dir = "R",
+}: ITechPieceProps): ReactElement {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{ opacity: 0, x: -100 }}
+        initial={{ opacity: 0, x: dir === "L" ? 100 : -100 }}
         animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, y: -100 }}
         transition={{ duration: 1 }}
       >
         <div className="mt-4 text-sm breadcrumbs">
