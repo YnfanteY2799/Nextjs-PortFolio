@@ -26,7 +26,7 @@ export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactE
   function activateIntervals() {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex === techs.length - 1 ? 0 : prevIndex + 1));
-    }, 4000);
+    }, 5000);
     setIntervalId((_) => interval);
   }
 
