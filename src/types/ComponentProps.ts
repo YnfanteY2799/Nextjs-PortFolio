@@ -1,4 +1,4 @@
-import type { MouseEventHandler, ReactNode, RefObject } from "react";
+import type { MouseEventHandler, ReactChild, ReactNode, RefObject } from "react";
 import type { SectionType, TSocialsType, TTheme, T_Techs } from "./index";
 
 export interface IPageWrapperProps {
@@ -125,7 +125,18 @@ export interface IProjectsCardProps {
 }
 
 export interface ModalProps {
-  dialogRef: RefObject<HTMLDialogElement>;
-  close?: MouseEventHandler<HTMLButtonElement>;
-  accept?: MouseEventHandler<HTMLButtonElement>;
+  isOpen: boolean;
+  children?: ReactNode;
+  handleClose: Function;
+  tittle?:string;
+  handleAction?:Function;
+}
+
+export interface IContactModalProps extends Omit<ModalProps, "children" | "title"> {
+  email?: string;
+}
+
+export interface PortalProps {
+  children?: ReactNode;
+  wrapperId: string;
 }

@@ -1,31 +1,20 @@
-import { X } from "lucide-react";
+import { Modal } from "@/components";
 
-import type { ModalProps } from "@/types";
+import type { IContactModalProps } from "@/types";
 import type { ReactElement } from "react";
 
-export default function ContactModal({ dialogRef, close, accept }: ModalProps): ReactElement {
-  return (
-    <dialog ref={dialogRef} className="modal">
-      <div className="modal-box">
-        <div className="flex justify-between text-lg font-bold">
-          <p>Hello!</p>
-          <button onClick={close}>
-            <X />
-          </button>
-        </div>
-
-        <div className="py-4">Press ESC key or click the button below to close</div>
-
-        <div className="modal-action">
-          <button className="btn btn-success" onClick={accept}>
-            Ok
-          </button>
-          <button className="btn btn-error" onClick={close}>
-            Close
-          </button>
-        </div>
-        <div className="modal-backdrop" />
-      </div>
-    </dialog>
-  );
+export default function ContactModal({
+  isOpen,
+  handleClose,
+  email = "",
+}: IContactModalProps): ReactElement | null {
+  return isOpen ? (
+    <Modal isOpen={isOpen} tittle="Contact Info" handleClose={handleClose}>
+      <p className="text-center">
+        The email you entered &nbsp;<strong className="underline">{email}</strong>&nbsp; will get
+        messaged soon from a bot, this is a confirmation that i received you'r message <br/> 
+        i'll be reaching you asap!
+      </p>
+    </Modal>
+  ) : null;
 }

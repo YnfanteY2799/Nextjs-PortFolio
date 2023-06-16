@@ -19,6 +19,7 @@ export type TContactForm = {
   name?: string;
   email?: string;
   message?: string;
+  contactType?: "Mentorship" | "Bussiess" | "Anime" | "Freelancing" | "Other";
 };
 
 export type T_Techs = { icon: string; title: string; experience: string };

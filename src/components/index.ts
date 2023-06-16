@@ -6,6 +6,7 @@ export * from "./ui/cards";
 
 export { default as IconSetter } from "./ui/common/IconSetter";
 export { default as FloatingNavigation } from "./ui/common/aditions/Floating";
+export { default as Modal } from "./ui/common/Modal";
 
 /* Common Components */
 
@@ -13,6 +14,7 @@ export { default as FloatingNavigation } from "./ui/common/aditions/Floating";
 
 export { default as PageWrapper } from "./ui/wrappers/PageWrapper";
 export { default as SectionWrapper } from "./ui/wrappers/SectionWrapper";
+export { default as ReactPortalWrapper } from "./ui/wrappers/portal/ReactPortal";
 
 /* Wrappers */
 
