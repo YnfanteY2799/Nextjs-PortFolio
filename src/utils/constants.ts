@@ -1,4 +1,4 @@
-import type { SectionType } from "@/types";
+import type { IProjectsCardProps, SectionType } from "@/types";
 
 export const TextVariants = {
   hidden: {
@@ -42,22 +42,54 @@ export const HomeSectionNavigation: Array<SectionType> = [
   { id: "Contact", img: "Contact", name: "Contact Me" },
 ];
 
-export const ProjectsDefaults = [
+export const ProjectsDefaults: Array<IProjectsCardProps> = [
   {
     name: "Test",
     description: "Test",
-    tags: [],
-    image: "Test",
-    source_code_link: "Test",
+    image: "test",
     index: 0,
+    source_code_link: "https://github.com/YnfanteY2799/Nextjs-PortFolio",
+    tags: [{ name: "Tailwind", color: "GRAY" }],
   },
   {
     name: "Test",
     description: "Test",
-    tags: [],
-    image: "Test",
-    source_code_link: "Test",
-    index: 1,
+    image: "test",
+    index: 0,
+    source_code_link: "https://github.com/YnfanteY2799/Nextjs-PortFolio",
+    tags: [{ name: "Tailwind", color: "GRAY" }],
+  },
+  {
+    name: "Test",
+    description: "Test",
+    image: "test",
+    index: 0,
+    source_code_link: "https://github.com/YnfanteY2799/Nextjs-PortFolio",
+    tags: [{ name: "Tailwind", color: "GRAY" }],
+  },
+  {
+    name: "Test",
+    description: "Test",
+    image: "test",
+    index: 0,
+    source_code_link: "https://github.com/YnfanteY2799/Nextjs-PortFolio",
+    tags: [{ name: "Tailwind", color: "GRAY" }],
+  },
+  {
+    name: "Test",
+    description: "Test",
+    image: "test",
+    index: 0,
+    source_code_link: "https://github.com/YnfanteY2799/Nextjs-PortFolio",
+    tags: [{ name: "Tailwind", color: "GRAY" }],
+  },
+  {
+    name: "Test",
+    description: "Test",
+    image: "test",
+    index: 0,
+    source_code_link: "https://github.com/YnfanteY2799/Nextjs-PortFolio",
+    tags: [{ name: "Tailwind", color: "GRAY" }],
   },
 ];
 

@@ -1,5 +1,5 @@
-import type { MouseEventHandler, ReactChild, ReactNode, RefObject } from "react";
-import type { SectionType, TSocialsType, TTheme, T_Techs } from "./index";
+import type { ReactNode } from "react";
+import type { SectionType, TSocialsType, TTheme, T_Color, T_Tag, T_Techs } from "./index";
 
 export interface IPageWrapperProps {
   children?: ReactNode;
@@ -99,7 +99,7 @@ export interface IGenericIconSvg {
 }
 
 export interface IProjectsSectionProps {
-  projects?: Array<any>;
+  projects?: Array<IProjectsCardProps>;
 }
 
 export interface IFloatingMenuProps {
@@ -107,7 +107,7 @@ export interface IFloatingMenuProps {
 }
 
 export interface ITagProp {
-  color?: "BLUE" | "GREEN" | "ORANGE" | "RED" | "GRAY" | "PINK";
+  color?: T_Color;
   icon?: string;
   children?: ReactNode;
   upper?: boolean;
@@ -118,7 +118,7 @@ export interface ITagProp {
 export interface IProjectsCardProps {
   name: string;
   description: string;
-  tags: Array<ITagProp>;
+  tags: Array<T_Tag>;
   image: string;
   source_code_link: string;
   index: number;
@@ -128,8 +128,8 @@ export interface ModalProps {
   isOpen: boolean;
   children?: ReactNode;
   handleClose: Function;
-  tittle?:string;
-  handleAction?:Function;
+  tittle?: string;
+  handleAction?: Function;
 }
 
 export interface IContactModalProps extends Omit<ModalProps, "children" | "title"> {
