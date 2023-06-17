@@ -26,12 +26,22 @@ export default function Navbar({ Theme = "night", ChangeTheme }: NavbarProps): R
         <ul className="gap-2 menu menu-horizontal ">
           {navbarOptions.map(({ to, title, section }, idx) => (
             <li key={idx}>
-              <p>{section ? <a href={`#${to}`}>{title}</a> : <Link href={to}>{title}</Link>}</p>
+              <p>
+                {section ? (
+                  <a href={`#${to}`} className="btn btn-ghost">
+                    {title}
+                  </a>
+                ) : (
+                  <Link href={to} className="btn btn-ghost">
+                    {title}
+                  </Link>
+                )}
+              </p>
             </li>
           ))}
           <li key={navbarOptions.length + 1}>
-            <button onClick={() => ChangeTheme && ChangeTheme()}>
-              {Theme === "night" ? <Moon /> : <Sun />}
+            <button onClick={() => ChangeTheme && ChangeTheme()} className="btn btn-ghost">
+              {Theme === "night" ? <Moon size={30}/> : <Sun />}
             </button>
           </li>
         </ul>

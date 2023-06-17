@@ -7,6 +7,7 @@ export * from "./ui/cards";
 export { default as IconSetter } from "./ui/common/IconSetter";
 export { default as FloatingNavigation } from "./ui/common/aditions/Floating";
 export { default as Modal } from "./ui/common/Modal";
+export { default as SectionHeader } from "./ui/header/SectionHeader";
 
 /* Common Components */
 
@@ -19,15 +20,14 @@ export { default as ReactPortalWrapper } from "./ui/wrappers/portal/ReactPortal"
 /* Wrappers */
 
 /* Sections */
+export { default as HeroSection } from "./ui/Sections/Home/Hero"; // => Home Page Section HeroSection
+export { default as AboutSection } from "./ui/Sections/Home/About"; // => Home Page Section AboutSection
+export { default as TechSection } from "./ui/Sections/Home/Tech"; // => Home Page Section TechSection
+export { default as ExperienceSection } from "./ui/Sections/Home/Experience"; // => Home Page Section ExperienceSection
+export { default as ProjectsSection } from "./ui/Sections/Home/Projects"; // => Home Page Section ExperienceSection
+export { default as ContactSection } from "./ui/Sections/Home/Contact/Contact"; // => Home Page Section ExperienceSection
 
-export { default as SectionHeader } from "./ui/header/SectionHeader";
-export { default as HeroSection } from "./ui/Sections/Hero"; // => Home Page Section HeroSection
-export { default as AboutSection } from "./ui/Sections/About"; // => Home Page Section AboutSection
-export { default as TechSection } from "./ui/Sections/Tech"; // => Home Page Section TechSection
-export { default as ExperienceSection } from "./ui/Sections/Experience"; // => Home Page Section ExperienceSection
-export { default as ProjectsSection } from "./ui/Sections/Projects"; // => Home Page Section ExperienceSection
-export { default as ContactSection } from "./ui/Sections/Contact/Contact"; // => Home Page Section ExperienceSection
-
+export { default as BlogSection } from "./ui/Sections/Blog/Main"; // => Blog Page Main Section
 /* Sections */
 
 /* SVG ICONS */
