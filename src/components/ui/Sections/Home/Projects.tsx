@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SectionHeader, SectionWrapper } from "@/components";
 import { ProjectsDefaults as Def, fadeIn } from "@/utils";
-import { ProjectsCard } from "../cards";
+import { ProjectsCard } from "@/components";
 
 import type { ReactElement } from "react";
 import type { IProjectsSectionProps } from "@/types";

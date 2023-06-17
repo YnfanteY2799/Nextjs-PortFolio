@@ -41,7 +41,7 @@ export default function Navbar({ Theme = "night", ChangeTheme }: NavbarProps): R
           ))}
           <li key={navbarOptions.length + 1}>
             <button onClick={() => ChangeTheme && ChangeTheme()} className="btn btn-ghost">
-              {Theme === "night" ? <Moon size={30}/> : <Sun />}
+              {Theme === "night" ? <Moon /> : <Sun />}
             </button>
           </li>
         </ul>

@@ -9,7 +9,7 @@ import { IconSetter } from "@/components";
 export default function Footer({ Theme, socials = [] }: FooterProps): ReactElement {
   return (
     <footer
-      className="p-10 rounded footer footer-center bg-base-200 text-base-content"
+      className="p-10 mt-auto rounded footer footer-center bg-base-200 text-base-content"
       data-theme={Theme}
     >
       <div className="grid grid-flow-col gap-4">
