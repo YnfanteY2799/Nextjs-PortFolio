@@ -21,6 +21,10 @@ export interface IServiceCardProps {
   click: Function;
 }
 
+export interface IBlogCardProps{
+  
+}
+
 export interface IInitialPartProps {
   Head?: string;
   SubHead?: string;

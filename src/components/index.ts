@@ -76,6 +76,8 @@ export { default as NestJsIcon } from "./svg/tools/NestJsIcon";
 export { default as JestIcon } from "./svg/tools/JestIcon";
 export { default as MochaIcon } from "./svg/tools/MochaIcon";
 export { default as StoryBookIcon } from "./svg/tools/StoryBookIcon";
+export { default as ReactQueryIcon } from "./svg/tools/ReactQueryIcon";
+export { default as ReduxIcon } from "./svg/tools/ReduxIcon";
 
 // -> Data
 export { default as MySqlIcon } from "./svg/data/MySqlIcon";

@@ -6,10 +6,10 @@ import type { GetServerSideProps } from "next";
 
 export default function BlogPage(): ReactElement {
   // Hooks
-  const { setTheme } = useSessionStore();
+  const { setTheme, theme } = useSessionStore();
 
   return (
-    <PageWrapper ChangeTheme={setTheme} animated>
+    <PageWrapper ChangeTheme={setTheme} Theme={theme} animated>
       <Blog />
     </PageWrapper>
   );
