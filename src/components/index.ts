@@ -31,6 +31,8 @@ export { default as ContactSection } from "./ui/Sections/Contact/Contact"; // =>
 /* Sections */
 
 /* SVG ICONS */
+
+// -> Socials
 export { default as MalIcon } from "./svg/social/MalIcon";
 export { default as DevIcon } from "./svg/social/DevToIcon";
 export { default as UpWorkIcon } from "./svg/social/UpWorkIcon";
@@ -38,6 +40,7 @@ export { default as FreelanceIcon } from "./svg/social/FreelanceIcon";
 export { default as CodewarsIcon } from "./svg/social/CodewarsIcon";
 export { default as LeetCodeIcon } from "./svg/social/LeetCodeIcon";
 
+// -> Langs
 export { default as HtmlIcon } from "./svg/lang/HtmlIcon";
 export { default as JsIcon } from "./svg/lang/JsIcon";
 export { default as TsIcon } from "./svg/lang/TsIcon";
@@ -48,6 +51,7 @@ export { default as GolangIcon } from "./svg/lang/GolangIcon";
 export { default as KotlinIcon } from "./svg/lang/KotlinIcon";
 export { default as DartIcon } from "./svg/lang/DartIcon";
 
+// -> Frameworks
 export { default as NodeJsIcon } from "./svg/framework/NodeJsIcon";
 export { default as ExpressIcon } from "./svg/framework/ExpressIcon";
 export { default as FastifyIcon } from "./svg/framework/FastifyIcon";
@@ -57,6 +61,7 @@ export { default as FlutterIcon } from "./svg/framework/FlutterIcon";
 export { default as DenoIcon } from "./svg/framework/DenoIcon";
 export { default as LaravelIcon } from "./svg/framework/LaravelIcon";
 
+// -> Tools
 export { default as ReactIcon } from "./svg/tools/ReactIcon";
 export { default as ReactNativeIcon } from "./svg/tools/ReactNativeIcon";
 export { default as TailwindIcon } from "./svg/tools/TailwindIcon";
@@ -72,10 +77,13 @@ export { default as JestIcon } from "./svg/tools/JestIcon";
 export { default as MochaIcon } from "./svg/tools/MochaIcon";
 export { default as StoryBookIcon } from "./svg/tools/StoryBookIcon";
 
+// -> Data
 export { default as MySqlIcon } from "./svg/data/MySqlIcon";
 export { default as OracleIcon } from "./svg/data/OracleIcon";
 export { default as PrismaIcon } from "./svg/data/PrismaIcon";
 export { default as PostgreIcon } from "./svg/data/PostgreIcon";
 export { default as TypeOrmIcon } from "./svg/data/TypeOrmIcon";
+export { default as TRPCIcon } from "./svg/data/tRPCIcon";
+export { default as GraphqlIcon } from "./svg/data/GraphqlIcon";
 
 /* SVG ICONS */
