@@ -29,7 +29,6 @@ export const sectionHeadText =
 export const navbarOptions: Array<T_NavItem> = [
   { title: "About", to: "About", section: true },
   { title: "Projects", to: "Projects", section: true },
-  { title: "Contact", to: "Contact", section: true },
   { title: "Blog", to: "Blog", section: false },
 ];
 
