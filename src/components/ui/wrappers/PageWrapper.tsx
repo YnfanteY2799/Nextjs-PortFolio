@@ -15,6 +15,11 @@ export default function PageWrapper({
 }: IPageWrapperProps): ReactElement {
   const [navbarOTPS, setNavbarOPTS] = useState(navbarOptions);
 
+  // Fn's
+  function handleThemeChange(): void {
+    handleChangeTheme(Theme as TTheme, ChangeTheme);
+  }
+
   useEffect(() => {
     if (external) setNavbarOPTS((x) => x.map((xs) => ({ ...xs, section: false })));
     else setNavbarOPTS(navbarOptions);
@@ -22,11 +27,7 @@ export default function PageWrapper({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar
-        Theme={Theme}
-        ChangeTheme={() => handleChangeTheme(Theme as TTheme, ChangeTheme)}
-        options={navbarOTPS}
-      />
+      <Navbar Theme={Theme} ChangeTheme={handleThemeChange} options={navbarOTPS} />
       <motion.main {...(animated ? springIn : {})} data-theme={Theme}>
         {children}
       </motion.main>
