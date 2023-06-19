@@ -1,4 +1,4 @@
-import type { IProjectsCardProps, SectionType } from "@/types";
+import type { IProjectsCardProps, SectionType, TSocialsType } from "@/types";
 
 export const TextVariants = {
   hidden: {
@@ -42,7 +42,7 @@ export const HomeSectionNavigation: Array<SectionType> = [
   { id: "Contact", img: "Contact", name: "Contact Me" },
 ];
 
-export const allSocials = [
+export const allSocials: Array<TSocialsType> = [
   { link: "https://github.com/YnfanteY2799", icon: "Github" },
   {
     link: "https://www.linkedin.com/in/yassett-jose-ynfante-jimenez-7b7304153/",
