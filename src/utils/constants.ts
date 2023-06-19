@@ -1,4 +1,4 @@
-import type { IProjectsCardProps, SectionType, TSocialsType } from "@/types";
+import type { IProjectsCardProps, SectionType, TSocialsType, T_NavItem } from "@/types";
 
 export const TextVariants = {
   hidden: {
@@ -26,7 +26,7 @@ export const sectionHeadText =
 
 /* Un used here only due to identification needs */
 
-export const navbarOptions = [
+export const navbarOptions: Array<T_NavItem> = [
   { title: "About", to: "About", section: true },
   { title: "Projects", to: "Projects", section: true },
   { title: "Contact", to: "Contact", section: true },

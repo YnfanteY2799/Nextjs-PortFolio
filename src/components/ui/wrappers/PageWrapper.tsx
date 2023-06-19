@@ -1,10 +1,10 @@
 import { useEffect, type ReactElement, useState } from "react";
 import { motion } from "framer-motion";
-import { handleChangeTheme, navbarOptions, springIn } from "@/utils";
+import { cleanAndFilter, handleChangeTheme, navbarOptions, springIn } from "@/utils";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 
-import type { IPageWrapperProps, TTheme } from "@/types";
+import type { IPageWrapperProps, TTheme, T_NavItem } from "@/types";
 
 export default function PageWrapper({
   children,
@@ -13,7 +13,9 @@ export default function PageWrapper({
   animated = false,
   external = false,
 }: IPageWrapperProps): ReactElement {
-  const [navbarOTPS, setNavbarOPTS] = useState(navbarOptions);
+
+  // State
+  const [navbarOTPS, setNavbarOPTS] = useState(navbarOptions as Array<T_NavItem>);
 
   // Fn's
   function handleThemeChange(): void {
@@ -21,7 +23,7 @@ export default function PageWrapper({
   }
 
   useEffect(() => {
-    if (external) setNavbarOPTS((x) => x.map((xs) => ({ ...xs, section: false })));
+    if (external) setNavbarOPTS((x) => cleanAndFilter(x));
     else setNavbarOPTS(navbarOptions);
   }, []);
 
