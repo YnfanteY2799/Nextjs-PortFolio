@@ -42,6 +42,22 @@ export const HomeSectionNavigation: Array<SectionType> = [
   { id: "Contact", img: "Contact", name: "Contact Me" },
 ];
 
+export const allSocials = [
+  { link: "https://github.com/YnfanteY2799", icon: "Github" },
+  {
+    link: "https://www.linkedin.com/in/yassett-jose-ynfante-jimenez-7b7304153/",
+    icon: "Linkedin",
+  },
+  { link: "https://www.instagram.com/j_yassett/", icon: "Instagram" },
+  { link: "https://myanimelist.net/profile/Nobu-", icon: "MyAnimeList" },
+  { link: "https://dev.to/ynfantey2799", icon: "DevTo" },
+  { link: "https://twitter.com/YnfanteY2799", icon: "Twitter" },
+  { link: "https://www.codewars.com/users/Nobu-Nobu", icon: "CodeWars" },
+  { link: "https://leetcode.com/YnfanteY2799/", icon: "LeetCode" },
+  { link: "https://www.upwork.com/freelancers/~01c6dd9f459b799fc6", icon: "UpWork" },
+  { link: "https://www.freelancer.es/u/YjYnfante", icon: "Freelance" },
+];
+
 export const ProjectsDefaults: Array<IProjectsCardProps> = [
   {
     name: "Test",

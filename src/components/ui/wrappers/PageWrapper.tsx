@@ -11,7 +11,6 @@ export default function PageWrapper({
   Theme,
   ChangeTheme,
   animated = false,
-  socials = [],
   external = false,
 }: IPageWrapperProps): ReactElement {
   return (
@@ -24,7 +23,7 @@ export default function PageWrapper({
       <motion.main {...(animated ? springIn : {})} data-theme={Theme}>
         {children}
       </motion.main>
-      <Footer Theme={Theme} socials={socials} />
+      <Footer Theme={Theme} />
     </div>
   );
 }

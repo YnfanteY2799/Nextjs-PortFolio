@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-import { navbarOptions } from "@/utils";
+import { IconSetter } from "@/components";
+import { navbarOptions, allSocials } from "@/utils";
 
 import type { FooterProps } from "@/types";
 import type { ReactElement } from "react";
-import { IconSetter } from "@/components";
 
-export default function Footer({ Theme, socials = [] }: FooterProps): ReactElement {
+export default function Footer({ Theme }: FooterProps): ReactElement {
   return (
     <footer
       className="p-10 mt-auto rounded footer footer-center bg-base-200 text-base-content"
@@ -26,7 +26,7 @@ export default function Footer({ Theme, socials = [] }: FooterProps): ReactEleme
         )}
       </div>
         <div className="grid grid-cols-5">
-          {socials.map(({ icon, link }, idx) => (
+          {allSocials.map(({ icon, link }, idx) => (
             <a
               href={link}
               key={idx}
