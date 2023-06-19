@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { handleChangeTheme, springIn } from "@/utils";
-import Head from "next/head";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 
@@ -17,12 +16,6 @@ export default function PageWrapper({
 }: IPageWrapperProps): ReactElement {
   return (
     <div className="flex flex-col min-h-screen">
-      <Head>
-        <meta charSet="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/logo-no-background.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>YJ | Porfolio </title>
-      </Head>
       <Navbar
         Theme={Theme}
         external={external}
