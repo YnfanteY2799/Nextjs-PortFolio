@@ -30,3 +30,5 @@ export type T_Tag = {
   name?: string;
   color?: T_Color;
 };
+
+export type T_NavItem = { title: string; to: string; section: boolean };

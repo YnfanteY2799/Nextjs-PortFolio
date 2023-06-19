@@ -1,4 +1,4 @@
-import { TTheme } from "@/types";
+import { TTheme, T_NavItem } from "@/types";
 
 export const staggerContainer = (staggerChildren?: any, delayChildren?: any) => {
   return {
@@ -54,4 +54,8 @@ export const slideIn = (direction: string, type: string, delay: number, duration
 
 export function handleChangeTheme(Theme: TTheme, ChangeTheme: Function) {
   Theme === "night" ? ChangeTheme("cupcake") : ChangeTheme("night");
+}
+
+export function cleanAndFilter(x: Array<T_NavItem>): Array<T_NavItem> {
+  return x.map((xs) => ({ ...xs, section: false })).filter((x) => x.title !== "Contact");
 }

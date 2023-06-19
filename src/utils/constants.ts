@@ -1,4 +1,4 @@
-import type { IProjectsCardProps, SectionType } from "@/types";
+import type { IProjectsCardProps, SectionType, TSocialsType, T_NavItem } from "@/types";
 
 export const TextVariants = {
   hidden: {
@@ -26,7 +26,7 @@ export const sectionHeadText =
 
 /* Un used here only due to identification needs */
 
-export const navbarOptions = [
+export const navbarOptions: Array<T_NavItem> = [
   { title: "About", to: "About", section: true },
   { title: "Projects", to: "Projects", section: true },
   { title: "Contact", to: "Contact", section: true },
@@ -40,6 +40,22 @@ export const HomeSectionNavigation: Array<SectionType> = [
   { id: "Projects", img: "Projects", name: "Projects" },
   { id: "Exp", img: "Exp", name: "Experience" },
   { id: "Contact", img: "Contact", name: "Contact Me" },
+];
+
+export const allSocials: Array<TSocialsType> = [
+  { link: "https://github.com/YnfanteY2799", icon: "Github" },
+  {
+    link: "https://www.linkedin.com/in/yassett-jose-ynfante-jimenez-7b7304153/",
+    icon: "Linkedin",
+  },
+  { link: "https://www.instagram.com/j_yassett/", icon: "Instagram" },
+  { link: "https://myanimelist.net/profile/Nobu-", icon: "MyAnimeList" },
+  { link: "https://dev.to/ynfantey2799", icon: "DevTo" },
+  { link: "https://twitter.com/YnfanteY2799", icon: "Twitter" },
+  { link: "https://www.codewars.com/users/Nobu-Nobu", icon: "CodeWars" },
+  { link: "https://leetcode.com/YnfanteY2799/", icon: "LeetCode" },
+  { link: "https://www.upwork.com/freelancers/~01c6dd9f459b799fc6", icon: "UpWork" },
+  { link: "https://www.freelancer.es/u/YjYnfante", icon: "Freelance" },
 ];
 
 export const ProjectsDefaults: Array<IProjectsCardProps> = [

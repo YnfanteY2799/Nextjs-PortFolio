@@ -6,7 +6,7 @@ export default function ProjectsPage(): ReactElement {
   const { theme, setTheme } = useSessionStore();
 
   return (
-    <PageWrapper Theme={theme} ChangeTheme={setTheme} animated>
+    <PageWrapper Theme={theme} ChangeTheme={setTheme} animated external>
       Projects Page
     </PageWrapper>
   );

@@ -43,7 +43,7 @@ export default function HeroSection({ socials = [], cv = "" }: IHeroSectionProps
             alt="Profile Pic"
             width="auto"
             height="auto"
-            loading="lazy"
+            loading="eager"
           />
         </div>
       </div>

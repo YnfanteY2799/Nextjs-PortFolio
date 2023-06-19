@@ -26,7 +26,7 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
       }
     };
 
-    document.addEventListener("mousedown", checkIfClickedOutside);
+    document.addEventListener("mousedown", checkIfClickedOutside, { passive: true });
 
     return () => {
       document.removeEventListener("mousedown", checkIfClickedOutside);
@@ -53,7 +53,10 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
           </Fragment>
         ))
       ) : (
-        <button onClick={handleShowFloat} className="flex flex-col items-center justify-center text-orange-600">
+        <button
+          onClick={handleShowFloat}
+          className="flex flex-col items-center justify-center text-orange-600"
+        >
           <IconSetter icon="Menu" size={30} />
         </button>
       )}

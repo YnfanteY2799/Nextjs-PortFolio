@@ -18,7 +18,7 @@ export default function Modal({
     function closeOnESC({ key }: KeyboardEvent) {
       key === "Escape" ? handleClose() : null;
     }
-    document.body.addEventListener("keydown", closeOnESC);
+    document.body.addEventListener("keydown", closeOnESC, {passive:true});
     return (): void => {
       document.body.removeEventListener("keydown", closeOnESC);
     };

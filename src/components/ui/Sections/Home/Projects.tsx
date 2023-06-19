@@ -12,8 +12,6 @@ export default function ProjectsSection({ projects = Def }: IProjectsSectionProp
       const containerScroll = document.getElementById("scrollable");
       if (containerScroll !== null) {
         containerScroll.scrollLeft += 400;
-        containerScroll.scrollTop
-        
       }
     }, 5000);
 
@@ -38,7 +36,7 @@ export default function ProjectsSection({ projects = Def }: IProjectsSectionProp
           </motion.p>
         </div>
 
-        <div id="scrollable" className="pt-4 carousel rounded-box">
+        <div id="scrollable" className="pt-4 carousel rounded-box scroll-smooth">
           {projects.map((x, idx) => (
             <div className="px-4 carousel-item" key={idx}>
               <ProjectsCard {...x} />

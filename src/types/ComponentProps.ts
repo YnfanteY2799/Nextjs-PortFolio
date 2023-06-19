@@ -1,5 +1,13 @@
 import type { ReactNode } from "react";
-import type { SectionType, TSocialsType, TTheme, T_Color, T_Tag, T_Techs } from "./index";
+import type {
+  SectionType,
+  TSocialsType,
+  TTheme,
+  T_Color,
+  T_NavItem,
+  T_Tag,
+  T_Techs,
+} from "./index";
 
 export interface IPageWrapperProps {
   children?: ReactNode;
@@ -34,11 +42,10 @@ export interface NavbarProps {
   Theme?: TTheme;
   ChangeTheme?: Function;
   external?: boolean;
+  options?: Array<T_NavItem>;
 }
 
-export interface FooterProps extends Omit<NavbarProps, "ChangeTheme"> {
-  socials?: Array<TSocialsType>;
-}
+export interface FooterProps extends Omit<NavbarProps, "ChangeTheme"> {}
 
 export interface IAboutSectionProps {
   Text?: string;

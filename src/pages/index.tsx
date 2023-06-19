@@ -23,13 +23,12 @@ export default function Home({
   techs,
   cv,
   projects,
-  allSocials,
 }: IHomeProps): ReactElement {
   // Hooks
   const { theme, setTheme } = useSessionStore();
 
   return (
-    <PageWrapper Theme={theme} ChangeTheme={setTheme} socials={allSocials}>
+    <PageWrapper Theme={theme} ChangeTheme={setTheme}>
       <FloatingNavigation sections={HomeSectionNavigation} />
       <HeroSection socials={initialSocials} cv={cv} />
       <AboutSection Services={aboutCards} Text={aboutText} />
