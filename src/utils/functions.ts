@@ -57,5 +57,5 @@ export function handleChangeTheme(Theme: TTheme, ChangeTheme: Function) {
 }
 
 export function cleanAndFilter(x: Array<T_NavItem>): Array<T_NavItem> {
-  return x.map((xs) => ({ ...xs, section: false })).filter((x) => x.title !== "Contact");
+  return x.map((xs) => ({ ...xs, section: false }));
 }

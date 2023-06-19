@@ -28,7 +28,7 @@ export default function PageWrapper({
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen" data-theme={Theme}>
       <Navbar Theme={Theme} ChangeTheme={handleThemeChange} options={navbarOTPS} />
       <motion.main {...(animated ? springIn : {})} data-theme={Theme}>
         {children}
