@@ -29,7 +29,7 @@ export default function Home({
   const { theme, setTheme } = useSessionStore();
 
   return (
-    <PageWrapper Theme={theme} ChangeTheme={setTheme} animated={false} socials={allSocials}>
+    <PageWrapper Theme={theme} ChangeTheme={setTheme} socials={allSocials}>
       <FloatingNavigation sections={HomeSectionNavigation} />
       <HeroSection socials={initialSocials} cv={cv} />
       <AboutSection Services={aboutCards} Text={aboutText} />
@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (_) => {
     const data = await fetch(NEXT_PUBLIC_GITHUB_LINK);
     if (!data.ok) return { props: {} };
     else {
-      return { props: { ...(await data.json()), cv: NEXT_PUBLIC_DRIVE_LINK } };
+      return { props: { ...((await data.json()) as IHomeProps), cv: NEXT_PUBLIC_DRIVE_LINK } };
     }
   } catch (e) {
     console.error("Error loading : ", e);

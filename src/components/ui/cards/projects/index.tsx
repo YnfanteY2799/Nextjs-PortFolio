@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import Tilt from "react-parallax-tilt";
 import Image from "next/image";
+import Tag from "./parts/Tag";
 
 import { fadeIn } from "@/utils";
 
 import type { ReactElement } from "react";
 import type { IProjectsCardProps } from "@/types";
-import Tag from "./parts/Tag";
 
 export default function Projects({
   name,
@@ -19,12 +19,12 @@ export default function Projects({
 }: IProjectsCardProps): ReactElement {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt className="bg-base-200 p-5 rounded-2xl sm:w-[360px] w-full">
+      <Tilt className="bg-base-200 p-5 rounded-2xl sm:w-[320px] ">
         <div className="relative w-full h-[230px]">
           <Image
             src={`/projects/${image}.png`}
             alt={name}
-            className="object-cover w-full h-full rounded-2xl"
+            className="object-fill w-full h-full rounded-2xl"
             width={100}
             height={100}
           />
@@ -40,13 +40,19 @@ export default function Projects({
         </div>
 
         <div className="mt-5">
-          <h3 className="font-bold text-[24px]">{name}</h3>
+          <a
+            className="font-bold text-[24px] hover:cursor-pointer hover:underline"
+            href={source_code_link}
+            target="_blank"
+          >
+            {name}
+          </a>
           <p className="mt-2 text-primary">{description}</p>
         </div>
 
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map(({ name, color }, i) => (
-            <Tag key={`tag-##${i}`} cn=" text-[14px]" color={color} icon={name} >
+            <Tag key={`tag-##${i}`} cn=" text-[14px]" color={color} icon={name}>
               {name}
             </Tag>
           ))}

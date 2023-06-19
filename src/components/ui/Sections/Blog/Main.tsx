@@ -1,8 +1,7 @@
-import { type ReactElement, useState } from "react";
+import { type ReactElement } from "react";
 import { BlogsCard } from "@/components";
 
 export default function BlogSection(): ReactElement {
-  const [text, setText] = useState("Ts" as string);
 
   return (
     <section>

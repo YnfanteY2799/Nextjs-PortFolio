@@ -1,6 +1,6 @@
 export * from "./ComponentProps";
 
-export type TTheme = "night" | "cupcake";
+export type TTheme = "night" | "cupcake" | "";
 
 export interface ISessionStore {
   theme: TTheme;

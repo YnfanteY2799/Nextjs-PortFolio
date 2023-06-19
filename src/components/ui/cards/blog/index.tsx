@@ -8,12 +8,12 @@ export default function BlogCard({}: IBlogCardProps): ReactElement {
     <div className="p-4 md:w-1/3">
       <div className="h-full overflow-hidden border-2 border-primary rounded-2xl border-opacity-60">
         <img
-          className="object-cover object-center w-full lg:h-48 md:h-36"
+          className="object-cover object-center w-full lg:h-48 md:h-36 hover:cursor-pointer"
           src="https://dummyimage.com/722x402"
           alt="blog"
         />
         <div className="p-6">
-          <h2 className="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">
+          <h2 className="mb-1 text-xs font-medium tracking-widest text-info title-font">
             CATEGORY
           </h2>
           <h1 className="mb-3 text-lg font-medium title-font text-primary">Shooting Stars</h1>

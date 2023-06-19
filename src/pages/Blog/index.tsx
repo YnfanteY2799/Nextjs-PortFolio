@@ -9,7 +9,7 @@ export default function BlogPage(): ReactElement {
   const { setTheme, theme } = useSessionStore();
 
   return (
-    <PageWrapper ChangeTheme={setTheme} Theme={theme} animated>
+    <PageWrapper ChangeTheme={setTheme} Theme={theme} animated external>
       <Blog />
     </PageWrapper>
   );

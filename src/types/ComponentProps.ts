@@ -7,6 +7,7 @@ export interface IPageWrapperProps {
   ChangeTheme: Function;
   animated?: boolean;
   socials?: Array<TSocialsType>;
+  external?: boolean;
 }
 
 export interface ISectionWrapperProps {
@@ -21,9 +22,7 @@ export interface IServiceCardProps {
   click: Function;
 }
 
-export interface IBlogCardProps{
-  
-}
+export interface IBlogCardProps {}
 
 export interface IInitialPartProps {
   Head?: string;
@@ -34,6 +33,7 @@ export interface IInitialPartProps {
 export interface NavbarProps {
   Theme?: TTheme;
   ChangeTheme?: Function;
+  external?: boolean;
 }
 
 export interface FooterProps extends Omit<NavbarProps, "ChangeTheme"> {

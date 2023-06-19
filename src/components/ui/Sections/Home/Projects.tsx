@@ -1,12 +1,25 @@
+import { useEffect, type ReactElement } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader, SectionWrapper } from "@/components";
 import { ProjectsDefaults as Def, fadeIn } from "@/utils";
 import { ProjectsCard } from "@/components";
 
-import type { ReactElement } from "react";
 import type { IProjectsSectionProps } from "@/types";
 
 export default function ProjectsSection({ projects = Def }: IProjectsSectionProps): ReactElement {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const containerScroll = document.getElementById("scrollable");
+      if (containerScroll !== null) {
+        containerScroll.scrollLeft += 400;
+        containerScroll.scrollTop
+        
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <SectionWrapper id="Projects">
       <SectionHeader Head="Projects" SubHead="I've been building" />
@@ -25,14 +38,12 @@ export default function ProjectsSection({ projects = Def }: IProjectsSectionProp
           </motion.p>
         </div>
 
-        <div className="pt-4 carousel rounded-box">
-          {/* <div className="flex flex-wrap mt-20 gap-7"> */}
+        <div id="scrollable" className="pt-4 carousel rounded-box">
           {projects.map((x, idx) => (
             <div className="px-4 carousel-item" key={idx}>
               <ProjectsCard {...x} />
             </div>
           ))}
-          {/* </div> */}
         </div>
       </motion.div>
     </SectionWrapper>

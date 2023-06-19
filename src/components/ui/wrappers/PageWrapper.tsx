@@ -13,6 +13,7 @@ export default function PageWrapper({
   ChangeTheme,
   animated = false,
   socials = [],
+  external = true,
 }: IPageWrapperProps): ReactElement {
   return (
     <div className="flex flex-col min-h-screen">
@@ -22,7 +23,11 @@ export default function PageWrapper({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>YJ | Porfolio </title>
       </Head>
-      <Navbar Theme={Theme} ChangeTheme={() => handleChangeTheme(Theme as TTheme, ChangeTheme)} />
+      <Navbar
+        Theme={Theme}
+        external={external}
+        ChangeTheme={() => handleChangeTheme(Theme as TTheme, ChangeTheme)}
+      />
       <motion.main {...(animated ? springIn : {})} data-theme={Theme}>
         {children}
       </motion.main>
