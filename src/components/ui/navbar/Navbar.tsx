@@ -35,11 +35,7 @@ export default function Navbar({
 
       <div className="hidden navbar-end lg:flex">
         <ul className="gap-2 menu menu-horizontal">
-          {navbarOTPS.map(({ to, title, section }, idx) =>{ 
-            
-            console.log(section)
-
-            return(
+          {navbarOTPS.map(({ to, title, section }, idx) => (
             <li key={idx}>
               <p>
                 {section ? (
@@ -53,7 +49,7 @@ export default function Navbar({
                 )}
               </p>
             </li>
-          )})}
+          ))}
           <li key={navbarOTPS.length + 1}>
             <p>
               <button onClick={() => ChangeTheme && ChangeTheme()} className="btn btn-ghost">

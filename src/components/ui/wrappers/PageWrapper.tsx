@@ -12,7 +12,7 @@ export default function PageWrapper({
   ChangeTheme,
   animated = false,
   socials = [],
-  external = true,
+  external = false,
 }: IPageWrapperProps): ReactElement {
   return (
     <div className="flex flex-col min-h-screen">
