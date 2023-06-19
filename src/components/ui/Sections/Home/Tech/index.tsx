@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { type ReactElement, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, PauseCircle, PlayCircle } from "lucide-react";
 import { SectionHeader, SectionWrapper } from "@/components";
@@ -38,11 +38,9 @@ export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactE
   }
 
   useEffect(() => {
-    if (!play) {
-      activateIntervals();
-    } else {
-      pauseInterval();
-    }
+    if (!play) activateIntervals();
+    else pauseInterval();
+
     return () => pauseInterval();
   }, [play]);
 

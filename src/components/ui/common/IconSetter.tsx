@@ -56,6 +56,10 @@ import {
   FreelanceIcon,
   CodewarsIcon,
   LeetCodeIcon,
+  TRPCIcon,
+  GraphqlIcon,
+  ReactQueryIcon,
+  ReduxIcon,
 } from "@/components";
 
 import type { ReactElement } from "react";
@@ -150,6 +154,16 @@ export default function SetIcon({ icon, size, className }: ISetIconProps): React
       return <NextJsIcon size={size} className={className} />;
     case "Prisma":
       return <PrismaIcon size={size} className={className} />;
+    case "ReactQuery":
+      return <ReactQueryIcon size={size} className={className} />;
+    case "Redux":
+      return <ReduxIcon size={size} className={className} />;
+    case "TRPC":
+    case "tRPC":
+      return <TRPCIcon size={size} className={className} />;
+    case "GraphQl":
+    case "Graphql":
+      return <GraphqlIcon size={size} className={className} />;
     case "Flutter":
       return <FlutterIcon size={size} className={className} />;
     case "Deno":

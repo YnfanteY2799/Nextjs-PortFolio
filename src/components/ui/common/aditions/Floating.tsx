@@ -47,7 +47,7 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
               onClick={() => handleSelectionClick(ind)}
             >
               <IconSetter size={25} icon={img} className="mt-1" />
-              <small className="text-xs font-medium text-center "> {name} </small>
+              <small className="pt-1 text-xs font-medium text-center"> {name} </small>
             </a>
             {ind !== sections.length - 1 && <hr className="border-orange-600" />}
           </Fragment>

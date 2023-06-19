@@ -1,3 +1,5 @@
+import { TTheme } from "@/types";
+
 export const staggerContainer = (staggerChildren?: any, delayChildren?: any) => {
   return {
     hidden: {},
@@ -49,3 +51,7 @@ export const slideIn = (direction: string, type: string, delay: number, duration
     },
   };
 };
+
+export function handleChangeTheme(Theme: TTheme, ChangeTheme: Function) {
+  Theme === "night" ? ChangeTheme("cupcake") : ChangeTheme("night");
+}

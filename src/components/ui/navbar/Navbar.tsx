@@ -1,12 +1,23 @@
+import { useEffect, type ReactElement, useState } from "react";
 import { Menu, Moon, Sun } from "lucide-react";
 import { navbarOptions } from "@/utils";
 import Link from "next/link";
 import Image from "next/image";
 
 import type { NavbarProps } from "@/types";
-import type { ReactElement } from "react";
 
-export default function Navbar({ Theme = "night", ChangeTheme }: NavbarProps): ReactElement {
+export default function Navbar({
+  Theme = "night",
+  ChangeTheme,
+  external = false,
+}: NavbarProps): ReactElement {
+  const [navbarOTPS, setNavbarOPTS] = useState(navbarOptions);
+
+  useEffect(() => {
+    if (external) setNavbarOPTS((x) => x.map((xs) => ({ ...xs, section: false })));
+    else setNavbarOPTS(navbarOptions);
+  }, []);
+
   return (
     <div className="sticky px-10 navbar bg-base-200 border-b-primary" data-theme={Theme}>
       <div className="navbar-start">
@@ -23,16 +34,32 @@ export default function Navbar({ Theme = "night", ChangeTheme }: NavbarProps): R
       </div>
 
       <div className="hidden navbar-end lg:flex">
-        <ul className="gap-2 menu menu-horizontal ">
-          {navbarOptions.map(({ to, title, section }, idx) => (
+        <ul className="gap-2 menu menu-horizontal">
+          {navbarOTPS.map(({ to, title, section }, idx) =>{ 
+            
+            console.log(section)
+
+            return(
             <li key={idx}>
-              <p>{section ? <a href={`#${to}`}>{title}</a> : <Link href={to}>{title}</Link>}</p>
+              <p>
+                {section ? (
+                  <a href={`#${to}`} className="btn btn-ghost">
+                    {title}
+                  </a>
+                ) : (
+                  <Link href={to} className="btn btn-ghost">
+                    {title}
+                  </Link>
+                )}
+              </p>
             </li>
-          ))}
-          <li key={navbarOptions.length + 1}>
-            <button onClick={() => ChangeTheme && ChangeTheme()}>
-              {Theme === "night" ? <Moon /> : <Sun />}
-            </button>
+          )})}
+          <li key={navbarOTPS.length + 1}>
+            <p>
+              <button onClick={() => ChangeTheme && ChangeTheme()} className="btn btn-ghost">
+                {Theme === "night" ? <Moon size={25} /> : <Sun size={25} />}
+              </button>
+            </p>
           </li>
         </ul>
       </div>
@@ -46,7 +73,7 @@ export default function Navbar({ Theme = "night", ChangeTheme }: NavbarProps): R
             tabIndex={0}
             className="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-300 rounded-box w-52"
           >
-            {navbarOptions.map(({ to, title, section }, idx) => (
+            {navbarOTPS.map(({ to, title, section }, idx) => (
               <li key={idx}>
                 {section ? (
                   <a href={`#${to}`}>{title}</a>
@@ -57,7 +84,7 @@ export default function Navbar({ Theme = "night", ChangeTheme }: NavbarProps): R
                 )}
               </li>
             ))}
-            <li key={navbarOptions.length + 1}>
+            <li key={navbarOTPS.length + 1}>
               <button onClick={() => ChangeTheme && ChangeTheme()} className="justify-between">
                 {Theme}
                 {Theme === "night" ? <Moon /> : <Sun />}

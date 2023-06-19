@@ -1,5 +1,6 @@
-import { X } from "lucide-react";
 import { type ReactElement, useEffect, MouseEventHandler } from "react";
+import { motion } from "framer-motion";
+import { X, Info } from "lucide-react";
 import { ReactPortalWrapper } from "@/components";
 
 import type { ModalProps } from "@/types";
@@ -34,11 +35,18 @@ export default function Modal({
 
   return isOpen ? (
     <ReactPortalWrapper wrapperId="portal-wrapper">
-      <div className="fixed top-0 left-0 z-40 w-screen h-screen opacity-50 bg-neutral-800" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ duration: 0.5 }}
+        className="fixed top-0 left-0 z-40 w-screen h-screen opacity-50 bg-neutral-800"
+      />
       <dialog open id="my_modal_2" className="modal">
         <div className="modal-box">
           <div className="flex justify-between pb-2">
-            <h3 className="font-bold btn btn-ghost btn-sm">{tittle}</h3>
+            <h3 className="font-bold btn btn-ghost btn-sm">
+              <Info size={20} /> {tittle}
+            </h3>
             <button onClick={close} className="btn btn-ghost btn-sm">
               <X />
             </button>

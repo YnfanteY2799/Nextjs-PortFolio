@@ -29,7 +29,7 @@ export default function TechPiece({
             ))}
           </ul>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 md:grid-cols-2">
           {techs.map((x, idx) => (
             <TechsCard {...x} key={idx} />
           ))}
