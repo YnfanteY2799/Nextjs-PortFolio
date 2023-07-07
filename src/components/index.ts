@@ -16,6 +16,7 @@ export { default as SearchModal } from "./ui/modal/SearchModal";
 
 export { default as Navbar } from "./ui/navbar/Navbar";
 export { default as Footer } from "./ui/footer/Footer";
+export { default as ComboBox } from "./ui/inputs/Combobox";
 
 /* Specific use Components */
 

@@ -7,6 +7,7 @@ import type {
   T_NavItem,
   T_Tag,
   T_Techs,
+  GenericNameValue,
 } from "./index";
 
 export interface IPageWrapperProps {
@@ -156,4 +157,9 @@ export interface SearchModalProps {
   isOpen?: boolean;
   theme?: T_Theme;
   handleClose: Function;
+}
+
+export interface ComboBoxProps {
+  options?: GenericNameValue[];
+  onSelect?: (option: GenericNameValue | null) => void;
 }

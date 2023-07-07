@@ -23,7 +23,8 @@ export default function PageWrapper(props: IPageWrapperProps): ReactElement {
     setSearchModal(!searchModal);
   }
 
-  useShortCut({ keys: ["q"], callback: keyPressing, ctr: true });
+  // Short Cut  
+  useShortCut({ keys: ["q"], callback: keyPressing, shft: true });
 
   useEffect(() => {
     if (external) setNavbarOPTS((x) => cleanAndFilter(x));
