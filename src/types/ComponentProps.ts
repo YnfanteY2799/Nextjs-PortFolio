@@ -1,17 +1,18 @@
-import type { ReactNode } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 import type {
   SectionType,
   TSocialsType,
-  TTheme,
+  T_Theme,
   T_Color,
   T_NavItem,
   T_Tag,
   T_Techs,
+  GenericNameValue,
 } from "./index";
 
 export interface IPageWrapperProps {
   children?: ReactNode;
-  Theme?: TTheme;
+  Theme?: T_Theme;
   ChangeTheme: Function;
   animated?: boolean;
   socials?: Array<TSocialsType>;
@@ -39,7 +40,7 @@ export interface IInitialPartProps {
 }
 
 export interface NavbarProps {
-  Theme?: TTheme;
+  Theme?: T_Theme;
   ChangeTheme?: Function;
   external?: boolean;
   options?: Array<T_NavItem>;
@@ -59,12 +60,12 @@ export interface ExperienceCardProps {
   iconBg?: string;
   date?: string;
   points: Array<string>;
-  theme: TTheme;
+  theme: T_Theme;
 }
 
 export interface ExperienceSectionProps {
   experience?: Array<Omit<ExperienceCardProps, "theme">>;
-  theme?: TTheme;
+  theme?: T_Theme;
 }
 
 export interface IHeroSectionProps {
@@ -150,4 +151,15 @@ export interface IContactModalProps extends Omit<ModalProps, "children" | "title
 export interface PortalProps {
   children?: ReactNode;
   wrapperId: string;
+}
+
+export interface SearchModalProps {
+  isOpen?: boolean;
+  theme?: T_Theme;
+  handleClose: Function;
+}
+
+export interface ComboBoxProps {
+  options?: GenericNameValue[];
+  onSelect?: (option: GenericNameValue | null) => void;
 }

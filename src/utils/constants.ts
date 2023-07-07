@@ -27,13 +27,13 @@ export const sectionHeadText =
 /* Un used here only due to identification needs */
 
 export const navbarOptions: Array<T_NavItem> = [
-  { title: "About", to: "About", section: true },
-  { title: "Projects", to: "Projects", section: true },
+  { title: "About", to: "About", section: false },
+  { title: "Projects", to: "Projects", section: false },
   { title: "Blog", to: "Blog", section: false },
 ];
 
 export const HomeSectionNavigation: Array<SectionType> = [
-  { id: "Hero", img: "Home", name: "Home" },
+  { id: "", img: "Home", name: "Home" },
   { id: "About", img: "Info", name: "About Me" },
   { id: "Tech", img: "Tech", name: "Tech" },
   { id: "Projects", img: "Projects", name: "Projects" },

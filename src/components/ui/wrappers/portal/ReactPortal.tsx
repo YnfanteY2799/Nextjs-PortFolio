@@ -1,4 +1,4 @@
-import { useState, type ReactElement, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, type ReactElement } from "react";
 import { createPortal } from "react-dom";
 
 import type { PortalProps } from "@/types";

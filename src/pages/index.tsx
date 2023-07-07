@@ -13,17 +13,12 @@ import { HomeSectionNavigation } from "@/utils";
 
 import type { ReactElement } from "react";
 import type { IHomeProps } from "@/types";
-import type { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
 
-export default function Home({
-  initialSocials,
-  aboutCards,
-  aboutText,
-  experiences,
-  techs,
-  cv,
-  projects,
-}: IHomeProps): ReactElement {
+export default function Home(props: IHomeProps): ReactElement {
+  // Props
+  const { initialSocials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
+
   // Hooks
   const { theme, setTheme } = useSessionStore();
 
@@ -40,7 +35,7 @@ export default function Home({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (_) => {
+export const getStaticProps: GetStaticProps = async (_) => {
   const { NEXT_PUBLIC_GITHUB_LINK = "", NEXT_PUBLIC_DRIVE_LINK = "" } = process.env;
 
   try {

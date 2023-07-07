@@ -27,7 +27,7 @@ export default function Footer({ Theme, options = [] }: FooterProps): ReactEleme
       </div>
       <div className="grid grid-cols-5">
         {allSocials.map(({ icon, link }, idx) => (
-          <a href={link} key={idx} rel="noopener noreferrer" target="_blank" className="btn ">
+          <a href={link} key={idx} rel="noopener noreferrer" target="_blank" className="btn btn-ghost">
             <IconSetter icon={icon} />
           </a>
         ))}

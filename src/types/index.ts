@@ -1,10 +1,10 @@
 export * from "./ComponentProps";
 
-export type TTheme = "night" | "cupcake" | "";
+export type T_Theme = "night" | "cupcake" | "";
 
 export interface ISessionStore {
-  theme: TTheme;
-  setTheme: (s: TTheme) => void;
+  theme: T_Theme;
+  setTheme: (s: T_Theme) => void;
 }
 
 export type TSocialsType = { link: string; icon: string };
@@ -32,3 +32,19 @@ export type T_Tag = {
 };
 
 export type T_NavItem = { title: string; to: string; section: boolean };
+
+export type HookKeyPress = {
+  keys: string[];
+  callback: () => void;
+  node?: Document;
+  ctr?: boolean;
+  shft?: boolean;
+  ctrsht?: boolean;
+};
+
+export type DispatchHookParams = {
+  pressedKey: string;
+  callback: Function;
+};
+
+export type GenericNameValue = { id: number; name: string };

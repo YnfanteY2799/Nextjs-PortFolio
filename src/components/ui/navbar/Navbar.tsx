@@ -31,11 +31,11 @@ export default function Navbar({
             <li key={idx}>
               <p>
                 {section ? (
-                  <a href={`#${to}`} className="btn btn-ghost">
+                  <a href={`#${to}`}>
                     {title}
                   </a>
                 ) : (
-                  <Link href={to} className="btn btn-ghost">
+                  <Link href={to}>
                     {title}
                   </Link>
                 )}
@@ -44,7 +44,7 @@ export default function Navbar({
           ))}
           <li key={options.length + 1}>
             <p>
-              <button onClick={() => ChangeTheme && ChangeTheme()} className="btn btn-ghost">
+              <button onClick={() => ChangeTheme && ChangeTheme()}>
                 {Theme === "night" ? <Moon size={25} /> : <Sun size={25} />}
               </button>
             </p>

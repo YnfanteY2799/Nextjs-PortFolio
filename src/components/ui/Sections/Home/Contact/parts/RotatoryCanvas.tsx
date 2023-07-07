@@ -1,4 +1,4 @@
-import { ReactElement, Suspense } from "react";
+import { type ReactElement, Suspense } from "react";
 import { Preload, useGLTF } from "@react-three/drei";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";

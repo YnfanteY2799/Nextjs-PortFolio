@@ -8,8 +8,17 @@ export { default as IconSetter } from "./ui/common/IconSetter";
 export { default as FloatingNavigation } from "./ui/common/aditions/Floating";
 export { default as Modal } from "./ui/common/Modal";
 export { default as SectionHeader } from "./ui/header/SectionHeader";
+export { default as SearchModal } from "./ui/modal/SearchModal";
 
 /* Common Components */
+
+/* Specific use Components */
+
+export { default as Navbar } from "./ui/navbar/Navbar";
+export { default as Footer } from "./ui/footer/Footer";
+export { default as ComboBox } from "./ui/inputs/Combobox";
+
+/* Specific use Components */
 
 /* Wrappers */
 

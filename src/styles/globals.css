@@ -10,20 +10,6 @@
   scroll-behavior: smooth;
 }
 
-.hash-span {
-  margin-top: -100px;
-  padding-bottom: 100px;
-  display: block;
-}
-
-.re_write_span {
-  display: block;
-  white-space: nonwrap;
-  border-right: 4px solid;
-  width: 12ch;
-  animation: typing 2s steps(12) blink 0.5s infinite step-end alternate;
-  overflow: hidden;
-}
 
 .green-pink-gradient {
   background: "#00cea8";

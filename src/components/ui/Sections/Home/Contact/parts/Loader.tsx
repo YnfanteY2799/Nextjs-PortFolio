@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
 import { Html, useProgress } from "@react-three/drei";
+import type { ReactElement } from "react";
 
 export default function Loader(): ReactElement {
   // Hook Calls

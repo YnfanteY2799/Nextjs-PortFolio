@@ -6,7 +6,7 @@ import { fadeIn } from "@/utils";
 import "react-vertical-timeline-component/style.min.css";
 
 import type { ReactElement } from "react";
-import type { ExperienceSectionProps, TTheme } from "@/types";
+import type { ExperienceSectionProps, T_Theme } from "@/types";
 
 export default function TimeLine({ experience = [], theme }: ExperienceSectionProps): ReactElement {
   return (
@@ -15,7 +15,7 @@ export default function TimeLine({ experience = [], theme }: ExperienceSectionPr
       <motion.div variants={fadeIn("", "", 0.1, 1)} className="flex flex-col mt-20">
         <VerticalTimeline animate={true}>
           {experience.map((xp, i) => (
-            <ExperienceCard key={i} {...xp} theme={theme as TTheme} />
+            <ExperienceCard key={i} {...xp} theme={theme as T_Theme} />
           ))}
         </VerticalTimeline>
       </motion.div>

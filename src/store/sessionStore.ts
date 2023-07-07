@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import type { ISessionStore, TTheme } from "@/types";
+import type { ISessionStore, T_Theme } from "@/types";
 
 const privateSessionStore = create(
   persist<ISessionStore>(
     (set) => ({
       theme: "",
-      setTheme: (s: TTheme) => set((x) => ({ ...x, theme: s })),
+      setTheme: (s: T_Theme) => set((x) => ({ ...x, theme: s })),
     }),
     { name: "sessionStore" }
   )
