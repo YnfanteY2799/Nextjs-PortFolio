@@ -1,4 +1,4 @@
-import { TTheme, T_NavItem } from "@/types";
+import type { T_Theme, T_NavItem } from "@/types";
 
 export const staggerContainer = (staggerChildren?: any, delayChildren?: any) => {
   return {
@@ -52,7 +52,7 @@ export const slideIn = (direction: string, type: string, delay: number, duration
   };
 };
 
-export function handleChangeTheme(Theme: TTheme, ChangeTheme: Function) {
+export function handleChangeTheme(Theme: T_Theme, ChangeTheme: Function) {
   Theme === "night" ? ChangeTheme("cupcake") : ChangeTheme("night");
 }
 

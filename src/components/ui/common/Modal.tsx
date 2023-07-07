@@ -5,12 +5,11 @@ import { ReactPortalWrapper } from "@/components";
 
 import type { ModalProps } from "@/types";
 
-export default function Modal({
-  isOpen,
-  handleClose,
-  children,
-  tittle = "Modal",
-}: ModalProps): ReactElement | null {
+export default function Modal(props: ModalProps): ReactElement | null {
+  
+  // Props
+  const { isOpen, handleClose, children, tittle = "Modal" } = props;
+
   const close = handleClose as MouseEventHandler;
 
   // Close on Esc key down
@@ -18,7 +17,7 @@ export default function Modal({
     function closeOnESC({ key }: KeyboardEvent) {
       key === "Escape" ? handleClose() : null;
     }
-    document.body.addEventListener("keydown", closeOnESC, {passive:true});
+    document.body.addEventListener("keydown", closeOnESC, { passive: true });
     return (): void => {
       document.body.removeEventListener("keydown", closeOnESC);
     };

@@ -15,15 +15,10 @@ import type { ReactElement } from "react";
 import type { IHomeProps } from "@/types";
 import type { GetStaticProps } from "next";
 
-export default function Home({
-  initialSocials,
-  aboutCards,
-  aboutText,
-  experiences,
-  techs,
-  cv,
-  projects,
-}: IHomeProps): ReactElement {
+export default function Home(props: IHomeProps): ReactElement {
+  // Props
+  const { initialSocials, aboutCards, aboutText, experiences, techs, cv, projects } = props;
+
   // Hooks
   const { theme, setTheme } = useSessionStore();
 

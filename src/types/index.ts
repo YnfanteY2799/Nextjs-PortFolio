@@ -1,10 +1,10 @@
 export * from "./ComponentProps";
 
-export type TTheme = "night" | "cupcake" | "";
+export type T_Theme = "night" | "cupcake" | "";
 
 export interface ISessionStore {
-  theme: TTheme;
-  setTheme: (s: TTheme) => void;
+  theme: T_Theme;
+  setTheme: (s: T_Theme) => void;
 }
 
 export type TSocialsType = { link: string; icon: string };

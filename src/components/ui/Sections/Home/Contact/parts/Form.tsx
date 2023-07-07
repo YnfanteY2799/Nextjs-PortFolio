@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, ReactElement, useState } from "react";
+import { type ChangeEvent, type FormEvent, type ReactElement, useState } from "react";
 import ContactModal from "./ContactModal";
 
 import type { TContactForm } from "@/types";
