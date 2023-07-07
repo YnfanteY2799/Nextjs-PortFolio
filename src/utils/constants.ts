@@ -33,7 +33,7 @@ export const navbarOptions: Array<T_NavItem> = [
 ];
 
 export const HomeSectionNavigation: Array<SectionType> = [
-  { id: "Hero", img: "Home", name: "Home" },
+  { id: "", img: "Home", name: "Home" },
   { id: "About", img: "Info", name: "About Me" },
   { id: "Tech", img: "Tech", name: "Tech" },
   { id: "Projects", img: "Projects", name: "Projects" },

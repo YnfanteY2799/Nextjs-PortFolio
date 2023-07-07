@@ -13,7 +13,6 @@ export default function PageWrapper({
   animated = false,
   external = false,
 }: IPageWrapperProps): ReactElement {
-
   // State
   const [navbarOTPS, setNavbarOPTS] = useState(navbarOptions as Array<T_NavItem>);
 
