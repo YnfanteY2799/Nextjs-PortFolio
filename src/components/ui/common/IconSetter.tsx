@@ -65,7 +65,7 @@ import {
 import type { ReactElement } from "react";
 import type { ISetIconProps } from "@/types";
 
-export default function SetIcon({ icon, size, className }: ISetIconProps): ReactElement {
+export default function SetIcon({ icon, size, className }: ISetIconProps): ReactElement | null {
   switch (icon) {
     case "Github":
       return <Github size={size} className={className} />;
@@ -193,6 +193,6 @@ export default function SetIcon({ icon, size, className }: ISetIconProps): React
     case "Dart":
       return <DartIcon size={size} className={className} />;
     default:
-      return <></>;
+      return null;
   }
 }

@@ -1,8 +1,8 @@
-import { type ReactElement } from "react";
 import { BlogsCard } from "@/components";
 
-export default function BlogSection(): ReactElement {
+import type { ReactElement } from "react";
 
+export default function BlogSection(): ReactElement {
   return (
     <section>
       <div className="container px-5 py-24 mx-auto">

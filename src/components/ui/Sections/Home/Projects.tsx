@@ -1,4 +1,4 @@
-import { useEffect, type ReactElement } from "react";
+import { type ReactElement, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader, SectionWrapper } from "@/components";
 import { ProjectsDefaults as Def, fadeIn } from "@/utils";
@@ -7,6 +7,8 @@ import { ProjectsCard } from "@/components";
 import type { IProjectsSectionProps } from "@/types";
 
 export default function ProjectsSection({ projects = Def }: IProjectsSectionProps): ReactElement {
+  const showVariant = fadeIn("", "", 0.1, 1);
+
   useEffect(() => {
     const interval = setInterval(() => {
       const containerScroll = document.getElementById("scrollable");
@@ -21,12 +23,9 @@ export default function ProjectsSection({ projects = Def }: IProjectsSectionProp
   return (
     <SectionWrapper id="Projects">
       <SectionHeader Head="Projects" SubHead="I've been building" />
-      <motion.div variants={fadeIn("", "", 0.1, 1)} className="flex flex-col mt-5">
+      <motion.div variants={showVariant} className="flex flex-col mt-5">
         <div className="w-full w-flex">
-          <motion.p
-            variants={fadeIn("", "", 0.1, 1)}
-            className="text-[17px] max-w-3xl leading-[30px]"
-          >
+          <motion.p variants={showVariant} className="text-[17px] max-w-3xl leading-[30px]">
             Here is a brief showcase of my expertise as a JavaScript Full-stack Developer. Explore
             diverse web development projects reflecting proficiency in frontend, backend
             integration, database management, and problem-solving. Witness the fusion of creativity,

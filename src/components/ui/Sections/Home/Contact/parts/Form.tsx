@@ -3,6 +3,8 @@ import ContactModal from "./ContactModal";
 
 import type { TContactForm } from "@/types";
 
+type SomeInputAlike = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
 const defaultCf: TContactForm = {
   name: "",
   email: "",
@@ -15,10 +17,7 @@ export default function Form(): ReactElement {
   const [loading, setLoading] = useState(false as boolean);
   const [contactForm, setContactForm] = useState(defaultCf as TContactForm);
 
-  function handleChange({
-    target,
-  }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-    const { value, name } = target;
+  function handleChange({ target: { name, value } }: ChangeEvent<SomeInputAlike>) {
     setContactForm((old) => ({ ...old, [name]: value }));
   }
 

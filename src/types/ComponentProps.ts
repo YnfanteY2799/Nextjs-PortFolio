@@ -8,6 +8,7 @@ import type {
   T_Tag,
   T_Techs,
   GenericNameValue,
+  T_CarrouselDir,
 } from "./index";
 
 export interface IPageWrapperProps {
@@ -88,7 +89,7 @@ export interface ITechPieceProps {
   titles?: Array<string>;
   techs?: Array<T_Techs>;
   index?: number;
-  dir?: "R" | "L";
+  dir?: T_CarrouselDir;
 }
 
 export interface ITechSectionProps {

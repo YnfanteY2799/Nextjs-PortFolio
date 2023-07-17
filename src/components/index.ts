@@ -24,7 +24,7 @@ export { default as ComboBox } from "./ui/inputs/Combobox";
 
 export { default as PageWrapper } from "./ui/wrappers/PageWrapper";
 export { default as SectionWrapper } from "./ui/wrappers/SectionWrapper";
-export { default as ReactPortalWrapper } from "./ui/wrappers/portal/ReactPortal";
+export { default as ReactPortalWrapper } from "./ui/wrappers/ReactPortal";
 
 /* Wrappers */
 

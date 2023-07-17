@@ -1,15 +1,16 @@
 import { type ReactElement, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, PauseCircle, PlayCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionHeader, SectionWrapper } from "@/components";
 import { expDefaults, fadeIn } from "@/utils";
 import TechPiece from "./parts/Pieces";
 
-import type { ITechSectionProps } from "@/types";
+import type { ITechSectionProps, T_CarrouselDir } from "@/types";
+import PlayIcon from "./parts/PlayIcon";
 
 export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactElement {
   const [index, setIndex] = useState(0 as number);
-  const [direction, setDirection] = useState("R" as "R" | "L");
+  const [direction, setDirection] = useState<T_CarrouselDir>("R");
   const [play, setPlay] = useState(true as boolean);
   const [intervalId, setIntervalId] = useState<NodeJS.Timer>();
 
@@ -55,11 +56,7 @@ export default function Tech({ techs = expDefaults }: ITechSectionProps): ReactE
         <div className="flex lg:justify-end md:justify-end">
           <div className="flex w-auto h-auto border rounded-3xl ">
             <ChevronLeft size={30} onClick={prevSlide} className="hover:cursor-pointer" />
-            {play ? (
-              <PlayCircle size={30} onClick={playSliding} className="hover:cursor-pointer" />
-            ) : (
-              <PauseCircle size={30} onClick={playSliding} className="hover:cursor-pointer" />
-            )}
+            <PlayIcon size={30} onClick={playSliding} className="hover:cursor-pointer" ok={play} />
             <ChevronRight size={30} onClick={nextSlide} className="hover:cursor-pointer" />
           </div>
         </div>

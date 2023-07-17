@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactElement } from "react";
+import { type ReactElement, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cleanAndFilter, handleChangeTheme, navbarOptions, springIn } from "@/utils";
 import { SearchModal, Navbar, Footer } from "@/components";
@@ -23,7 +23,7 @@ export default function PageWrapper(props: IPageWrapperProps): ReactElement {
     setSearchModal(!searchModal);
   }
 
-  // Short Cut  
+  // Short Cut
   useShortCut({ keys: ["q"], callback: keyPressing, shft: true });
 
   useEffect(() => {

@@ -48,3 +48,5 @@ export type DispatchHookParams = {
 };
 
 export type GenericNameValue = { id: number; name: string };
+
+export type T_CarrouselDir = "R" | "L";

@@ -1,4 +1,4 @@
-import { Fragment, ReactElement, useEffect, useRef, useState } from "react";
+import { type ReactElement, Fragment, useEffect, useRef, useState } from "react";
 import { selectedFloatingSection, nonSelectedFloatingSection } from "@/utils";
 import { IconSetter } from "@/components";
 
@@ -6,37 +6,33 @@ import type { IFloatingMenuProps } from "@/types";
 
 export default function Floating({ sections = [] }: IFloatingMenuProps): ReactElement {
   // State
-  const [lastClicked, setLastClicked] = useState(null as number | null);
-  const [isOpen, setIsOpen] = useState(false as boolean);
+  const [lastClicked, setLastClicked] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const floatingRef = useRef<HTMLElement>(null);
 
-  function handleShowFloat(): void {
+  function handleShow(): void {
     setIsOpen(!isOpen);
   }
 
   function handleSelectionClick(id: number) {
     setLastClicked(id);
-    handleShowFloat();
+    handleShow();
+  }
+
+  function checkIfClickedOutside({ target }: MouseEvent) {
+    if (isOpen && floatingRef.current && !floatingRef.current.contains(target as Node))
+      handleShow();
   }
 
   useEffect(() => {
-    const checkIfClickedOutside = ({ target }: MouseEvent) => {
-      if (isOpen && floatingRef.current && !floatingRef.current.contains(target as Node)) {
-        handleShowFloat();
-      }
-    };
-
     document.addEventListener("mousedown", checkIfClickedOutside, { passive: true });
-
-    return () => {
-      document.removeEventListener("mousedown", checkIfClickedOutside);
-    };
+    return () => document.removeEventListener("mousedown", checkIfClickedOutside);
   }, [isOpen]);
 
   return (
     <nav
-      className="hidden z-20 lg:flex shrink-0 grow-0 justify-around gap-4 border-t bg-transparent p-2.5 shadow-lg backdrop-blur-lg fixed top-2/4 -translate-y-2/4 left-4 min-h-[auto] min-w-[64px] flex-col rounded-lg border border-orange-600"
       ref={floatingRef}
+      className="hidden z-20 lg:flex shrink-0 grow-0 justify-around gap-4 border-t bg-transparent p-2.5 shadow-lg backdrop-blur-lg fixed top-2/4 -translate-y-2/4 left-4 min-h-[auto] min-w-[64px] flex-col rounded-lg border border-orange-600"
     >
       {isOpen ? (
         sections.map(({ id, name, img }, ind) => (
@@ -54,7 +50,7 @@ export default function Floating({ sections = [] }: IFloatingMenuProps): ReactEl
         ))
       ) : (
         <button
-          onClick={handleShowFloat}
+          onClick={handleShow}
           className="flex flex-col items-center justify-center text-orange-600"
         >
           <IconSetter icon="Menu" size={30} />

@@ -1,4 +1,4 @@
-import { type ReactElement, useEffect, MouseEventHandler } from "react";
+import { type ReactElement, type MouseEventHandler, useEffect } from "react";
 import { motion } from "framer-motion";
 import { X, Info } from "lucide-react";
 import { ReactPortalWrapper } from "@/components";
@@ -6,10 +6,10 @@ import { ReactPortalWrapper } from "@/components";
 import type { ModalProps } from "@/types";
 
 export default function Modal(props: ModalProps): ReactElement | null {
-  
   // Props
   const { isOpen, handleClose, children, tittle = "Modal" } = props;
 
+  // Syntax Sugary!
   const close = handleClose as MouseEventHandler;
 
   // Close on Esc key down
