@@ -9,14 +9,10 @@ import { fadeIn } from "@/utils";
 import type { ReactElement } from "react";
 import type { IProjectsCardProps } from "@/types";
 
-export default function Projects({
-  name,
-  description,
-  tags,
-  image,
-  source_code_link,
-  index,
-}: IProjectsCardProps): ReactElement {
+export default function Projects(props: IProjectsCardProps): ReactElement {
+  // Properties
+  const { name, description, tags, image, source_code_link, index } = props;
+
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt className="bg-base-200 p-5 rounded-2xl sm:w-[320px] ">

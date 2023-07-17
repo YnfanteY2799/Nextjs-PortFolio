@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+
 import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
 
@@ -13,6 +16,31 @@ const currentFont = localFont({
 });
 
 export default function App({ Component, pageProps, router }: AppProps) {
+  // Hook
+  const { events } = useRouter();
+
+  // State
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // Fn's
+  function onRouteChange(_uri: string): void {
+    setLoading((_) => true);
+  }
+
+  function onRouteChangeComplete(): void {
+    setLoading((_) => false);
+  }
+
+  useEffect(() => {
+    events.on("routeChangeStart", onRouteChange);
+    events.on("routeChangeComplete", onRouteChangeComplete);
+
+    return (): void => {
+      events.off("routeChangeStart", onRouteChange);
+      events.off("routeChangeComplete", onRouteChangeComplete);
+    };
+  }, [events]);
+
   return (
     <>
       <Head>

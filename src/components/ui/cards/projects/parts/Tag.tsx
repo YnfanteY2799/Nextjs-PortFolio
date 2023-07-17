@@ -4,6 +4,9 @@ import type { ReactElement } from "react";
 import type { ITagProp, T_Color } from "@/types";
 
 export default function Tag({ children, icon, color, cn }: ITagProp): ReactElement {
+  // Constant Syntax Sugary < ----- Dont mind ----- >
+  const css = "gap-2 badge hover:underline hover:cursor-pointer ";
+
   function getColor(color: T_Color) {
     switch (color) {
       case "BLUE":
@@ -24,11 +27,7 @@ export default function Tag({ children, icon, color, cn }: ITagProp): ReactEleme
   }
 
   return (
-    <div
-      className={
-        "gap-2 badge hover:underline hover:cursor-pointer " + getColor(color as T_Color) + cn
-      }
-    >
+    <div className={css + getColor(color as T_Color) + cn}>
       <IconSetter icon={icon} size={16} />
       {children}
     </div>
