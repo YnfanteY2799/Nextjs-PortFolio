@@ -4,7 +4,7 @@ import type { HookKeyPress } from "@/types";
 
 export default function useKeyPress(props: HookKeyPress): void {
   // Props
-  const { keys, callback, node = undefined, ctr, shft, ctrsht } = props;
+  const { keys, callback, node = undefined, ctr } = props;
 
   // Constants
   const callbackRef = useRef(callback);

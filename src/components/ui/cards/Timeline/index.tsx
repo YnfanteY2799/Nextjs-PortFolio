@@ -6,11 +6,11 @@ import type { ExperienceCardProps } from "@/types";
 
 export default function ExperienceCard(props: ExperienceCardProps): ReactElement {
   // Props
-  const { title, company_name, icon, iconBg, date, points, theme } = props;
+  const { title, company_name = "", icon, iconBg, date, points, theme } = props;
 
   return (
     <VerticalTimelineElement
-      contentStyle={{ background: theme === "night" ? "#05080F" : "#EFEAE6"}}
+      contentStyle={{ background: theme === "night" ? "#05080F" : "#EFEAE6" }}
       contentArrowStyle={{ borderRight: "7px solid blue" }}
       date={date}
       iconStyle={{ background: iconBg }}
@@ -18,7 +18,7 @@ export default function ExperienceCard(props: ExperienceCardProps): ReactElement
         <div className="flex items-center justify-center w-full h-full">
           <Image
             src={`/company/${icon}.svg`}
-            alt={company_name || ""}
+            alt={company_name}
             className="w-[60%] h-[60%] object-contain"
             width={5}
             height={5}
