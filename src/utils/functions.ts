@@ -59,3 +59,7 @@ export function handleChangeTheme(Theme: T_Theme, ChangeTheme: Function) {
 export function cleanAndFilter(x: Array<T_NavItem>): Array<T_NavItem> {
   return x.map((xs) => ({ ...xs, section: false }));
 }
+
+export function validateEmailRX(str: string): boolean {
+  return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(str);
+}

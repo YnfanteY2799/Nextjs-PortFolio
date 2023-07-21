@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { rendered } from "@/utils";
+import { rendered, validateEmailRX } from "@/utils";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { EmailPayload } from "@/types";
@@ -35,20 +35,24 @@ async function SendEmail({ to, html, subject }: EmailPayload) {
   }
 }
 
-export default function handler({ method, body }: NextApiRequest, res: NextApiResponse<ResData>) {
-  if (method === "POST") {
-    console.log(body);
+export default async function handler(req: NextApiRequest, res: NextApiResponse<ResData>) {
+  // Deestructuration
+  const { method, body } = req;
 
+  if (method === "POST") {
     try {
       const { email, contactType, message, name } = JSON.parse(body);
 
-      SendEmail({
-        to: email,
-        html: rendered(message, name),
-        subject: contactType,
-      });
-
-      res.status(200).json({ status: "200" });
+      if (validateEmailRX(email)) {
+        const mailSendResult = await SendEmail({
+          to: email,
+          html: rendered(message, name),
+          subject: contactType,
+        });
+        res.status(200).json({ status: mailSendResult.response });
+      } else {
+        throw new Error("Inserted mail is not valid, please try again!");
+      }
     } catch (e) {
       if (e instanceof Error) {
         res.status(400).json({ status: e.message });

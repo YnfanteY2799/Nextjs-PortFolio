@@ -35,7 +35,6 @@ const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "
 function VercelInviteUserEmail({
   username = "zenorocha",
   userImage = `${baseUrl}/static/vercel-user.png`,
-  invitedByUsername = "bukinoshita",
   invitedByEmail = "bukinoshita@example.com",
   teamName = "My Project",
   teamImage = `${baseUrl}/static/vercel-team.png`,
@@ -44,7 +43,7 @@ function VercelInviteUserEmail({
   inviteFromLocation = "São Paulo, Brazil",
   message = "KLK",
 }: VercelInviteUserEmailProps) {
-  const previewText = `Join ${invitedByUsername} on Vercel`;
+  const previewText = `Confirmation Mail on comunication aptemp with ${"YJ_Coder"}`;
 
   return (
     <Html>
@@ -55,7 +54,7 @@ function VercelInviteUserEmail({
           <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]">
             <Section className="mt-[32px]">
               <Img
-                src={`${baseUrl}/static/vercel-logo.png`}
+                src={`${baseUrl}/public/vercel.svg`}
                 width="40"
                 height="37"
                 alt="Vercel"
@@ -117,12 +116,13 @@ function VercelInviteUserEmail({
             </Text>
           </Container>
           {message}
-          {baseUrl}
+          {`The base url is : ${baseUrl}`}
         </Body>
       </Tailwind>
     </Html>
   );
 }
 
-export const rendered = (message: string, name: string) =>
-  render(<VercelInviteUserEmail message={message} teamName={name} />, { pretty: true });
+export function rendered(message: string, name: string): string {
+  return render(<VercelInviteUserEmail message={message} teamName={name} />, { pretty: true });
+}

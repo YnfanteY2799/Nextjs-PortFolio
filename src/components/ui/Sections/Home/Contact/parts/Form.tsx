@@ -21,12 +21,19 @@ export default function Form(): ReactElement {
     setContactForm((old) => ({ ...old, [name]: value }));
   }
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    fetch("/api/sendmail", { method: "POST", body: JSON.stringify(contactForm) });
-
+  async function handleSubmit(e?: FormEvent<HTMLFormElement>) {
+    e?.preventDefault();
     setLoading(true);
+
+    const { status } = await (
+      await fetch("/api/sendmail", { method: "POST", body: JSON.stringify(contactForm) })
+    ).json();
+
+    if (status.includes("OK  ")) {
+      fetch("/api/sendConfirmation", { method: "POST", body: JSON.stringify(contactForm) });
+    } else {
+      alert("The mail you entered doesnt exist's, or it could'nt be found, please try again");
+    }
   }
 
   return (
@@ -78,6 +85,7 @@ export default function Form(): ReactElement {
           name="message"
           value={contactForm.message}
           onChange={handleChange}
+          onKeyDown={({ ctrlKey, key }) => ctrlKey && key === "Enter" && handleSubmit()}
           required={true}
           placeholder="Your Message goes Here!"
           className="px-6 py-4 font-medium border-none rounded-lg outline-none "
