@@ -50,3 +50,11 @@ export type DispatchHookParams = {
 export type GenericNameValue = { id: number; name: string };
 
 export type T_CarrouselDir = "R" | "L";
+
+/* Email Types */
+
+export type EmailPayload = {
+  to: string;
+  subject: string;
+  html: string;
+};

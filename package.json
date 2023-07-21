@@ -10,13 +10,16 @@
     "light": "pnpm build && pnpm start && lighthouse http://localhost:3000/"
   },
   "dependencies": {
-    "@react-three/drei": "^9.79.0",
+    "@react-email/components": "^0.0.7",
+    "@react-email/render": "0.0.7",
+    "@react-three/drei": "^9.79.3",
     "@react-three/fiber": "^8.13.5",
     "@types/three": "^0.154.0",
-    "daisyui": "^3.2.1",
-    "framer-motion": "^10.12.22",
-    "lucide-react": "^0.261.0",
+    "daisyui": "^3.3.1",
+    "framer-motion": "^10.13.0",
+    "lucide-react": "^0.262.0",
     "next": "13.4.10",
+    "nodemailer": "^6.9.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-parallax-tilt": "^1.7.154",
@@ -26,6 +29,7 @@
   },
   "devDependencies": {
     "@types/node": "20.4.2",
+    "@types/nodemailer": "^6.4.8",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@types/react-vertical-timeline-component": "^3.3.3",

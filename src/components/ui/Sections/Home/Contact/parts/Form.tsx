@@ -23,6 +23,9 @@ export default function Form(): ReactElement {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    fetch("/api/sendmail", { method: "POST", body: JSON.stringify(contactForm) });
+
     setLoading(true);
   }
 

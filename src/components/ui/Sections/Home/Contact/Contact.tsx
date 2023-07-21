@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 
 import type { ReactElement } from "react";
 
+// Import No SSR
 const RotationCanvas = dynamic(() => import("./parts/RotatoryCanvas").then((x) => x.default), {
   ssr: false,
 });
