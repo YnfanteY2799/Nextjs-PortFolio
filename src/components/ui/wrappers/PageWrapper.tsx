@@ -23,7 +23,7 @@ export default function PageWrapper(props: IPageWrapperProps): ReactElement {
     setSearchModal(!searchModal);
   }
 
-  // Short Cut  
+  // Short Cut
   useShortCut({ keys: ["q"], callback: keyPressing, shft: true });
 
   useEffect(() => {
