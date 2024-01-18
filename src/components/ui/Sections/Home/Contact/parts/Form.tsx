@@ -15,9 +15,7 @@ export default function Form(): ReactElement {
   const [loading, setLoading] = useState(false as boolean);
   const [contactForm, setContactForm] = useState(defaultCf as TContactForm);
 
-  function handleChange({
-    target,
-  }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function handleChange({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { value, name } = target;
     setContactForm((old) => ({ ...old, [name]: value }));
   }
@@ -85,11 +83,7 @@ export default function Form(): ReactElement {
         {loading ? "Sending" : "Send"}
         {loading && <span className="loading loading-dots" />}
       </button>
-      <ContactModal
-        isOpen={loading}
-        handleClose={() => setLoading(!loading)}
-        email={contactForm.email}
-      />
+      <ContactModal isOpen={loading} handleClose={() => setLoading(!loading)} email={contactForm.email} />
     </form>
   );
 }
