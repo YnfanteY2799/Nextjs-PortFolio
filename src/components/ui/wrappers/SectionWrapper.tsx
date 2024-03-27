@@ -8,9 +8,9 @@ export default function SectionWrapper(props: ISectionWrapperProps): ReactElemen
   return (
     <motion.section
       {...props}
-      variants={staggerContainer()}
       initial="hidden"
       whileInView="show"
+      variants={staggerContainer()}
       viewport={{ once: true, amount: 0.25 }}
       className="relative px-6 py-10 mx-auto max-w-7xl sm:px-16 sm:py-16"
     />
