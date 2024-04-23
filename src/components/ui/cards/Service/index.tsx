@@ -21,13 +21,7 @@ export default function ServiceCard({ title, icon, i, click }: IServiceCardProps
           }}
           className="bg-base-200 rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
         >
-          <Image
-            src={`/doodle/${icon}.svg`}
-            alt={title}
-            className="object-contain w-auto h-auto"
-            width={120}
-            height={120}
-          />
+          <Image src={`/doodle/${icon}.svg`} alt={title} className="object-contain w-auto h-auto" width={120} height={120} />
           <h3
             className="text-[20px] font-bold text-center hover:cursor-pointer hover:underline"
             onClick={() => click(title)}
